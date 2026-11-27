@@ -128,3 +128,32 @@ def test_streamlit_app_renders_cleanly():
     assert len(at.tabs) == 7
     assert len(at.metric) >= 4
 
+
+def test_portable_runtime_paths_and_model_resolution(tmp_path: Path, monkeypatch):
+    from forgeai.intake.llm_client import resolve_effective_model
+    from forgeai.runtime import AgentRuntime
+
+    # 1. Portable resolution when agent.json has a non-existent Windows path
+    demo_out = Path("demos/demo_a_hr_assistant/output")
+    if demo_out.is_dir():
+        from forgeai.ui import load_workspace_artifacts
+
+        loaded = load_workspace_artifacts(demo_out)
+        broken_agent = loaded["agent"].model_copy(
+            update={
+                "retrieval_config": loaded["agent"].retrieval_config.model_copy(
+                    update={"knowledge_manifest_path": "C:\\stale\\path\\kb\\knowledge_manifest.json"}
+                )
+            }
+        )
+        rt = AgentRuntime(broken_agent, workspace_dir=demo_out)
+        assert rt.retriever is not None
+        reply = rt.chat("How many days of annual leave do employees get?", use_llm=False)
+        assert reply.retrieved_chunk_ids
+
+    # 2. Provider model fallback when only GEMINI_API_KEY is configured
+    for k in ("OPENAI_API_KEY", "GEMINI_API_KEY", "GOOGLE_API_KEY", "GROQ_API_KEY", "ANTHROPIC_API_KEY"):
+        monkeypatch.delenv(k, raising=False)
+    monkeypatch.setenv("GEMINI_API_KEY", "test-gemini-key")
+    assert resolve_effective_model("gpt-4o-mini") == "gemini/gemini-2.0-flash"
+

@@ -31,6 +31,40 @@ def has_configured_llm_credentials(model: str | None = None) -> bool:
     return any(bool(os.getenv(key)) for key in _KNOWN_PROVIDER_ENV_KEYS)
 
 
+def resolve_effective_model(preferred_model: str = "gpt-4o-mini") -> str:
+    """Return preferred_model if its provider key is set, else match the first configured provider key."""
+    if preferred_model.startswith(("ollama/", "ollama_chat/")):
+        return preferred_model
+
+    lower = preferred_model.lower()
+    if lower.startswith(("gemini/", "vertex_ai/")) and (os.getenv("GEMINI_API_KEY") or os.getenv("GOOGLE_API_KEY")):
+        return preferred_model
+    if lower.startswith("anthropic/") and os.getenv("ANTHROPIC_API_KEY"):
+        return preferred_model
+    if lower.startswith("groq/") and os.getenv("GROQ_API_KEY"):
+        return preferred_model
+    if lower.startswith("openrouter/") and os.getenv("OPENROUTER_API_KEY"):
+        return preferred_model
+    if lower.startswith("mistral/") and os.getenv("MISTRAL_API_KEY"):
+        return preferred_model
+    if (lower.startswith(("openai/", "gpt-", "o1", "o3", "o4")) or "/" not in lower) and os.getenv("OPENAI_API_KEY"):
+        return preferred_model
+
+    fallback_map = (
+        ("OPENAI_API_KEY", preferred_model if "/" not in lower or lower.startswith("openai/") else "gpt-4o-mini"),
+        ("GEMINI_API_KEY", "gemini/gemini-2.0-flash"),
+        ("GOOGLE_API_KEY", "gemini/gemini-2.0-flash"),
+        ("GROQ_API_KEY", "groq/llama-3.3-70b-versatile"),
+        ("ANTHROPIC_API_KEY", "anthropic/claude-3-5-haiku-latest"),
+        ("OPENROUTER_API_KEY", "openrouter/openai/gpt-4o-mini"),
+        ("MISTRAL_API_KEY", "mistral/mistral-small-latest"),
+    )
+    for env_key, default_model in fallback_map:
+        if os.getenv(env_key):
+            return default_model
+    return preferred_model
+
+
 def _extract_json_object(raw_text: str) -> str:
     """Extract a JSON object from raw LLM text, stripping Markdown code fences if present."""
     stripped = raw_text.strip()

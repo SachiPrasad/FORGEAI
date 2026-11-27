@@ -10,7 +10,7 @@ from typing import Any, Callable
 from pydantic import BaseModel, Field
 
 from forgeai.generator.schemas import AgentDefinition
-from forgeai.intake.llm_client import has_configured_llm_credentials
+from forgeai.intake.llm_client import has_configured_llm_credentials, resolve_effective_model
 from forgeai.knowledge.retriever import KnowledgeRetriever
 from forgeai.knowledge.schemas import RetrievalResult
 from forgeai.runtime.memory import ConversationMemory
@@ -34,7 +34,13 @@ class AgentRuntime:
         agent_def: AgentDefinition | str | Path,
         memory: ConversationMemory | None = None,
         registry: ToolRegistry | None = None,
+        workspace_dir: str | Path | None = None,
     ) -> None:
+        self.workspace_dir: Path | None = (
+            Path(workspace_dir)
+            if workspace_dir is not None
+            else (Path(agent_def).resolve().parent if isinstance(agent_def, (str, Path)) else None)
+        )
         self.agent_def = self._load_agent(agent_def)
         self.memory = memory or ConversationMemory()
         self.registry = registry or build_default_registry()
@@ -46,8 +52,37 @@ class AgentRuntime:
     def from_file(cls, agent_json_path: str | Path) -> AgentRuntime:
         return cls(agent_def=agent_json_path)
 
+    def _resolve_portable_file(self, raw_path: str | None, fallbacks: list[Path]) -> str | None:
+        """Resolve a saved artifact/document path across Windows/Linux environments."""
+        if raw_path:
+            direct = Path(raw_path)
+            if direct.is_file():
+                return str(direct)
+            normalized = raw_path.replace("\\", "/")
+            if "demos/" in normalized:
+                rel_demo = normalized[normalized.index("demos/") :]
+                for base in (Path.cwd(), Path(__file__).resolve().parents[3]):
+                    candidate = base / rel_demo
+                    if candidate.is_file():
+                        return str(candidate)
+        for fb in fallbacks:
+            if fb.is_file():
+                return str(fb)
+        return raw_path
+
     def _init_components(self) -> None:
-        manifest_path = self.agent_def.retrieval_config.knowledge_manifest_path
+        manifest_fallbacks: list[Path] = []
+        if self.workspace_dir is not None:
+            manifest_fallbacks.extend(
+                [
+                    self.workspace_dir / "kb" / "knowledge_manifest.json",
+                    self.workspace_dir / "knowledge_manifest.json",
+                ]
+            )
+        manifest_path = self._resolve_portable_file(
+            self.agent_def.retrieval_config.knowledge_manifest_path,
+            manifest_fallbacks,
+        )
         if manifest_path and Path(manifest_path).is_file():
             self.retriever = KnowledgeRetriever.from_manifest(manifest_path)
 
@@ -56,10 +91,32 @@ class AgentRuntime:
                 continue
             try:
                 kwargs = dict(spec.parameters)
-                if spec.name == "document_retriever" and not kwargs.get("manifest_path"):
-                    kwargs["manifest_path"] = manifest_path
-                if spec.name == "document_retriever" and not kwargs.get("manifest_path"):
-                    continue
+                if spec.name == "document_retriever":
+                    resolved_mp = self._resolve_portable_file(
+                        kwargs.get("manifest_path") or manifest_path,
+                        manifest_fallbacks,
+                    )
+                    if not resolved_mp or not Path(resolved_mp).is_file():
+                        continue
+                    kwargs["manifest_path"] = resolved_mp
+                elif spec.name == "csv_lookup" and isinstance(kwargs.get("csv_paths"), list):
+                    resolved_csvs: list[str] = []
+                    for raw_csv in kwargs["csv_paths"]:
+                        fname = re.split(r"[\\/]", str(raw_csv))[-1]
+                        csv_fallbacks: list[Path] = []
+                        if self.workspace_dir is not None and fname:
+                            csv_fallbacks.extend(
+                                [
+                                    self.workspace_dir.parent / "docs" / fname,
+                                    self.workspace_dir / "docs" / fname,
+                                    self.workspace_dir / fname,
+                                ]
+                            )
+                        resolved_csv = self._resolve_portable_file(str(raw_csv), csv_fallbacks)
+                        if resolved_csv and Path(resolved_csv).is_file():
+                            resolved_csvs.append(resolved_csv)
+                    if resolved_csvs:
+                        kwargs["csv_paths"] = resolved_csvs
                 self.bound_tools[spec.name] = self.registry.build_callable(spec.name, **kwargs)
             except Exception:
                 # Keep runtime resilient if an optional tool cannot bind
@@ -284,9 +341,11 @@ class AgentRuntime:
             }
         )
 
+        effective_model = resolve_effective_model(self.agent_def.model)
+
         try:
             resp = completion(
-                model=self.agent_def.model,
+                model=effective_model,
                 messages=messages,
                 temperature=self.agent_def.model_config_details.temperature,
                 max_tokens=self.agent_def.model_config_details.max_tokens,
@@ -294,7 +353,7 @@ class AgentRuntime:
             )
         except Exception:
             resp = completion(
-                model=self.agent_def.model,
+                model=effective_model,
                 messages=messages,
                 temperature=self.agent_def.model_config_details.temperature,
                 max_tokens=self.agent_def.model_config_details.max_tokens,

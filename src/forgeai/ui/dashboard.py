@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import os
 import tempfile
 from pathlib import Path
 from typing import Any
@@ -10,7 +11,11 @@ from typing import Any
 from forgeai.eval.schemas import EvalDataset, EvaluationReport
 from forgeai.generator.schemas import AgentDefinition
 from forgeai.groundability.schemas import GroundabilityReport
-from forgeai.intake.llm_client import has_configured_llm_credentials
+from forgeai.intake.llm_client import (
+    _KNOWN_PROVIDER_ENV_KEYS,
+    has_configured_llm_credentials,
+    resolve_effective_model,
+)
 from forgeai.intake.schemas import AgentRequirements
 from forgeai.knowledge.retriever import KnowledgeRetriever
 from forgeai.knowledge.schemas import KnowledgeManifest
@@ -85,10 +90,24 @@ def load_workspace_artifacts(output_dir: str | Path) -> dict[str, Any]:
     }
 
 
+def _sync_streamlit_secrets_to_env(st_module: Any) -> None:
+    """Copy top-level string secrets from Streamlit Cloud st.secrets into os.environ."""
+    try:
+        secrets = st_module.secrets
+        for key in _KNOWN_PROVIDER_ENV_KEYS:
+            val = secrets.get(key) if hasattr(secrets, "get") else None
+            if isinstance(val, str) and val.strip() and not os.getenv(key):
+                os.environ[key] = val.strip()
+    except Exception:
+        # Local runs without secrets.toml raise StreamlitSecretNotFoundError
+        pass
+
+
 def render_dashboard() -> None:
     """Render the full 7-tab ForgeAI Autonomous Agent Factory UI in Streamlit."""
     import streamlit as st
 
+    _sync_streamlit_secrets_to_env(st)
     st.set_page_config(page_title="ForgeAI — Autonomous Agent Factory", layout="wide")
     st.title("ForgeAI — Autonomous Agent Factory")
     st.caption("Brief + Documents -> Intake -> RAG -> Groundability -> Generator -> 20+ Evals -> Critic/Optimizer -> Live Agent")
@@ -112,6 +131,34 @@ def render_dashboard() -> None:
             st.session_state.pop("chat_messages", None)
 
         st.divider()
+        with st.expander("LLM API Key & Model (Live Mode)", expanded=False):
+            provider_options = {
+                "OpenAI (OPENAI_API_KEY)": ("OPENAI_API_KEY", "gpt-4o-mini"),
+                "Google Gemini (GEMINI_API_KEY)": ("GEMINI_API_KEY", "gemini/gemini-2.0-flash"),
+                "Groq (GROQ_API_KEY)": ("GROQ_API_KEY", "groq/llama-3.3-70b-versatile"),
+                "Anthropic (ANTHROPIC_API_KEY)": ("ANTHROPIC_API_KEY", "anthropic/claude-3-5-haiku-latest"),
+                "OpenRouter (OPENROUTER_API_KEY)": ("OPENROUTER_API_KEY", "openrouter/openai/gpt-4o-mini"),
+            }
+            provider_label = st.selectbox("LLM Provider", list(provider_options.keys()))
+            env_var_name, suggested_model = provider_options[provider_label]
+            session_key = st.text_input(
+                f"Paste `{env_var_name}` (session only)",
+                type="password",
+                value=st.session_state.get("ui_session_api_key", ""),
+                help="Stored only in your current browser session environment; never written to disk.",
+            )
+            if session_key.strip():
+                st.session_state["ui_session_api_key"] = session_key.strip()
+                os.environ[env_var_name] = session_key.strip()
+            model_override = st.text_input(
+                "Model Override (optional)",
+                value=st.session_state.get("ui_model_override", ""),
+                placeholder=suggested_model,
+            ).strip()
+            st.session_state["ui_model_override"] = model_override
+            st.caption("On Streamlit Cloud, you can also configure persistent keys in App settings -> Secrets.")
+
+        st.divider()
         st.header("Run New Agent Factory")
         new_brief = st.text_area(
             "Business Brief",
@@ -124,7 +171,10 @@ def render_dashboard() -> None:
             accept_multiple_files=True,
         )
         extra_topics_raw = st.text_input("Extra Topics to Check (comma-separated)", value="")
-        use_llm_flag = st.checkbox("Use Configured LLM (requires API key in .env)", value=False)
+        use_llm_flag = st.checkbox(
+            "Use Live LLM (Streamlit Secrets, .env, or sidebar key)",
+            value=False,
+        )
 
         if st.button("Generate & Optimize Agent", type="primary", use_container_width=True):
             if not new_brief.strip() or not uploaded_files:
@@ -355,18 +405,28 @@ def render_dashboard() -> None:
     with tabs[6]:
         st.subheader("07 · Test Your Agent")
         if agent:
-            if "runtime" not in st.session_state:
-                st.session_state["runtime"] = AgentRuntime(agent)
-                st.session_state["chat_messages"] = []
+            model_override_val = st.session_state.get("ui_model_override", "").strip()
+            effective_model = resolve_effective_model(model_override_val or agent.model)
+            runtime_signature = f"{active_dir}::{effective_model}"
+            if "runtime" not in st.session_state or st.session_state.get("runtime_signature") != runtime_signature:
+                active_agent = (
+                    agent.model_copy(update={"model": effective_model})
+                    if effective_model != agent.model
+                    else agent
+                )
+                st.session_state["runtime"] = AgentRuntime(active_agent, workspace_dir=active_dir)
+                st.session_state["runtime_signature"] = runtime_signature
+                st.session_state.setdefault("chat_messages", [])
             runtime: AgentRuntime = st.session_state["runtime"]
 
-            llm_ready = has_configured_llm_credentials(agent.model)
+            llm_ready = has_configured_llm_credentials(effective_model)
             if llm_ready:
-                st.success(f"Live LLM Mode ready (`{agent.model}`) — automatic deterministic fallback active if API fails.")
+                st.success(f"Live LLM Mode ready (`{effective_model}`) — automatic deterministic fallback active if API fails.")
             else:
                 st.warning(
-                    "No LLM API key detected in `.env` (`OPENAI_API_KEY`, `GEMINI_API_KEY`, etc.). "
-                    "Running in **Deterministic Grounded Retrieval Fallback** (add a key in `.env` for live generative chat)."
+                    "No LLM API key configured (checked Streamlit Secrets, environment/`.env`, and sidebar session key). "
+                    "Running in **Deterministic Grounded Retrieval Fallback** — paste an API key in the sidebar "
+                    "**LLM API Key & Model** panel or add it in Streamlit **App settings → Secrets** for live generative chat."
                 )
 
             mode_choice = st.radio(
