@@ -200,6 +200,27 @@ Launch the Streamlit dashboard (4 KPI cards + 7 tabs: `01 · Project Intake` thr
 streamlit run app.py
 ```
 
+---
+
+## Deployment
+
+### Option 1: Streamlit Community Cloud (Fastest, Free)
+1. Go to [share.streamlit.io](https://share.streamlit.io/) and sign in with GitHub.
+2. Select repository `SachiPrasad/FORGEAI`, branch `main`, and main file path `app.py`.
+3. *(Optional)* In **Advanced settings -> Secrets**, add `OPENAI_API_KEY` or `GEMINI_API_KEY` for Live LLM mode (without keys, the app runs in Deterministic Grounded Fallback mode).
+4. Click **Deploy**.
+
+### Option 2: Render (Docker Blueprint)
+1. Connect `SachiPrasad/FORGEAI` on [dashboard.render.com](https://dashboard.render.com/) using `render.yaml` (`Dockerfile`).
+2. Optionally set `OPENAI_API_KEY` / `GEMINI_API_KEY` in Environment Variables and deploy.
+
+### Option 3: Local / Cloud Docker Container
+```bash
+docker build -t forgeai .
+docker run -p 8501:8501 --env-file .env forgeai
+```
+
+
 
 
 

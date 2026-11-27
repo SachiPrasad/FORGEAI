@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: forgeai-agent-factory
+    runtime: docker
+    plan: free
+    autoDeploy: true
+    envVars:
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: GEMINI_API_KEY
+        sync: false
+
