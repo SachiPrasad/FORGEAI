@@ -1,0 +1,147 @@
+{
+  "generated_at": "2026-11-27T12:42:47.503929+00:00",
+  "model": "gpt-4o-mini",
+  "total_events": 9,
+  "error_count": 0,
+  "total_duration_ms": 1018.83,
+  "total_input_tokens": 61,
+  "total_output_tokens": 1853,
+  "total_estimated_cost_usd": 0.0,
+  "events": [
+    {
+      "event_id": "ev_001",
+      "stage": "feature_1_intake",
+      "operation": "extract_requirements",
+      "status": "ok",
+      "duration_ms": 671.34,
+      "input_tokens": 61,
+      "output_tokens": 626,
+      "estimated_cost_usd": 0.0,
+      "attributes": {},
+      "error": null,
+      "timestamp": "2026-11-27T12:42:47.150018+00:00"
+    },
+    {
+      "event_id": "ev_002",
+      "stage": "feature_2_knowledge",
+      "operation": "ingest_documents",
+      "status": "ok",
+      "duration_ms": 72.1,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "estimated_cost_usd": 0.0,
+      "attributes": {
+        "total_documents": 4,
+        "total_chunks": 10
+      },
+      "error": null,
+      "timestamp": "2026-11-27T12:42:47.222267+00:00"
+    },
+    {
+      "event_id": "ev_003",
+      "stage": "feature_3_groundability",
+      "operation": "evaluate_groundability",
+      "status": "ok",
+      "duration_ms": 42.19,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "estimated_cost_usd": 0.0,
+      "attributes": {
+        "groundability_score": 0.56
+      },
+      "error": null,
+      "timestamp": "2026-11-27T12:42:47.264590+00:00"
+    },
+    {
+      "event_id": "ev_004",
+      "stage": "feature_5_tools",
+      "operation": "select_tools",
+      "status": "ok",
+      "duration_ms": 3.5,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "estimated_cost_usd": 0.0,
+      "attributes": {
+        "selected_tools": [
+          "document_retriever",
+          "calculator",
+          "csv_lookup",
+          "date_tool"
+        ]
+      },
+      "error": null,
+      "timestamp": "2026-11-27T12:42:47.268186+00:00"
+    },
+    {
+      "event_id": "ev_005",
+      "stage": "feature_4_generator",
+      "operation": "generate_agent_json",
+      "status": "ok",
+      "duration_ms": 15.79,
+      "input_tokens": 0,
+      "output_tokens": 1227,
+      "estimated_cost_usd": 0.0,
+      "attributes": {},
+      "error": null,
+      "timestamp": "2026-11-27T12:42:47.284074+00:00"
+    },
+    {
+      "event_id": "ev_006",
+      "stage": "feature_6_eval_gen",
+      "operation": "generate_evals",
+      "status": "ok",
+      "duration_ms": 5.36,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "estimated_cost_usd": 0.0,
+      "attributes": {
+        "total_cases": 20
+      },
+      "error": null,
+      "timestamp": "2026-11-27T12:42:47.289537+00:00"
+    },
+    {
+      "event_id": "ev_007",
+      "stage": "feature_7_8_eval_opt",
+      "operation": "critic_optimizer_loop",
+      "status": "ok",
+      "duration_ms": 190.28,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "estimated_cost_usd": 0.0,
+      "attributes": {
+        "initial_score": 0.9,
+        "final_score": 0.9,
+        "iterations": 1
+      },
+      "error": null,
+      "timestamp": "2026-11-27T12:42:47.479901+00:00"
+    },
+    {
+      "event_id": "ev_008",
+      "stage": "feature_9_reporting",
+      "operation": "generate_final_report",
+      "status": "ok",
+      "duration_ms": 1.11,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "estimated_cost_usd": 0.0,
+      "attributes": {},
+      "error": null,
+      "timestamp": "2026-11-27T12:42:47.481115+00:00"
+    },
+    {
+      "event_id": "ev_009",
+      "stage": "export_bundle",
+      "operation": "export_standalone_agent",
+      "status": "ok",
+      "duration_ms": 17.16,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "estimated_cost_usd": 0.0,
+      "attributes": {},
+      "error": null,
+      "timestamp": "2026-11-27T12:42:47.498432+00:00"
+    }
+  ]
+}

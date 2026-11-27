@@ -1,0 +1,384 @@
+{
+  "generated_at": "2026-11-27T12:42:47.287960+00:00",
+  "agent_name": "Ship-Spares Procurement Assistant",
+  "total_cases": 20,
+  "category_counts": {
+    "answerable": 8,
+    "multi_document": 4,
+    "edge_case": 3,
+    "ambiguous": 2,
+    "unsupported": 3
+  },
+  "cases": [
+    {
+      "test_id": "SHIP_001",
+      "category": "answerable",
+      "question": "According to the Main Engine Fuel Injector SP-101 section, what policy applies to model man b w 6s50mc?",
+      "expected_answer": "Model MAN B&W 6S50MC fuel injector SP-101 operates at 950 bar injection pressure with hardened steel nozzle tips and requires 5000-hour overhaul intervals.",
+      "expected_sources": [
+        "engine_specifications.docx"
+      ],
+      "expected_facts": [
+        "101",
+        "950",
+        "5000",
+        "model"
+      ],
+      "should_refuse": false,
+      "source_chunk_ids": [
+        "engine_specifications_001"
+      ]
+    },
+    {
+      "test_id": "SHIP_002",
+      "category": "answerable",
+      "question": "According to the Approval Thresholds section, what policy applies to purchase orders up to 5000?",
+      "expected_answer": "Purchase orders up to 5000 USD may be approved by the Chief Engineer.",
+      "expected_sources": [
+        "procurement_policy.md"
+      ],
+      "expected_facts": [
+        "5000 USD",
+        "purchase",
+        "orders",
+        "approved"
+      ],
+      "should_refuse": false,
+      "source_chunk_ids": [
+        "procurement_policy_001"
+      ]
+    },
+    {
+      "test_id": "SHIP_003",
+      "category": "answerable",
+      "question": "According to spare_parts_catalog.csv, what rule or details are listed for 'Main Engine Fuel Injector'?",
+      "expected_answer": "Row 1: part_number: SP-101 | part_name: Main Engine Fuel Injector | engine_model: MAN B&W 6S50MC | unit_price_usd: 1450.00 | stock_qty: 12 | supplier_id: SUP-01 | lead_time_days: 7",
+      "expected_sources": [
+        "spare_parts_catalog.csv"
+      ],
+      "expected_facts": [
+        "101",
+        "1450.00",
+        "12",
+        "01"
+      ],
+      "should_refuse": false,
+      "source_chunk_ids": [
+        "spare_parts_catalog_001"
+      ]
+    },
+    {
+      "test_id": "SHIP_004",
+      "category": "answerable",
+      "question": "According to the Approved Marine Suppliers section, what policy applies to approved marine suppliers?",
+      "expected_answer": "Approved Marine Suppliers",
+      "expected_sources": [
+        "supplier_directory.pdf"
+      ],
+      "expected_facts": [
+        "approved",
+        "marine",
+        "suppliers"
+      ],
+      "should_refuse": false,
+      "source_chunk_ids": [
+        "supplier_directory_001"
+      ]
+    },
+    {
+      "test_id": "SHIP_005",
+      "category": "answerable",
+      "question": "According to the Turbocharger Rotor Cartridge SP-204 section, what policy applies to abb vtr-354 rotor cartridge sp-204?",
+      "expected_answer": "ABB VTR-354 rotor cartridge SP-204 is dynamically balanced to ISO 1940 G2.5 and supports continuous exhaust temperatures up to 620 Celsius.",
+      "expected_sources": [
+        "engine_specifications.docx"
+      ],
+      "expected_facts": [
+        "354",
+        "204",
+        "1940",
+        "620"
+      ],
+      "should_refuse": false,
+      "source_chunk_ids": [
+        "engine_specifications_002"
+      ]
+    },
+    {
+      "test_id": "SHIP_006",
+      "category": "answerable",
+      "question": "According to the Approval Thresholds section, what policy applies to orders between 5001 usd and?",
+      "expected_answer": "Orders between 5001 USD and 25000 USD require Fleet Superintendent sign-off.",
+      "expected_sources": [
+        "procurement_policy.md"
+      ],
+      "expected_facts": [
+        "5001 USD",
+        "25000 USD",
+        "orders",
+        "require"
+      ],
+      "should_refuse": false,
+      "source_chunk_ids": [
+        "procurement_policy_001"
+      ]
+    },
+    {
+      "test_id": "SHIP_007",
+      "category": "answerable",
+      "question": "According to spare_parts_catalog.csv, what rule or details are listed for 'Cylinder Liner Honing Ring'?",
+      "expected_answer": "Row 2: part_number: SP-102 | part_name: Cylinder Liner Honing Ring | engine_model: MAN B&W 6S50MC | unit_price_usd: 620.00 | stock_qty: 8 | supplier_id: SUP-01 | lead_time_days: 10",
+      "expected_sources": [
+        "spare_parts_catalog.csv"
+      ],
+      "expected_facts": [
+        "102",
+        "620.00",
+        "01",
+        "10"
+      ],
+      "should_refuse": false,
+      "source_chunk_ids": [
+        "spare_parts_catalog_001"
+      ]
+    },
+    {
+      "test_id": "SHIP_008",
+      "category": "answerable",
+      "question": "According to the Approved Marine Suppliers section, what policy applies to sup-01 nordic marine spares rotterdam?",
+      "expected_answer": "SUP-01 Nordic Marine Spares \\(Rotterdam, NL\\) supplies MAN B&W engine parts with Net-30 payment terms and ISO 9001 certification.",
+      "expected_sources": [
+        "supplier_directory.pdf"
+      ],
+      "expected_facts": [
+        "01",
+        "30",
+        "9001",
+        "nordic"
+      ],
+      "should_refuse": false,
+      "source_chunk_ids": [
+        "supplier_directory_001"
+      ]
+    },
+    {
+      "test_id": "SHIP_009",
+      "category": "multi_document",
+      "question": "Considering both Main Engine Fuel Injector SP-101 and Approval Thresholds, what rules apply to model man b w 6s50mc together with orders between 5001 usd and?",
+      "expected_answer": "Model MAN B&W 6S50MC fuel injector SP-101 operates at 950 bar injection pressure with hardened steel nozzle tips and requires 5000-hour overhaul intervals. Orders between 5001 USD and 25000 USD require Fleet Superintendent sign-off.",
+      "expected_sources": [
+        "engine_specifications.docx",
+        "procurement_policy.md"
+      ],
+      "expected_facts": [
+        "101",
+        "950",
+        "5001 USD",
+        "25000 USD"
+      ],
+      "should_refuse": false,
+      "source_chunk_ids": [
+        "engine_specifications_001",
+        "procurement_policy_001"
+      ]
+    },
+    {
+      "test_id": "SHIP_010",
+      "category": "multi_document",
+      "question": "Considering both Turbocharger Rotor Cartridge SP-204 and Spare Parts Catalog, what rules apply to abb vtr-354 rotor cartridge sp-204 together with Turbocharger Rotor Cartridge?",
+      "expected_answer": "ABB VTR-354 rotor cartridge SP-204 is dynamically balanced to ISO 1940 G2.5 and supports continuous exhaust temperatures up to 620 Celsius. Row 3: part_number: SP-204 | part_name: Turbocharger Rotor Cartridge | engine_model: ABB VTR-354 | unit_price_usd: 4800.00 | stock_qty: 3 | supplier_id: SUP-02 | lead_time_days: 14",
+      "expected_sources": [
+        "engine_specifications.docx",
+        "spare_parts_catalog.csv"
+      ],
+      "expected_facts": [
+        "354",
+        "204"
+      ],
+      "should_refuse": false,
+      "source_chunk_ids": [
+        "engine_specifications_002",
+        "spare_parts_catalog_001"
+      ]
+    },
+    {
+      "test_id": "SHIP_011",
+      "category": "multi_document",
+      "question": "Considering both Lube Oil Duplex Filter SP-309 and Turbocharger and Auxiliary Suppliers, what rules apply to wartsila 6l46 duplex filter element together with sup-02 busan propulsion systems busan?",
+      "expected_answer": "Wartsila 6L46 duplex filter element SP-309 uses 25-micron stainless steel mesh rated at 16 bar operating pressure. SUP-02 Busan Propulsion Systems \\(Busan, KR\\) supplies ABB and Sulzer spares; SUP-03 Singapore Fleet Supply \\(SG\\) supplies Wartsila filters and seals.",
+      "expected_sources": [
+        "engine_specifications.docx",
+        "supplier_directory.pdf"
+      ],
+      "expected_facts": [
+        "309",
+        "25",
+        "02",
+        "03"
+      ],
+      "should_refuse": false,
+      "source_chunk_ids": [
+        "engine_specifications_003",
+        "supplier_directory_002"
+      ]
+    },
+    {
+      "test_id": "SHIP_012",
+      "category": "multi_document",
+      "question": "Considering both Emergency Vessel Spares and Spare Parts Catalog, what rules apply to for critical vessel breakdowns single-source together with Lube Oil Duplex Filter Element?",
+      "expected_answer": "For critical vessel breakdowns, single-source procurement is permitted up to 15000 USD if lead time from primary suppliers exceeds 7 days, provided an incident report is attached. Row 5: part_number: SP-309 | part_name: Lube Oil Duplex Filter Element | engine_model: Wartsila 6L46 | unit_price_usd: 185.00 | stock_qty: 45 | supplier_id: SUP-03 | lead_time_days: 3",
+      "expected_sources": [
+        "procurement_policy.md",
+        "spare_parts_catalog.csv"
+      ],
+      "expected_facts": [
+        "15000 USD",
+        "7 days",
+        "309",
+        "185.00"
+      ],
+      "should_refuse": false,
+      "source_chunk_ids": [
+        "procurement_policy_002",
+        "spare_parts_catalog_002"
+      ]
+    },
+    {
+      "test_id": "SHIP_013",
+      "category": "edge_case",
+      "question": "What exact coverage limits or exceptions exist for Spare parts inventory, and what details are missing from the documents?",
+      "expected_answer": "All critical main-engine and turbocharger spares must carry OEM or classification society certificates and include a minimum 12-month warranty from installation.",
+      "expected_sources": [
+        "procurement_policy.md"
+      ],
+      "expected_facts": [
+        "12",
+        "critical",
+        "engine"
+      ],
+      "should_refuse": false,
+      "source_chunk_ids": [
+        "procurement_policy_003"
+      ]
+    },
+    {
+      "test_id": "SHIP_014",
+      "category": "edge_case",
+      "question": "What specific threshold, deadline, or eligibility condition applies under Approval Thresholds for purchase orders up to 5000?",
+      "expected_answer": "Purchase orders up to 5000 USD may be approved by the Chief Engineer.",
+      "expected_sources": [
+        "procurement_policy.md"
+      ],
+      "expected_facts": [
+        "5000 USD",
+        "purchase",
+        "orders",
+        "approved"
+      ],
+      "should_refuse": false,
+      "source_chunk_ids": [
+        "procurement_policy_001"
+      ]
+    },
+    {
+      "test_id": "SHIP_015",
+      "category": "edge_case",
+      "question": "What specific threshold, deadline, or eligibility condition applies under Approval Thresholds for orders between 5001 usd and?",
+      "expected_answer": "Orders between 5001 USD and 25000 USD require Fleet Superintendent sign-off.",
+      "expected_sources": [
+        "procurement_policy.md"
+      ],
+      "expected_facts": [
+        "5001 USD",
+        "25000 USD",
+        "orders",
+        "require"
+      ],
+      "should_refuse": false,
+      "source_chunk_ids": [
+        "procurement_policy_001"
+      ]
+    },
+    {
+      "test_id": "SHIP_016",
+      "category": "ambiguous",
+      "question": "How does part numbers work for my situation?",
+      "expected_answer": "Model MAN B&W 6S50MC fuel injector SP-101 operates at 950 bar injection pressure with hardened steel nozzle tips and requires 5000-hour overhaul intervals. ABB VTR-354 rotor cartridge SP-204 is dynamically balanced to ISO 1940 G2.5 and supports continuous exhaust temperatures up to 620 Celsius.",
+      "expected_sources": [
+        "engine_specifications.docx"
+      ],
+      "expected_facts": [
+        "101",
+        "950",
+        "354",
+        "204"
+      ],
+      "should_refuse": false,
+      "source_chunk_ids": [
+        "engine_specifications_001",
+        "engine_specifications_002"
+      ]
+    },
+    {
+      "test_id": "SHIP_017",
+      "category": "ambiguous",
+      "question": "What rules or limits apply to supplier information procurement if I have an unusual case?",
+      "expected_answer": "Model MAN B&W 6S50MC fuel injector SP-101 operates at 950 bar injection pressure with hardened steel nozzle tips and requires 5000-hour overhaul intervals. ABB VTR-354 rotor cartridge SP-204 is dynamically balanced to ISO 1940 G2.5 and supports continuous exhaust temperatures up to 620 Celsius.",
+      "expected_sources": [
+        "engine_specifications.docx"
+      ],
+      "expected_facts": [
+        "101",
+        "950",
+        "354",
+        "204"
+      ],
+      "should_refuse": false,
+      "source_chunk_ids": [
+        "engine_specifications_001",
+        "engine_specifications_002"
+      ]
+    },
+    {
+      "test_id": "SHIP_018",
+      "category": "unsupported",
+      "question": "Can you look up private or real-time records for Order totals (case 1)?",
+      "expected_answer": "Refuse because 'Order totals' is unsupported by available documents.",
+      "expected_sources": [],
+      "expected_facts": [],
+      "should_refuse": true,
+      "source_chunk_ids": []
+    },
+    {
+      "test_id": "SHIP_019",
+      "category": "unsupported",
+      "question": "What is the live port customs clearance status for shipment #8841?",
+      "expected_answer": "Refuse because 'Live port customs clearance status' is unsupported by available documents.",
+      "expected_sources": [],
+      "expected_facts": [],
+      "should_refuse": true,
+      "source_chunk_ids": []
+    },
+    {
+      "test_id": "SHIP_020",
+      "category": "unsupported",
+      "question": "Can you execute a purchase order in the live ERP system right now?",
+      "expected_answer": "Refuse because 'Execute purchase order in ERP' is unsupported by available documents.",
+      "expected_sources": [],
+      "expected_facts": [],
+      "should_refuse": true,
+      "source_chunk_ids": []
+    }
+  ],
+  "metadata": {
+    "generation_mode": "document_synthesized",
+    "model": null,
+    "source_documents": [
+      "engine_specifications.docx",
+      "procurement_policy.md",
+      "spare_parts_catalog.csv",
+      "supplier_directory.pdf"
+    ],
+    "total_chunks_analyzed": 10
+  }
+}

@@ -1,0 +1,5 @@
+rule_id,category,rule_summary,notice_required,notes
+ATT-01,Core Hours,Core collaboration window is 10:00 AM to 4:00 PM,N/A,Flexible start between 8:00 AM and 10:00 AM
+ATT-02,Late Arrival,Notify manager via Slack if delayed more than 30 minutes,Before 10:00 AM,Repeated unexcused tardiness reviewed monthly
+ATT-03,Remote Work,Up to 2 remote work days per week with team alignment,24 hours,Must remain reachable during core hours
+

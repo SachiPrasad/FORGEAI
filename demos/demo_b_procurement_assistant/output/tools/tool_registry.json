@@ -1,0 +1,183 @@
+{
+  "exported_at": "2026-11-27T12:42:47.266701+00:00",
+  "total_tools": 6,
+  "tools": [
+    {
+      "tool_id": "document_retriever",
+      "display_name": "Document Retriever",
+      "category": "knowledge_retrieval",
+      "priority": "essential",
+      "purpose": "Search uploaded knowledge",
+      "description": "Search ingested documents in the vector knowledge base and return cited excerpts.",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "Natural language search query."
+          },
+          "top_k": {
+            "type": "integer",
+            "default": 4
+          }
+        },
+        "required": [
+          "query"
+        ]
+      },
+      "requires_knowledge_base": true,
+      "requires_csv_files": false,
+      "requires_network": false,
+      "safe_for_closed_book": true
+    },
+    {
+      "tool_id": "calculator",
+      "display_name": "Calculator",
+      "category": "computation",
+      "priority": "essential",
+      "purpose": "Arithmetic and calculations",
+      "description": "Safely evaluate arithmetic and mathematical expressions (totals, percentages, averages).",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "expression": {
+            "type": "string",
+            "description": "Arithmetic expression, e.g. '20 * 12 / 5'."
+          }
+        },
+        "required": [
+          "expression"
+        ]
+      },
+      "requires_knowledge_base": false,
+      "requires_csv_files": false,
+      "requires_network": false,
+      "safe_for_closed_book": true
+    },
+    {
+      "tool_id": "csv_lookup",
+      "display_name": "CSV Lookup",
+      "category": "structured_data",
+      "priority": "essential",
+      "purpose": "Search tables, product catalogs",
+      "description": "Search structured CSV files for exact or filtered row-level record lookups.",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string"
+          },
+          "column": {
+            "type": "string"
+          },
+          "exact": {
+            "type": "boolean",
+            "default": false
+          },
+          "limit": {
+            "type": "integer",
+            "default": 10
+          }
+        }
+      },
+      "requires_knowledge_base": false,
+      "requires_csv_files": true,
+      "requires_network": false,
+      "safe_for_closed_book": true
+    },
+    {
+      "tool_id": "date_tool",
+      "display_name": "Date & Time",
+      "category": "temporal",
+      "priority": "recommended",
+      "purpose": "Current date, time, date calculations",
+      "description": "Get current date/time and compute day differences, business days, or date offsets.",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "operation": {
+            "type": "string",
+            "enum": [
+              "today",
+              "now",
+              "add_days",
+              "diff_days",
+              "business_days",
+              "weekday"
+            ]
+          },
+          "date_a": {
+            "type": "string",
+            "description": "ISO date YYYY-MM-DD"
+          },
+          "date_b": {
+            "type": "string",
+            "description": "ISO date YYYY-MM-DD"
+          },
+          "days": {
+            "type": "integer",
+            "default": 0
+          }
+        }
+      },
+      "requires_knowledge_base": false,
+      "requires_csv_files": false,
+      "requires_network": false,
+      "safe_for_closed_book": true
+    },
+    {
+      "tool_id": "http_api",
+      "display_name": "HTTP API",
+      "category": "external_api",
+      "priority": "optional",
+      "purpose": "Retrieve information from APIs",
+      "description": "Fetch structured JSON or text responses from external HTTP/HTTPS REST APIs.",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string"
+          },
+          "method": {
+            "type": "string",
+            "default": "GET"
+          }
+        },
+        "required": [
+          "url"
+        ]
+      },
+      "requires_knowledge_base": false,
+      "requires_csv_files": false,
+      "requires_network": true,
+      "safe_for_closed_book": false
+    },
+    {
+      "tool_id": "web_search",
+      "display_name": "Web Search",
+      "category": "web_search",
+      "priority": "optional",
+      "purpose": "Search external sources",
+      "description": "Search public web sources for external or up-to-date information.",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string"
+          },
+          "max_results": {
+            "type": "integer",
+            "default": 5
+          }
+        },
+        "required": [
+          "query"
+        ]
+      },
+      "requires_knowledge_base": false,
+      "requires_csv_files": false,
+      "requires_network": true,
+      "safe_for_closed_book": false
+    }
+  ]
+}

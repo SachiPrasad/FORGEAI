@@ -1,0 +1,46 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "forgeai"
+version = "0.1.0"
+description = "FORGEAI - Intelligent agentic workflow builder extracted and adapted from mozilla-ai/agent-factory."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "jinja2>=3.1.0",
+    "litellm>=1.0.0",
+    "numpy>=1.26.0",
+    "pydantic>=2.0.0",
+    "pypdf>=5.0.0",
+    "python-docx>=1.1.0",
+    "python-dotenv>=1.0.0",
+    "rich>=13.0.0",
+    "streamlit>=1.35.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+]
+
+[project.scripts]
+forgeai-intake = "forgeai.intake.cli:main"
+forgeai-knowledge = "forgeai.knowledge.cli:main"
+forgeai-groundability = "forgeai.groundability.cli:main"
+forgeai-generate = "forgeai.generator.cli:main"
+forgeai-tools = "forgeai.tools.cli:main"
+forgeai-eval = "forgeai.eval.cli:main"
+forgeai-optimize = "forgeai.optimizer.cli:main"
+forgeai-report = "forgeai.reporting.cli:main"
+forgeai-chat = "forgeai.runtime.cli:main"
+forgeai-run = "forgeai.pipeline:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+

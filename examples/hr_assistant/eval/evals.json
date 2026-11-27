@@ -1,0 +1,389 @@
+{
+  "generated_at": "2026-11-26T18:22:11.577334+00:00",
+  "agent_name": "HR Policy Assistant",
+  "total_cases": 20,
+  "category_counts": {
+    "answerable": 8,
+    "multi_document": 4,
+    "edge_case": 3,
+    "ambiguous": 2,
+    "unsupported": 3
+  },
+  "cases": [
+    {
+      "test_id": "HR_001",
+      "category": "answerable",
+      "question": "According to attendance_rules.csv, what rule or details are listed for 'Core Hours'?",
+      "expected_answer": "Row 1: rule_id: ATT-01 | category: Core Hours | rule_summary: Core collaboration window is 10:00 AM to 4:00 PM | notice_required: N/A | notes: Flexible start between 8:00 AM and 10:00 AM",
+      "expected_sources": [
+        "attendance_rules.csv"
+      ],
+      "expected_facts": [
+        "01",
+        "10",
+        "00",
+        "category"
+      ],
+      "should_refuse": false,
+      "source_chunk_ids": [
+        "attendance_rules_001"
+      ]
+    },
+    {
+      "test_id": "HR_002",
+      "category": "answerable",
+      "question": "According to the Benefits Overview section, what policy applies to medical dental and vision insurance?",
+      "expected_answer": "Medical, dental, and vision insurance begin on the first day of the month after hire.",
+      "expected_sources": [
+        "benefits_overview.pdf"
+      ],
+      "expected_facts": [
+        "medical",
+        "dental",
+        "vision",
+        "insurance"
+      ],
+      "should_refuse": false,
+      "source_chunk_ids": [
+        "benefits_overview_001"
+      ]
+    },
+    {
+      "test_id": "HR_003",
+      "category": "answerable",
+      "question": "According to the Annual Leave section, what policy applies to employees accrue paid annual leave?",
+      "expected_answer": "Employees accrue paid annual leave monthly and can request time off in the HR portal at least 5 business days in advance for vacations longer than 3 days.",
+      "expected_sources": [
+        "company_faq.md"
+      ],
+      "expected_facts": [
+        "5 business days",
+        "3 days",
+        "accrue",
+        "annual"
+      ],
+      "should_refuse": false,
+      "source_chunk_ids": [
+        "company_faq_001"
+      ]
+    },
+    {
+      "test_id": "HR_004",
+      "category": "answerable",
+      "question": "According to the Code of Conduct & Company Rules section, what policy applies to employees are expected to maintain?",
+      "expected_answer": "All employees are expected to maintain respectful workplace conduct, protect confidential company information, and follow standard working hours (9:00 AM to 6:00 PM local time, Monday through Friday).",
+      "expected_sources": [
+        "hr_handbook.txt"
+      ],
+      "expected_facts": [
+        "00",
+        "expected",
+        "maintain",
+        "respectful"
+      ],
+      "should_refuse": false,
+      "source_chunk_ids": [
+        "hr_handbook_001"
+      ]
+    },
+    {
+      "test_id": "HR_005",
+      "category": "answerable",
+      "question": "According to the Leave Policy section, what policy applies to employees receive 20 days of?",
+      "expected_answer": "Full-time employees receive 20 days of annual paid leave and 10 paid sick days per calendar year.",
+      "expected_sources": [
+        "leave_policy.docx"
+      ],
+      "expected_facts": [
+        "20 days",
+        "10",
+        "annual",
+        "leave"
+      ],
+      "should_refuse": false,
+      "source_chunk_ids": [
+        "leave_policy_001"
+      ]
+    },
+    {
+      "test_id": "HR_006",
+      "category": "answerable",
+      "question": "According to attendance_rules.csv, what rule or details are listed for 'Late Arrival'?",
+      "expected_answer": "Row 2: rule_id: ATT-02 | category: Late Arrival | rule_summary: Notify manager via Slack if delayed more than 30 minutes | notice_required: Before 10:00 AM | notes: Repeated unexcused tardiness reviewed monthly",
+      "expected_sources": [
+        "attendance_rules.csv"
+      ],
+      "expected_facts": [
+        "02",
+        "30 minutes",
+        "10",
+        "00"
+      ],
+      "should_refuse": false,
+      "source_chunk_ids": [
+        "attendance_rules_002"
+      ]
+    },
+    {
+      "test_id": "HR_007",
+      "category": "answerable",
+      "question": "According to the Benefits Overview section, what policy applies to wellness stipend covers up to?",
+      "expected_answer": "Wellness stipend covers up to 500 USD per year for gym or mental health apps.",
+      "expected_sources": [
+        "benefits_overview.pdf"
+      ],
+      "expected_facts": [
+        "500 USD",
+        "wellness",
+        "stipend",
+        "covers"
+      ],
+      "should_refuse": false,
+      "source_chunk_ids": [
+        "benefits_overview_001"
+      ]
+    },
+    {
+      "test_id": "HR_008",
+      "category": "answerable",
+      "question": "According to the Public Holidays section, what policy applies to company observes 12 regional public?",
+      "expected_answer": "The company observes 12 regional public holidays each calendar year.",
+      "expected_sources": [
+        "company_faq.md"
+      ],
+      "expected_facts": [
+        "12",
+        "observes",
+        "regional",
+        "public"
+      ],
+      "should_refuse": false,
+      "source_chunk_ids": [
+        "company_faq_002"
+      ]
+    },
+    {
+      "test_id": "HR_009",
+      "category": "multi_document",
+      "question": "Considering both Attendance Rules and Benefits Overview, what rules apply to Core Hours together with wellness stipend covers up to?",
+      "expected_answer": "Row 1: rule_id: ATT-01 | category: Core Hours | rule_summary: Core collaboration window is 10:00 AM to 4:00 PM | notice_required: N/A | notes: Flexible start between 8:00 AM and 10:00 AM Wellness stipend covers up to 500 USD per year for gym or mental health apps.",
+      "expected_sources": [
+        "attendance_rules.csv",
+        "benefits_overview.pdf"
+      ],
+      "expected_facts": [
+        "01",
+        "10",
+        "500 USD",
+        "wellness"
+      ],
+      "should_refuse": false,
+      "source_chunk_ids": [
+        "attendance_rules_001",
+        "benefits_overview_001"
+      ]
+    },
+    {
+      "test_id": "HR_010",
+      "category": "multi_document",
+      "question": "Considering both Attendance Rules and Public Holidays, what rules apply to Late Arrival together with holiday schedules are published in?",
+      "expected_answer": "Row 2: rule_id: ATT-02 | category: Late Arrival | rule_summary: Notify manager via Slack if delayed more than 30 minutes | notice_required: Before 10:00 AM | notes: Repeated unexcused tardiness reviewed monthly Holiday schedules are published in January.",
+      "expected_sources": [
+        "attendance_rules.csv",
+        "company_faq.md"
+      ],
+      "expected_facts": [
+        "02",
+        "30 minutes",
+        "holiday",
+        "schedules"
+      ],
+      "should_refuse": false,
+      "source_chunk_ids": [
+        "attendance_rules_002",
+        "company_faq_002"
+      ]
+    },
+    {
+      "test_id": "HR_011",
+      "category": "multi_document",
+      "question": "Considering both Attendance Rules and Escalation & Exceptions, what rules apply to Remote Work together with policy exceptions payroll disputes and?",
+      "expected_answer": "Row 3: rule_id: ATT-03 | category: Remote Work | rule_summary: Up to 2 remote work days per week with team alignment | notice_required: 24 hours | notes: Must remain reachable during core hours Policy exceptions, payroll disputes, and individual contract questions must be escalated directly to the HR Operations team via hr-support@example.com.",
+      "expected_sources": [
+        "attendance_rules.csv",
+        "hr_handbook.txt"
+      ],
+      "expected_facts": [
+        "03",
+        "24 hours",
+        "exceptions",
+        "payroll"
+      ],
+      "should_refuse": false,
+      "source_chunk_ids": [
+        "attendance_rules_003",
+        "hr_handbook_002"
+      ]
+    },
+    {
+      "test_id": "HR_012",
+      "category": "multi_document",
+      "question": "Considering both Attendance Rules and Leave Policy, what rules apply to Core Hours together with parental leave provides up to?",
+      "expected_answer": "Row 1: rule_id: ATT-01 | category: Core Hours | rule_summary: Core collaboration window is 10:00 AM to 4:00 PM | notice_required: N/A | notes: Flexible start between 8:00 AM and 10:00 AM Parental leave provides up to 12 weeks of paid time off after 6 months of tenure.",
+      "expected_sources": [
+        "attendance_rules.csv",
+        "leave_policy.docx"
+      ],
+      "expected_facts": [
+        "01",
+        "10",
+        "12 weeks",
+        "6 months"
+      ],
+      "should_refuse": false,
+      "source_chunk_ids": [
+        "attendance_rules_001",
+        "leave_policy_001"
+      ]
+    },
+    {
+      "test_id": "HR_013",
+      "category": "edge_case",
+      "question": "What exact coverage limits or exceptions exist for Medical insurance, and what details are missing from the documents?",
+      "expected_answer": "Medical, dental, and vision insurance begin on the first day of the month after hire.",
+      "expected_sources": [
+        "benefits_overview.pdf"
+      ],
+      "expected_facts": [
+        "medical",
+        "dental",
+        "vision"
+      ],
+      "should_refuse": false,
+      "source_chunk_ids": [
+        "benefits_overview_001"
+      ]
+    },
+    {
+      "test_id": "HR_014",
+      "category": "edge_case",
+      "question": "What specific threshold, deadline, or eligibility condition applies under Attendance Rules for Remote Work?",
+      "expected_answer": "Row 3: rule_id: ATT-03 | category: Remote Work | rule_summary: Up to 2 remote work days per week with team alignment | notice_required: 24 hours | notes: Must remain reachable during core hours",
+      "expected_sources": [
+        "attendance_rules.csv"
+      ],
+      "expected_facts": [
+        "03",
+        "24 hours",
+        "category",
+        "remote"
+      ],
+      "should_refuse": false,
+      "source_chunk_ids": [
+        "attendance_rules_003"
+      ]
+    },
+    {
+      "test_id": "HR_015",
+      "category": "edge_case",
+      "question": "What specific threshold, deadline, or eligibility condition applies under Benefits Overview for medical dental and vision insurance?",
+      "expected_answer": "Medical, dental, and vision insurance begin on the first day of the month after hire.",
+      "expected_sources": [
+        "benefits_overview.pdf"
+      ],
+      "expected_facts": [
+        "medical",
+        "dental",
+        "vision",
+        "insurance"
+      ],
+      "should_refuse": false,
+      "source_chunk_ids": [
+        "benefits_overview_001"
+      ]
+    },
+    {
+      "test_id": "HR_016",
+      "category": "ambiguous",
+      "question": "How does leave work for my situation?",
+      "expected_answer": "Employees accrue paid annual leave monthly and can request time off in the HR portal at least 5 business days in advance for vacations longer than 3 days. Full-time employees receive 20 days of annual paid leave and 10 paid sick days per calendar year.",
+      "expected_sources": [
+        "company_faq.md",
+        "leave_policy.docx"
+      ],
+      "expected_facts": [
+        "5 business days",
+        "3 days",
+        "20 days",
+        "10"
+      ],
+      "should_refuse": false,
+      "source_chunk_ids": [
+        "company_faq_001",
+        "leave_policy_001"
+      ]
+    },
+    {
+      "test_id": "HR_017",
+      "category": "ambiguous",
+      "question": "What rules or limits apply to attendance if I have an unusual case?",
+      "expected_answer": "Row 1: rule_id: ATT-01 | category: Core Hours | rule_summary: Core collaboration window is 10:00 AM to 4:00 PM | notice_required: N/A | notes: Flexible start between 8:00 AM and 10:00 AM Row 2: rule_id: ATT-02 | category: Late Arrival | rule_summary: Notify manager via Slack if delayed more than 30 minutes | notice_required: Before 10:00 AM | notes: Repeated unexcused tardiness reviewed monthly",
+      "expected_sources": [
+        "attendance_rules.csv"
+      ],
+      "expected_facts": [
+        "01",
+        "10",
+        "02",
+        "30 minutes"
+      ],
+      "should_refuse": false,
+      "source_chunk_ids": [
+        "attendance_rules_001",
+        "attendance_rules_002"
+      ]
+    },
+    {
+      "test_id": "HR_018",
+      "category": "unsupported",
+      "question": "What is my current monthly salary and bonus payout?",
+      "expected_answer": "Refuse because 'Salary' is unsupported by available documents.",
+      "expected_sources": [],
+      "expected_facts": [],
+      "should_refuse": true,
+      "source_chunk_ids": []
+    },
+    {
+      "test_id": "HR_019",
+      "category": "unsupported",
+      "question": "When am I eligible for my next promotion and grade increase?",
+      "expected_answer": "Refuse because 'Promotions' is unsupported by available documents.",
+      "expected_sources": [],
+      "expected_facts": [],
+      "should_refuse": true,
+      "source_chunk_ids": []
+    },
+    {
+      "test_id": "HR_020",
+      "category": "unsupported",
+      "question": "Can you calculate my net payroll after tax deductions for this month?",
+      "expected_answer": "Refuse because 'Payroll calculations without payroll data' is unsupported by available documents.",
+      "expected_sources": [],
+      "expected_facts": [],
+      "should_refuse": true,
+      "source_chunk_ids": []
+    }
+  ],
+  "metadata": {
+    "generation_mode": "document_synthesized",
+    "model": null,
+    "source_documents": [
+      "attendance_rules.csv",
+      "benefits_overview.pdf",
+      "company_faq.md",
+      "hr_handbook.txt",
+      "leave_policy.docx"
+    ],
+    "total_chunks_analyzed": 10
+  }
+}

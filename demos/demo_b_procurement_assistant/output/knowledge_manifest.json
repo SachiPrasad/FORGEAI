@@ -1,0 +1,255 @@
+{
+  "manifest_version": "1.0",
+  "created_at": "2026-11-27T12:42:47.220843+00:00",
+  "docs_dir": "C:\\Users\\SACHI\\OneDrive\\Desktop\\FORGEAI\\demos\\demo_b_procurement_assistant\\docs",
+  "vector_store_backend": "sqlite_numpy",
+  "vector_store_path": "kb/knowledge_base.sqlite",
+  "embedding_provider": "local",
+  "embedding_model": "local-hash-ngram-v1",
+  "embedding_dimension": 384,
+  "chunking": {
+    "strategy": "recursive",
+    "chunk_size": 600,
+    "chunk_overlap": 100,
+    "csv_rows_per_chunk": 10
+  },
+  "total_documents": 4,
+  "total_chunks": 10,
+  "skipped_files": [],
+  "warnings": [],
+  "kb_validation": {
+    "is_healthy": true,
+    "empty_files": [],
+    "duplicate_files": [],
+    "corrupted_files": [],
+    "version_conflicts": [],
+    "issues": []
+  },
+  "documents": [
+    {
+      "document_name": "engine_specifications.docx",
+      "relative_path": "engine_specifications.docx",
+      "document_type": "docx",
+      "sha256": "2f7ea113c2dac4df1a080cda4630d64a9da9a76ec9a08df2ec05306051584d59",
+      "size_bytes": 36936,
+      "page_count": null,
+      "row_count": null,
+      "sections_detected": [
+        "Main Engine Fuel Injector SP-101",
+        "Turbocharger Rotor Cartridge SP-204",
+        "Lube Oil Duplex Filter SP-309"
+      ],
+      "chunk_count": 3,
+      "chunk_ids": [
+        "engine_specifications_001",
+        "engine_specifications_002",
+        "engine_specifications_003"
+      ],
+      "warnings": []
+    },
+    {
+      "document_name": "procurement_policy.md",
+      "relative_path": "procurement_policy.md",
+      "document_type": "md",
+      "sha256": "2e82862c872a3a2c25dfe5bada406320c8f3b1b25caeb4a56f1c7d437fef7d95",
+      "size_bytes": 687,
+      "page_count": null,
+      "row_count": null,
+      "sections_detected": [
+        "Approval Thresholds",
+        "Emergency Vessel Spares",
+        "Warranty & Inspection"
+      ],
+      "chunk_count": 3,
+      "chunk_ids": [
+        "procurement_policy_001",
+        "procurement_policy_002",
+        "procurement_policy_003"
+      ],
+      "warnings": []
+    },
+    {
+      "document_name": "spare_parts_catalog.csv",
+      "relative_path": "spare_parts_catalog.csv",
+      "document_type": "csv",
+      "sha256": "1e23d3fc32d09dc9149ff917eb21ab9d44e10eda87fdecbdefb77fb6bb9d16f0",
+      "size_bytes": 628,
+      "page_count": null,
+      "row_count": 9,
+      "sections_detected": [
+        "Spare Parts Catalog"
+      ],
+      "chunk_count": 2,
+      "chunk_ids": [
+        "spare_parts_catalog_001",
+        "spare_parts_catalog_002"
+      ],
+      "warnings": []
+    },
+    {
+      "document_name": "supplier_directory.pdf",
+      "relative_path": "supplier_directory.pdf",
+      "document_type": "pdf",
+      "sha256": "1d41e326162cb0902d30873cab37d5697fe92f229755d45946ad85c0f8c42b7e",
+      "size_bytes": 1207,
+      "page_count": 2,
+      "row_count": null,
+      "sections_detected": [
+        "Approved Marine Suppliers",
+        "Turbocharger and Auxiliary Suppliers"
+      ],
+      "chunk_count": 2,
+      "chunk_ids": [
+        "supplier_directory_001",
+        "supplier_directory_002"
+      ],
+      "warnings": []
+    }
+  ],
+  "chunks": [
+    {
+      "chunk_id": "engine_specifications_001",
+      "document_name": "engine_specifications.docx",
+      "page_number": null,
+      "section": "Main Engine Fuel Injector SP-101",
+      "content": "Model MAN B&W 6S50MC fuel injector SP-101 operates at 950 bar injection pressure with hardened steel nozzle tips and requires 5000-hour overhaul intervals.",
+      "document_type": "docx",
+      "relative_path": "engine_specifications.docx",
+      "chunk_index": 0,
+      "char_count": 155,
+      "word_count": 24,
+      "content_hash": "564a21492cb84f86",
+      "extra": {}
+    },
+    {
+      "chunk_id": "engine_specifications_002",
+      "document_name": "engine_specifications.docx",
+      "page_number": null,
+      "section": "Turbocharger Rotor Cartridge SP-204",
+      "content": "ABB VTR-354 rotor cartridge SP-204 is dynamically balanced to ISO 1940 G2.5 and supports continuous exhaust temperatures up to 620 Celsius.",
+      "document_type": "docx",
+      "relative_path": "engine_specifications.docx",
+      "chunk_index": 1,
+      "char_count": 139,
+      "word_count": 22,
+      "content_hash": "c946fbe4f27b646a",
+      "extra": {}
+    },
+    {
+      "chunk_id": "engine_specifications_003",
+      "document_name": "engine_specifications.docx",
+      "page_number": null,
+      "section": "Lube Oil Duplex Filter SP-309",
+      "content": "Wartsila 6L46 duplex filter element SP-309 uses 25-micron stainless steel mesh rated at 16 bar operating pressure.",
+      "document_type": "docx",
+      "relative_path": "engine_specifications.docx",
+      "chunk_index": 2,
+      "char_count": 114,
+      "word_count": 17,
+      "content_hash": "e56fc5ec93b74bc9",
+      "extra": {}
+    },
+    {
+      "chunk_id": "procurement_policy_001",
+      "document_name": "procurement_policy.md",
+      "page_number": null,
+      "section": "Approval Thresholds",
+      "content": "Purchase orders up to 5000 USD may be approved by the Chief Engineer. Orders between 5001 USD and 25000 USD require Fleet Superintendent sign-off. Orders above 25000 USD require Procurement Director approval and three competitive quotes.",
+      "document_type": "md",
+      "relative_path": "procurement_policy.md",
+      "chunk_index": 0,
+      "char_count": 237,
+      "word_count": 36,
+      "content_hash": "4d5919fe908eb7ef",
+      "extra": {}
+    },
+    {
+      "chunk_id": "procurement_policy_002",
+      "document_name": "procurement_policy.md",
+      "page_number": null,
+      "section": "Emergency Vessel Spares",
+      "content": "For critical vessel breakdowns, single-source procurement is permitted up to 15000 USD if lead time from primary suppliers exceeds 7 days, provided an incident report is attached.",
+      "document_type": "md",
+      "relative_path": "procurement_policy.md",
+      "chunk_index": 1,
+      "char_count": 179,
+      "word_count": 27,
+      "content_hash": "641b62808d4fbf2b",
+      "extra": {}
+    },
+    {
+      "chunk_id": "procurement_policy_003",
+      "document_name": "procurement_policy.md",
+      "page_number": null,
+      "section": "Warranty & Inspection",
+      "content": "All critical main-engine and turbocharger spares must carry OEM or classification society certificates and include a minimum 12-month warranty from installation.",
+      "document_type": "md",
+      "relative_path": "procurement_policy.md",
+      "chunk_index": 2,
+      "char_count": 161,
+      "word_count": 21,
+      "content_hash": "15541b9747e20525",
+      "extra": {}
+    },
+    {
+      "chunk_id": "spare_parts_catalog_001",
+      "document_name": "spare_parts_catalog.csv",
+      "page_number": null,
+      "section": "Spare Parts Catalog",
+      "content": "Columns: part_number, part_name, engine_model, unit_price_usd, stock_qty, supplier_id, lead_time_days\nRow 1: part_number: SP-101 | part_name: Main Engine Fuel Injector | engine_model: MAN B&W 6S50MC | unit_price_usd: 1450.00 | stock_qty: 12 | supplier_id: SUP-01 | lead_time_days: 7\nRow 2: part_number: SP-102 | part_name: Cylinder Liner Honing Ring | engine_model: MAN B&W 6S50MC | unit_price_usd: 620.00 | stock_qty: 8 | supplier_id: SUP-01 | lead_time_days: 10\nRow 3: part_number: SP-204 | part_name: Turbocharger Rotor Cartridge | engine_model: ABB VTR-354 | unit_price_usd: 4800.00 | stock_qty: 3 | supplier_id: SUP-02 | lead_time_days: 14\nRow 4: part_number: SP-205 | part_name: Turbocharger Bearing Kit | engine_model: ABB VTR-354 | unit_price_usd: 890.00 | stock_qty: 15 | supplier_id: SUP-02 | lead_time_days: 5",
+      "document_type": "csv",
+      "relative_path": "spare_parts_catalog.csv",
+      "chunk_index": 0,
+      "char_count": 820,
+      "word_count": 94,
+      "content_hash": "694e10057a99353d",
+      "extra": {
+        "row_range": "1-4"
+      }
+    },
+    {
+      "chunk_id": "spare_parts_catalog_002",
+      "document_name": "spare_parts_catalog.csv",
+      "page_number": null,
+      "section": "Spare Parts Catalog",
+      "content": "Columns: part_number, part_name, engine_model, unit_price_usd, stock_qty, supplier_id, lead_time_days\nRow 5: part_number: SP-309 | part_name: Lube Oil Duplex Filter Element | engine_model: Wartsila 6L46 | unit_price_usd: 185.00 | stock_qty: 45 | supplier_id: SUP-03 | lead_time_days: 3\nRow 6: part_number: SP-310 | part_name: Jacket Water Cooling Pump Seal | engine_model: Wartsila 6L46 | unit_price_usd: 340.00 | stock_qty: 18 | supplier_id: SUP-03 | lead_time_days: 4\nRow 7: part_number: SP-402 | part_name: Starting Air Valve Assembly | engine_model: Sulzer RTA62 | unit_price_usd: 1120.00 | stock_qty: 6 | supplier_id: SUP-02 | lead_time_days: 12\nRow 8: part_number: SP-405 | part_name: Exhaust Valve Spindle | engine_model: MAN B&W 6S50MC | unit_price_usd: 2150.00 | stock_qty: 4 | supplier_id: SUP-01 | lead_time_days: 9",
+      "document_type": "csv",
+      "relative_path": "spare_parts_catalog.csv",
+      "chunk_index": 1,
+      "char_count": 826,
+      "word_count": 95,
+      "content_hash": "a514515f7a03dce5",
+      "extra": {
+        "row_range": "5-8"
+      }
+    },
+    {
+      "chunk_id": "supplier_directory_001",
+      "document_name": "supplier_directory.pdf",
+      "page_number": 1,
+      "section": "Approved Marine Suppliers",
+      "content": "Approved Marine Suppliers\nSUP-01 Nordic Marine Spares \\(Rotterdam, NL\\) supplies MAN B&W engine parts with Net-30 payment terms and ISO 9001 certification.",
+      "document_type": "pdf",
+      "relative_path": "supplier_directory.pdf",
+      "chunk_index": 0,
+      "char_count": 155,
+      "word_count": 23,
+      "content_hash": "95bb47f9534b5cce",
+      "extra": {}
+    },
+    {
+      "chunk_id": "supplier_directory_002",
+      "document_name": "supplier_directory.pdf",
+      "page_number": 2,
+      "section": "Turbocharger and Auxiliary Suppliers",
+      "content": "Turbocharger and Auxiliary Suppliers\nSUP-02 Busan Propulsion Systems \\(Busan, KR\\) supplies ABB and Sulzer spares; SUP-03 Singapore Fleet Supply \\(SG\\) supplies Wartsila filters and seals.",
+      "document_type": "pdf",
+      "relative_path": "supplier_directory.pdf",
+      "chunk_index": 1,
+      "char_count": 188,
+      "word_count": 25,
+      "content_hash": "f3fad99a762f53de",
+      "extra": {}
+    }
+  ]
+}

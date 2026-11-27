@@ -1,0 +1,8 @@
+# HR Handbook
+
+## Code of Conduct & Company Rules
+All employees are expected to maintain respectful workplace conduct, protect confidential company information, and follow standard working hours (9:00 AM to 6:00 PM local time, Monday through Friday).
+
+## Escalation & Exceptions
+Policy exceptions, payroll disputes, and individual contract questions must be escalated directly to the HR Operations team via hr-support@example.com.
+

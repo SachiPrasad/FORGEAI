@@ -1,0 +1,2 @@
+Build a procurement and ship-spares assistant for fleet engineers and buyers to search spare parts inventory, find part numbers, compare product specifications, calculate order totals, and retrieve supplier information from procurement policies.
+

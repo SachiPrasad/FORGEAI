@@ -1,0 +1,4 @@
+2026-11-27 01:22:55,080 | INFO | forgeai | Starting FORGEAI pipeline run -> demos\demo_b_procurement_assistant\output
+2026-11-27 01:22:55,885 | INFO | forgeai | Completed pipeline for Ship-Spares Procurement Assistant: 90% -> 90%
+2026-11-27 18:12:46,460 | INFO | forgeai | Starting FORGEAI pipeline run -> demos\demo_b_procurement_assistant\output
+2026-11-27 18:12:47,515 | INFO | forgeai | Completed pipeline for Ship-Spares Procurement Assistant: 90% -> 90%

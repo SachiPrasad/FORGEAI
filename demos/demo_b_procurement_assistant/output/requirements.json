@@ -1,0 +1,93 @@
+{
+  "agent_name": "Ship-Spares Procurement Assistant",
+  "domain": "Procurement & Maritime Supply",
+  "target_audience": "Procurement officers and fleet engineers",
+  "purpose": "Search spare parts inventory, compare specifications, and retrieve supplier & procurement policies",
+  "supported_topics": [
+    "Spare parts inventory",
+    "Part numbers",
+    "Product specifications",
+    "Order totals",
+    "Supplier information procurement"
+  ],
+  "unsupported_topics": [
+    "Live ERP purchase order execution without ERP integration",
+    "Real-time customs clearance or competitor confidential pricing"
+  ],
+  "tone": "Precise and technical",
+  "output_format": "Structured technical answers with part numbers and citations",
+  "restrictions": [
+    "No invented procurement & maritime supply policy or unverified claims",
+    "Answer strictly from provided reference documents and state when information is missing",
+    "Never invent part numbers, prices, stock quantities, or supplier lead times"
+  ],
+  "sources": [
+    "engine specifications",
+    "spare parts catalog",
+    "supplier directory"
+  ],
+  "source_details": [
+    {
+      "name": "engine specifications",
+      "filename": "engine_specifications.docx",
+      "doc_type": "docx",
+      "notes": "77 words"
+    },
+    {
+      "name": "spare parts catalog",
+      "filename": "spare_parts_catalog.csv",
+      "doc_type": "csv",
+      "notes": "123 words, 9 rows"
+    },
+    {
+      "name": "supplier directory",
+      "filename": "supplier_directory.pdf",
+      "doc_type": "pdf",
+      "notes": "52 words"
+    }
+  ],
+  "clarification_questions": [
+    {
+      "id": "q1",
+      "question": "When a question is outside the uploaded documents (such as payroll disputes or individual exceptions), how should the assistant respond or escalate?",
+      "reason": "The brief does not specify a fallback or human escalation contact.",
+      "category": "escalation",
+      "suggested_options": [
+        "Decline to answer and refer to HR support",
+        "Provide general guidance and direct to a ticketing portal"
+      ],
+      "required": true,
+      "answer": null
+    },
+    {
+      "id": "q2",
+      "question": "Should responses cite the exact policy document name or section (e.g., 'HR handbook', 'leave policy') for every answer?",
+      "reason": "The brief does not specify whether source citations are mandatory.",
+      "category": "output_format",
+      "suggested_options": [
+        "Always cite document name and section",
+        "Cite sources only when asked"
+      ],
+      "required": true,
+      "answer": null
+    }
+  ],
+  "clarification_answers": {},
+  "needs_clarification": true,
+  "validation": {
+    "is_valid": true,
+    "completeness_score": 1.0,
+    "issues": []
+  },
+  "metadata": {
+    "generated_at": "2026-11-27T12:42:47.148599+00:00",
+    "extraction_mode": "heuristic",
+    "model": null,
+    "brief_word_count": 32,
+    "documents_scanned": 3,
+    "skipped_files": [
+      "procurement_policy.md"
+    ],
+    "document_warnings": []
+  }
+}

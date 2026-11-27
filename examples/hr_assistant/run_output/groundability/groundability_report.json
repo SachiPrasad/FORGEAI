@@ -1,0 +1,190 @@
+{
+  "generated_at": "2026-11-26T19:31:42.772129+00:00",
+  "agent_name": "HR Policy Assistant",
+  "domain": "Human Resources",
+  "total_topics_evaluated": 8,
+  "groundability_score": 0.62,
+  "supported_topics": [
+    "Leave",
+    "Attendance",
+    "Benefits",
+    "Rules"
+  ],
+  "partially_supported_topics": [
+    "Medical insurance",
+    "Retirement benefits"
+  ],
+  "unsupported_topics": [
+    "Salary",
+    "Promotions",
+    "Payroll calculations without payroll data",
+    "Individual employee leave balance lookups without HRIS data"
+  ],
+  "topic_assessments": [
+    {
+      "topic": "Leave",
+      "document_support": "Available",
+      "status": "supported",
+      "semantic_score": 0.3186,
+      "keyword_coverage": 1.0,
+      "evidence_count": 2,
+      "supporting_documents": [
+        "leave_policy.docx",
+        "company_faq.md"
+      ],
+      "evidence_citations": [
+        "leave_policy.docx | Section: Leave Policy",
+        "company_faq.md | Section: Annual Leave"
+      ],
+      "evidence_snippets": [
+        "Full-time employees receive 20 days of annual paid leave and 10 paid sick days per calendar year.\nParental leave provides up to 12 weeks of paid time off after 6 months of tenure.\nUnused annual leave up to 5 days may car",
+        "Employees accrue paid annual leave monthly and can request time off in the HR portal at least 5 business days in advance for vacations longer than 3 days."
+      ],
+      "reason": "Substantively supported by leave_policy.docx, company_faq.md (2 matching chunk(s), 4 relevant sentence(s))."
+    },
+    {
+      "topic": "Attendance",
+      "document_support": "Available",
+      "status": "supported",
+      "semantic_score": 0.0361,
+      "keyword_coverage": 1.0,
+      "evidence_count": 3,
+      "supporting_documents": [
+        "attendance_rules.csv"
+      ],
+      "evidence_citations": [
+        "attendance_rules.csv | Section: Attendance Rules"
+      ],
+      "evidence_snippets": [
+        "Columns: rule_id, category, rule_summary, notice_required, notes\nRow 1: rule_id: ATT-01 | category: Core Hours | rule_summary: Core collaboration window is 10:00 AM to 4:00 PM | notice_required: N/A | notes: Flexible sta",
+        "Columns: rule_id, category, rule_summary, notice_required, notes\nRow 3: rule_id: ATT-03 | category: Remote Work | rule_summary: Up to 2 remote work days per week with team alignment | notice_required: 24 hours | notes: M"
+      ],
+      "reason": "Substantively supported by attendance_rules.csv (3 matching chunk(s), 0 relevant sentence(s))."
+    },
+    {
+      "topic": "Benefits",
+      "document_support": "Available",
+      "status": "supported",
+      "semantic_score": 0.2478,
+      "keyword_coverage": 1.0,
+      "evidence_count": 2,
+      "supporting_documents": [
+        "company_faq.md",
+        "benefits_overview.pdf"
+      ],
+      "evidence_citations": [
+        "company_faq.md | Section: Benefits Enrollment",
+        "benefits_overview.pdf | Page 1 | Section: Benefits Overview"
+      ],
+      "evidence_snippets": [
+        "New hires must complete benefits enrollment within 30 calendar days of their start date.",
+        "Benefits Overview\nMedical, dental, and vision insurance begin on the first day of the month after hire.\nWellness stipend covers up to 500 USD per year for gym or mental health apps.\n401k retirement matching is up to 4 pe"
+      ],
+      "reason": "Substantively supported by company_faq.md, benefits_overview.pdf (2 matching chunk(s), 2 relevant sentence(s))."
+    },
+    {
+      "topic": "Rules",
+      "document_support": "Available",
+      "status": "supported",
+      "semantic_score": 0.1185,
+      "keyword_coverage": 1.0,
+      "evidence_count": 4,
+      "supporting_documents": [
+        "attendance_rules.csv",
+        "hr_handbook.txt"
+      ],
+      "evidence_citations": [
+        "attendance_rules.csv | Section: Attendance Rules"
+      ],
+      "evidence_snippets": [
+        "Columns: rule_id, category, rule_summary, notice_required, notes\nRow 3: rule_id: ATT-03 | category: Remote Work | rule_summary: Up to 2 remote work days per week with team alignment | notice_required: 24 hours | notes: M",
+        "Columns: rule_id, category, rule_summary, notice_required, notes\nRow 1: rule_id: ATT-01 | category: Core Hours | rule_summary: Core collaboration window is 10:00 AM to 4:00 PM | notice_required: N/A | notes: Flexible sta"
+      ],
+      "reason": "Substantively supported by attendance_rules.csv, hr_handbook.txt (4 matching chunk(s), 4 relevant sentence(s))."
+    },
+    {
+      "topic": "Salary",
+      "document_support": "Missing",
+      "status": "unsupported",
+      "semantic_score": 0.0327,
+      "keyword_coverage": 0.0,
+      "evidence_count": 0,
+      "supporting_documents": [],
+      "evidence_citations": [],
+      "evidence_snippets": [],
+      "reason": "No ingested document contains substantive coverage for 'Salary'."
+    },
+    {
+      "topic": "Promotions",
+      "document_support": "Missing",
+      "status": "unsupported",
+      "semantic_score": 0.0556,
+      "keyword_coverage": 0.0,
+      "evidence_count": 0,
+      "supporting_documents": [],
+      "evidence_citations": [],
+      "evidence_snippets": [],
+      "reason": "No ingested document contains substantive coverage for 'Promotions'."
+    },
+    {
+      "topic": "Medical insurance",
+      "document_support": "Partial",
+      "status": "partial",
+      "semantic_score": 0.1171,
+      "keyword_coverage": 1.0,
+      "evidence_count": 1,
+      "supporting_documents": [
+        "benefits_overview.pdf"
+      ],
+      "evidence_citations": [
+        "benefits_overview.pdf | Page 1 | Section: Benefits Overview"
+      ],
+      "evidence_snippets": [
+        "Benefits Overview\nMedical, dental, and vision insurance begin on the first day of the month after hire.\nWellness stipend covers up to 500 USD per year for gym or mental health apps.\n401k retirement matching is up to 4 pe"
+      ],
+      "reason": "Partially covered in benefits_overview.pdf, but lacks comprehensive dedicated policy depth."
+    },
+    {
+      "topic": "Retirement benefits",
+      "document_support": "Partial",
+      "status": "partial",
+      "semantic_score": 0.2132,
+      "keyword_coverage": 1.0,
+      "evidence_count": 1,
+      "supporting_documents": [
+        "benefits_overview.pdf"
+      ],
+      "evidence_citations": [
+        "benefits_overview.pdf | Page 1 | Section: Benefits Overview"
+      ],
+      "evidence_snippets": [
+        "Benefits Overview\nMedical, dental, and vision insurance begin on the first day of the month after hire.\nWellness stipend covers up to 500 USD per year for gym or mental health apps.\n401k retirement matching is up to 4 pe"
+      ],
+      "reason": "Partially covered in benefits_overview.pdf, but lacks comprehensive dedicated policy depth."
+    }
+  ],
+  "generated_restrictions": [
+    "No invented HR policy",
+    "Answer strictly from provided reference documents and state when information is missing",
+    "Do not speculate when a rule is absent from company documents",
+    "Do not invent information or pretend that missing documents exist.",
+    "Ground all factual answers strictly in the verified source documents: attendance_rules.csv, benefits_overview.pdf, company_faq.md, hr_handbook.txt, leave_policy.docx.",
+    "Explicitly refuse requests about unsupported topics (Salary, Promotions, Payroll calculations without payroll data, Individual employee leave balance lookups without HRIS data) and inform the user that supporting documentation is unavailable.",
+    "For partially supported topics (Medical insurance, Retirement benefits), share only explicitly documented facts and clearly state any missing details.",
+    "Limit primary topic coverage to verified supported topics: Leave, Attendance, Benefits, Rules."
+  ],
+  "recommendation": "Generate the agent with supported topics only. Unsupported topics must be explicitly identified and refused.",
+  "available_documents": [
+    "attendance_rules.csv",
+    "benefits_overview.pdf",
+    "company_faq.md",
+    "hr_handbook.txt",
+    "leave_policy.docx"
+  ],
+  "formatted_report": "GROUNDABILITY REPORT\n\nSupported:\n- Leave\n- Attendance\n- Benefits\n- Rules\n\nPartially Supported:\n- Medical insurance\n- Retirement benefits\n\nUnsupported:\n- Salary\n- Promotions\n- Payroll calculations without payroll data\n- Individual employee leave balance lookups without HRIS data\n\nTopic Coverage Table:\n| Requested topic | Document support | Status | Score | Sources |\n| --- | --- | --- | --- | --- |\n| Leave | Available | Supported | 0.32 | leave_policy.docx, company_faq.md |\n| Attendance | Available | Supported | 0.04 | attendance_rules.csv |\n| Benefits | Available | Supported | 0.25 | company_faq.md, benefits_overview.pdf |\n| Rules | Available | Supported | 0.12 | attendance_rules.csv, hr_handbook.txt |\n| Salary | Missing | Unsupported | 0.03 | - |\n| Promotions | Missing | Unsupported | 0.06 | - |\n| Medical insurance | Partial | Partial | 0.12 | benefits_overview.pdf |\n| Retirement benefits | Partial | Partial | 0.21 | benefits_overview.pdf |\n\nRecommendation:\nGenerate the agent with supported topics only. Unsupported topics must be explicitly identified and refused.",
+  "metadata": {
+    "verification_mode": "semantic_heuristic",
+    "model": null,
+    "total_chunks_searched": 10
+  }
+}

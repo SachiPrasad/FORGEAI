@@ -1,0 +1,263 @@
+{
+  "manifest_version": "1.0",
+  "created_at": "2026-11-26T17:48:08.140072+00:00",
+  "docs_dir": "C:\\Users\\SACHI\\OneDrive\\Desktop\\FORGEAI\\examples\\hr_assistant\\docs",
+  "vector_store_backend": "sqlite_numpy",
+  "vector_store_path": "knowledge_base.sqlite",
+  "embedding_provider": "local",
+  "embedding_model": "local-hash-ngram-v1",
+  "embedding_dimension": 384,
+  "chunking": {
+    "strategy": "recursive",
+    "chunk_size": 600,
+    "chunk_overlap": 100,
+    "csv_rows_per_chunk": 10
+  },
+  "total_documents": 5,
+  "total_chunks": 10,
+  "skipped_files": [],
+  "warnings": [],
+  "documents": [
+    {
+      "document_name": "attendance_rules.csv",
+      "relative_path": "attendance_rules.csv",
+      "document_type": "csv",
+      "sha256": "cf75b4b6de5dbf1b2dbb927d6b261a6badcb6e397d9c5165a5e77afe7141c883",
+      "size_bytes": 429,
+      "page_count": null,
+      "row_count": 4,
+      "sections_detected": [
+        "Attendance Rules"
+      ],
+      "chunk_count": 3,
+      "chunk_ids": [
+        "attendance_rules_001",
+        "attendance_rules_002",
+        "attendance_rules_003"
+      ],
+      "warnings": []
+    },
+    {
+      "document_name": "benefits_overview.pdf",
+      "relative_path": "benefits_overview.pdf",
+      "document_type": "pdf",
+      "sha256": "3bf8e9a82900a4dd40cb3d3d41af1b3de73d44ee353b2dc0b86de48f93c33064",
+      "size_bytes": 865,
+      "page_count": 1,
+      "row_count": null,
+      "sections_detected": [
+        "Benefits Overview"
+      ],
+      "chunk_count": 1,
+      "chunk_ids": [
+        "benefits_overview_001"
+      ],
+      "warnings": []
+    },
+    {
+      "document_name": "company_faq.md",
+      "relative_path": "company_faq.md",
+      "document_type": "md",
+      "sha256": "9ae5df9a94cebeae97f829a541cadb20b395db196a8e7c0bfe8c20a112cb1b22",
+      "size_bytes": 436,
+      "page_count": null,
+      "row_count": null,
+      "sections_detected": [
+        "Annual Leave",
+        "Public Holidays",
+        "Benefits Enrollment"
+      ],
+      "chunk_count": 3,
+      "chunk_ids": [
+        "company_faq_001",
+        "company_faq_002",
+        "company_faq_003"
+      ],
+      "warnings": []
+    },
+    {
+      "document_name": "hr_handbook.txt",
+      "relative_path": "hr_handbook.txt",
+      "document_type": "txt",
+      "sha256": "730e52dc81593830a45bd1576d5e5b930c35cfa06730bd4c2cca1f266c1ef951",
+      "size_bytes": 432,
+      "page_count": null,
+      "row_count": null,
+      "sections_detected": [
+        "Code of Conduct & Company Rules",
+        "Escalation & Exceptions"
+      ],
+      "chunk_count": 2,
+      "chunk_ids": [
+        "hr_handbook_001",
+        "hr_handbook_002"
+      ],
+      "warnings": []
+    },
+    {
+      "document_name": "leave_policy.docx",
+      "relative_path": "leave_policy.docx",
+      "document_type": "docx",
+      "sha256": "026519dfec12d9e026953711182f3692c49f068c2183677bc99cf171646cb703",
+      "size_bytes": 36764,
+      "page_count": null,
+      "row_count": null,
+      "sections_detected": [
+        "Leave Policy"
+      ],
+      "chunk_count": 1,
+      "chunk_ids": [
+        "leave_policy_001"
+      ],
+      "warnings": []
+    }
+  ],
+  "chunks": [
+    {
+      "chunk_id": "attendance_rules_001",
+      "document_name": "attendance_rules.csv",
+      "page_number": null,
+      "section": "Attendance Rules",
+      "content": "Columns: rule_id, category, rule_summary, notice_required, notes\nRow 1: rule_id: ATT-01 | category: Core Hours | rule_summary: Core collaboration window is 10:00 AM to 4:00 PM | notice_required: N/A | notes: Flexible start between 8:00 AM and 10:00 AM",
+      "document_type": "csv",
+      "relative_path": "attendance_rules.csv",
+      "chunk_index": 0,
+      "char_count": 251,
+      "word_count": 39,
+      "content_hash": "be9b05f9d6f6116e",
+      "extra": {
+        "row_range": "1-1"
+      }
+    },
+    {
+      "chunk_id": "attendance_rules_002",
+      "document_name": "attendance_rules.csv",
+      "page_number": null,
+      "section": "Attendance Rules",
+      "content": "Columns: rule_id, category, rule_summary, notice_required, notes\nRow 2: rule_id: ATT-02 | category: Late Arrival | rule_summary: Notify manager via Slack if delayed more than 30 minutes | notice_required: Before 10:00 AM | notes: Repeated unexcused tardiness reviewed monthly",
+      "document_type": "csv",
+      "relative_path": "attendance_rules.csv",
+      "chunk_index": 1,
+      "char_count": 275,
+      "word_count": 35,
+      "content_hash": "5736f34d5c3b1414",
+      "extra": {
+        "row_range": "2-2"
+      }
+    },
+    {
+      "chunk_id": "attendance_rules_003",
+      "document_name": "attendance_rules.csv",
+      "page_number": null,
+      "section": "Attendance Rules",
+      "content": "Columns: rule_id, category, rule_summary, notice_required, notes\nRow 3: rule_id: ATT-03 | category: Remote Work | rule_summary: Up to 2 remote work days per week with team alignment | notice_required: 24 hours | notes: Must remain reachable during core hours",
+      "document_type": "csv",
+      "relative_path": "attendance_rules.csv",
+      "chunk_index": 2,
+      "char_count": 258,
+      "word_count": 35,
+      "content_hash": "77b04cea9f2b17ad",
+      "extra": {
+        "row_range": "3-3"
+      }
+    },
+    {
+      "chunk_id": "benefits_overview_001",
+      "document_name": "benefits_overview.pdf",
+      "page_number": 1,
+      "section": "Benefits Overview",
+      "content": "Benefits Overview\nMedical, dental, and vision insurance begin on the first day of the month after hire.\nWellness stipend covers up to 500 USD per year for gym or mental health apps.\n401k retirement matching is up to 4 percent of base compensation.",
+      "document_type": "pdf",
+      "relative_path": "benefits_overview.pdf",
+      "chunk_index": 0,
+      "char_count": 247,
+      "word_count": 43,
+      "content_hash": "5ba5564fe223fd9b",
+      "extra": {}
+    },
+    {
+      "chunk_id": "company_faq_001",
+      "document_name": "company_faq.md",
+      "page_number": null,
+      "section": "Annual Leave",
+      "content": "Employees accrue paid annual leave monthly and can request time off in the HR portal at least 5 business days in advance for vacations longer than 3 days.",
+      "document_type": "md",
+      "relative_path": "company_faq.md",
+      "chunk_index": 0,
+      "char_count": 154,
+      "word_count": 28,
+      "content_hash": "7ac54a3846c17507",
+      "extra": {}
+    },
+    {
+      "chunk_id": "company_faq_002",
+      "document_name": "company_faq.md",
+      "page_number": null,
+      "section": "Public Holidays",
+      "content": "The company observes 12 regional public holidays each calendar year. Holiday schedules are published in January.",
+      "document_type": "md",
+      "relative_path": "company_faq.md",
+      "chunk_index": 1,
+      "char_count": 112,
+      "word_count": 16,
+      "content_hash": "f33d33357abee6ab",
+      "extra": {}
+    },
+    {
+      "chunk_id": "company_faq_003",
+      "document_name": "company_faq.md",
+      "page_number": null,
+      "section": "Benefits Enrollment",
+      "content": "New hires must complete benefits enrollment within 30 calendar days of their start date.",
+      "document_type": "md",
+      "relative_path": "company_faq.md",
+      "chunk_index": 2,
+      "char_count": 88,
+      "word_count": 14,
+      "content_hash": "f07e3e304d4efdc8",
+      "extra": {}
+    },
+    {
+      "chunk_id": "hr_handbook_001",
+      "document_name": "hr_handbook.txt",
+      "page_number": null,
+      "section": "Code of Conduct & Company Rules",
+      "content": "All employees are expected to maintain respectful workplace conduct, protect confidential company information, and follow standard working hours (9:00 AM to 6:00 PM local time, Monday through Friday).",
+      "document_type": "txt",
+      "relative_path": "hr_handbook.txt",
+      "chunk_index": 0,
+      "char_count": 200,
+      "word_count": 30,
+      "content_hash": "8772eec140752bf7",
+      "extra": {}
+    },
+    {
+      "chunk_id": "hr_handbook_002",
+      "document_name": "hr_handbook.txt",
+      "page_number": null,
+      "section": "Escalation & Exceptions",
+      "content": "Policy exceptions, payroll disputes, and individual contract questions must be escalated directly to the HR Operations team via hr-support@example.com.",
+      "document_type": "txt",
+      "relative_path": "hr_handbook.txt",
+      "chunk_index": 1,
+      "char_count": 151,
+      "word_count": 21,
+      "content_hash": "29dd05d5f4607cd2",
+      "extra": {}
+    },
+    {
+      "chunk_id": "leave_policy_001",
+      "document_name": "leave_policy.docx",
+      "page_number": null,
+      "section": "Leave Policy",
+      "content": "Full-time employees receive 20 days of annual paid leave and 10 paid sick days per calendar year.\nParental leave provides up to 12 weeks of paid time off after 6 months of tenure.\nUnused annual leave up to 5 days may carry over into Q1 of the following year.",
+      "document_type": "docx",
+      "relative_path": "leave_policy.docx",
+      "chunk_index": 0,
+      "char_count": 258,
+      "word_count": 49,
+      "content_hash": "54aeaae2f4813273",
+      "extra": {}
+    }
+  ]
+}

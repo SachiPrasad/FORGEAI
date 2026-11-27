@@ -1,0 +1,37 @@
+{
+  "generated_at": "2026-11-27T12:42:47.466488+00:00",
+  "agent_name": "Ship-Spares Procurement Assistant",
+  "max_iterations": 3,
+  "total_iterations_run": 1,
+  "initial_score": 0.9,
+  "final_score": 0.9,
+  "initial_passed": 18,
+  "final_passed": 18,
+  "total_cases": 20,
+  "stop_reason": "All applicable targeted fix strategies have already been attempted.",
+  "iterations": [
+    {
+      "iteration": 1,
+      "failure_type": "prompt_defect",
+      "reason": "Relevant chunks were retrieved, but answer omitted expected facts or multi-document details.",
+      "change_applied": "Updated system_prompt with full multi-document synthesis and complete fact-citation instructions (detail_mode: full).",
+      "tests_addressed": [
+        "SHIP_016",
+        "SHIP_017"
+      ],
+      "score_before": 0.9,
+      "score_after": 0.9,
+      "passed_before": 18,
+      "passed_after": 18,
+      "newly_passed_tests": [],
+      "regressed_tests": [],
+      "rolled_back": false
+    }
+  ],
+  "metadata": {
+    "initial_groundedness": 1.0,
+    "final_groundedness": 1.0,
+    "initial_correctness": 0.88,
+    "final_correctness": 0.88
+  }
+}

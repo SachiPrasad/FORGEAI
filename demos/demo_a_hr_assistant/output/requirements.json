@@ -1,0 +1,117 @@
+{
+  "agent_name": "HR Policy Assistant",
+  "domain": "Human Resources",
+  "target_audience": "Employees",
+  "purpose": "Answer HR policy questions",
+  "supported_topics": [
+    "Leave",
+    "Attendance",
+    "Benefits",
+    "Hr faq",
+    "Handbook"
+  ],
+  "unsupported_topics": [
+    "Payroll calculations without payroll data",
+    "Individual employee leave balance lookups without HRIS data"
+  ],
+  "tone": "Professional and friendly",
+  "output_format": "Conversational answers",
+  "restrictions": [
+    "No invented HR policy",
+    "Answer strictly from provided reference documents and state when information is missing",
+    "Refuse salary, personal leave balance, and individual promotion queries without HRIS data"
+  ],
+  "sources": [
+    "attendance policy",
+    "employee handbook",
+    "leave policy"
+  ],
+  "source_details": [
+    {
+      "name": "attendance policy",
+      "filename": "attendance_policy.txt",
+      "doc_type": "txt",
+      "notes": "65 words"
+    },
+    {
+      "name": "employee handbook",
+      "filename": "employee_handbook.pdf",
+      "doc_type": "pdf",
+      "notes": "38 words"
+    },
+    {
+      "name": "leave policy",
+      "filename": "leave_policy.docx",
+      "doc_type": "docx",
+      "notes": "54 words"
+    }
+  ],
+  "clarification_questions": [
+    {
+      "id": "q1",
+      "question": "Should this assistant provide policy information only, or should it also calculate an employee's leave balance?",
+      "reason": "The brief covers leave/attendance policies, but the document folder does not contain employee-level leave balance or payroll records.",
+      "category": "scope",
+      "suggested_options": [
+        "Policy information only (no personal calculations)",
+        "Also calculate personal leave balances (requires HRIS/payroll integration)"
+      ],
+      "required": true,
+      "answer": null
+    },
+    {
+      "id": "q2",
+      "question": "When a question is outside the uploaded documents (such as payroll disputes or individual exceptions), how should the assistant respond or escalate?",
+      "reason": "The brief does not specify a fallback or human escalation contact.",
+      "category": "escalation",
+      "suggested_options": [
+        "Decline to answer and refer to HR support",
+        "Provide general guidance and direct to a ticketing portal"
+      ],
+      "required": true,
+      "answer": null
+    },
+    {
+      "id": "q3",
+      "question": "Do policy rules vary by employee type or region (e.g., full-time vs. contractors, or different countries/offices)?",
+      "reason": "Employee benefits and leave eligibility frequently depend on employment type or location.",
+      "category": "audience",
+      "suggested_options": [
+        "Single standard policy for all employees",
+        "Ask user for role/location first"
+      ],
+      "required": true,
+      "answer": null
+    },
+    {
+      "id": "q4",
+      "question": "Should responses cite the exact policy document name or section (e.g., 'HR handbook', 'leave policy') for every answer?",
+      "reason": "The brief does not specify whether source citations are mandatory.",
+      "category": "output_format",
+      "suggested_options": [
+        "Always cite document name and section",
+        "Cite sources only when asked"
+      ],
+      "required": true,
+      "answer": null
+    }
+  ],
+  "clarification_answers": {},
+  "needs_clarification": true,
+  "validation": {
+    "is_valid": true,
+    "completeness_score": 1.0,
+    "issues": []
+  },
+  "metadata": {
+    "generated_at": "2026-11-27T12:42:44.443114+00:00",
+    "extraction_mode": "heuristic",
+    "model": null,
+    "brief_word_count": 24,
+    "documents_scanned": 3,
+    "skipped_files": [
+      "hr_faq.md"
+    ],
+    "document_warnings": []
+  }
+}

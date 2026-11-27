@@ -1,0 +1,4 @@
+2026-11-27 01:22:52,210 | INFO | forgeai | Starting FORGEAI pipeline run -> demos\demo_a_hr_assistant\output
+2026-11-27 01:22:53,287 | INFO | forgeai | Completed pipeline for HR Policy Assistant: 90% -> 95%
+2026-11-27 18:12:43,559 | INFO | forgeai | Starting FORGEAI pipeline run -> demos\demo_a_hr_assistant\output
+2026-11-27 18:12:44,887 | INFO | forgeai | Completed pipeline for HR Policy Assistant: 90% -> 95%

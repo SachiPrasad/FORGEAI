@@ -1,0 +1,9 @@
+{
+  "tone_override": "Precise and technical",
+  "output_format_override": "Structured technical answers with part numbers and citations",
+  "max_clarification_questions": 5,
+  "extra_restrictions": [
+    "Never invent part numbers, prices, stock quantities, or supplier lead times"
+  ]
+}
+

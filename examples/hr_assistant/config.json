@@ -1,0 +1,9 @@
+{
+  "tone_override": "Professional and friendly",
+  "output_format_override": "Conversational answers",
+  "max_clarification_questions": 5,
+  "extra_restrictions": [
+    "Do not speculate when a rule is absent from company documents"
+  ]
+}
+

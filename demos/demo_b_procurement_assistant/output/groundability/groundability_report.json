@@ -1,0 +1,210 @@
+{
+  "generated_at": "2026-11-27T12:42:47.261639+00:00",
+  "agent_name": "Ship-Spares Procurement Assistant",
+  "domain": "Procurement & Maritime Supply",
+  "total_topics_evaluated": 9,
+  "groundability_score": 0.56,
+  "supported_topics": [
+    "Part numbers",
+    "Supplier information procurement",
+    "Specifications",
+    "Supplier information"
+  ],
+  "partially_supported_topics": [
+    "Spare parts inventory",
+    "Product specifications"
+  ],
+  "unsupported_topics": [
+    "Order totals",
+    "Live port customs clearance status",
+    "Execute purchase order in ERP",
+    "Live ERP purchase order execution without ERP integration",
+    "Real-time customs clearance or competitor confidential pricing"
+  ],
+  "topic_assessments": [
+    {
+      "topic": "Spare parts inventory",
+      "document_support": "Partial",
+      "status": "partial",
+      "semantic_score": 0.0333,
+      "keyword_coverage": 0.6667,
+      "evidence_count": 5,
+      "supporting_documents": [
+        "spare_parts_catalog.csv",
+        "supplier_directory.pdf",
+        "procurement_policy.md"
+      ],
+      "evidence_citations": [
+        "spare_parts_catalog.csv | Section: Spare Parts Catalog",
+        "supplier_directory.pdf | Page 1 | Section: Approved Marine Suppliers"
+      ],
+      "evidence_snippets": [
+        "Columns: part_number, part_name, engine_model, unit_price_usd, stock_qty, supplier_id, lead_time_days\nRow 5: part_number: SP-309 | part_name: Lube Oil Duplex Filter Element | engine_model: Wartsila 6L46 | unit_price_usd:",
+        "Columns: part_number, part_name, engine_model, unit_price_usd, stock_qty, supplier_id, lead_time_days\nRow 1: part_number: SP-101 | part_name: Main Engine Fuel Injector | engine_model: MAN B&W 6S50MC | unit_price_usd: 145"
+      ],
+      "reason": "Partially covered in spare_parts_catalog.csv, supplier_directory.pdf, procurement_policy.md, but lacks comprehensive dedicated policy depth."
+    },
+    {
+      "topic": "Part numbers",
+      "document_support": "Available",
+      "status": "supported",
+      "semantic_score": 0.2501,
+      "keyword_coverage": 1.0,
+      "evidence_count": 2,
+      "supporting_documents": [
+        "spare_parts_catalog.csv"
+      ],
+      "evidence_citations": [
+        "spare_parts_catalog.csv | Section: Spare Parts Catalog"
+      ],
+      "evidence_snippets": [
+        "Columns: part_number, part_name, engine_model, unit_price_usd, stock_qty, supplier_id, lead_time_days\nRow 5: part_number: SP-309 | part_name: Lube Oil Duplex Filter Element | engine_model: Wartsila 6L46 | unit_price_usd:",
+        "Columns: part_number, part_name, engine_model, unit_price_usd, stock_qty, supplier_id, lead_time_days\nRow 1: part_number: SP-101 | part_name: Main Engine Fuel Injector | engine_model: MAN B&W 6S50MC | unit_price_usd: 145"
+      ],
+      "reason": "Substantively supported by spare_parts_catalog.csv (2 matching chunk(s), 9 relevant sentence(s))."
+    },
+    {
+      "topic": "Product specifications",
+      "document_support": "Partial",
+      "status": "partial",
+      "semantic_score": 0.1075,
+      "keyword_coverage": 0.5,
+      "evidence_count": 2,
+      "supporting_documents": [
+        "engine_specifications.docx"
+      ],
+      "evidence_citations": [
+        "engine_specifications.docx | Section: Main Engine Fuel Injector SP-101",
+        "engine_specifications.docx | Section: Lube Oil Duplex Filter SP-309"
+      ],
+      "evidence_snippets": [
+        "Model MAN B&W 6S50MC fuel injector SP-101 operates at 950 bar injection pressure with hardened steel nozzle tips and requires 5000-hour overhaul intervals.",
+        "Wartsila 6L46 duplex filter element SP-309 uses 25-micron stainless steel mesh rated at 16 bar operating pressure."
+      ],
+      "reason": "Partially covered in engine_specifications.docx, but lacks comprehensive dedicated policy depth."
+    },
+    {
+      "topic": "Order totals",
+      "document_support": "Missing",
+      "status": "unsupported",
+      "semantic_score": 0.0257,
+      "keyword_coverage": 0.0,
+      "evidence_count": 0,
+      "supporting_documents": [],
+      "evidence_citations": [],
+      "evidence_snippets": [],
+      "reason": "No ingested document contains substantive coverage for 'Order totals'."
+    },
+    {
+      "topic": "Supplier information procurement",
+      "document_support": "Available",
+      "status": "supported",
+      "semantic_score": 0.1229,
+      "keyword_coverage": 1.0,
+      "evidence_count": 5,
+      "supporting_documents": [
+        "spare_parts_catalog.csv",
+        "procurement_policy.md",
+        "supplier_directory.pdf"
+      ],
+      "evidence_citations": [
+        "spare_parts_catalog.csv | Section: Spare Parts Catalog",
+        "procurement_policy.md | Section: Emergency Vessel Spares"
+      ],
+      "evidence_snippets": [
+        "Columns: part_number, part_name, engine_model, unit_price_usd, stock_qty, supplier_id, lead_time_days\nRow 1: part_number: SP-101 | part_name: Main Engine Fuel Injector | engine_model: MAN B&W 6S50MC | unit_price_usd: 145",
+        "Columns: part_number, part_name, engine_model, unit_price_usd, stock_qty, supplier_id, lead_time_days\nRow 5: part_number: SP-309 | part_name: Lube Oil Duplex Filter Element | engine_model: Wartsila 6L46 | unit_price_usd:"
+      ],
+      "reason": "Substantively supported by spare_parts_catalog.csv, procurement_policy.md, supplier_directory.pdf (5 matching chunk(s), 12 relevant sentence(s))."
+    },
+    {
+      "topic": "Specifications",
+      "document_support": "Available",
+      "status": "supported",
+      "semantic_score": 0.1579,
+      "keyword_coverage": 1.0,
+      "evidence_count": 2,
+      "supporting_documents": [
+        "engine_specifications.docx"
+      ],
+      "evidence_citations": [
+        "engine_specifications.docx | Section: Main Engine Fuel Injector SP-101",
+        "engine_specifications.docx | Section: Lube Oil Duplex Filter SP-309"
+      ],
+      "evidence_snippets": [
+        "Model MAN B&W 6S50MC fuel injector SP-101 operates at 950 bar injection pressure with hardened steel nozzle tips and requires 5000-hour overhaul intervals.",
+        "Wartsila 6L46 duplex filter element SP-309 uses 25-micron stainless steel mesh rated at 16 bar operating pressure."
+      ],
+      "reason": "Substantively supported by engine_specifications.docx (2 matching chunk(s), 0 relevant sentence(s))."
+    },
+    {
+      "topic": "Supplier information",
+      "document_support": "Available",
+      "status": "supported",
+      "semantic_score": 0.1877,
+      "keyword_coverage": 1.0,
+      "evidence_count": 5,
+      "supporting_documents": [
+        "spare_parts_catalog.csv",
+        "supplier_directory.pdf",
+        "procurement_policy.md"
+      ],
+      "evidence_citations": [
+        "spare_parts_catalog.csv | Section: Spare Parts Catalog",
+        "supplier_directory.pdf | Page 2 | Section: Turbocharger and Auxiliary Suppliers"
+      ],
+      "evidence_snippets": [
+        "Columns: part_number, part_name, engine_model, unit_price_usd, stock_qty, supplier_id, lead_time_days\nRow 1: part_number: SP-101 | part_name: Main Engine Fuel Injector | engine_model: MAN B&W 6S50MC | unit_price_usd: 145",
+        "Columns: part_number, part_name, engine_model, unit_price_usd, stock_qty, supplier_id, lead_time_days\nRow 5: part_number: SP-309 | part_name: Lube Oil Duplex Filter Element | engine_model: Wartsila 6L46 | unit_price_usd:"
+      ],
+      "reason": "Substantively supported by spare_parts_catalog.csv, supplier_directory.pdf, procurement_policy.md (5 matching chunk(s), 13 relevant sentence(s))."
+    },
+    {
+      "topic": "Live port customs clearance status",
+      "document_support": "Missing",
+      "status": "unsupported",
+      "semantic_score": 0.1019,
+      "keyword_coverage": 0.2,
+      "evidence_count": 2,
+      "supporting_documents": [],
+      "evidence_citations": [],
+      "evidence_snippets": [],
+      "reason": "Available documents do not sufficiently cover 'Live port customs clearance status'."
+    },
+    {
+      "topic": "Execute purchase order in ERP",
+      "document_support": "Missing",
+      "status": "unsupported",
+      "semantic_score": 0.0823,
+      "keyword_coverage": 0.4,
+      "evidence_count": 4,
+      "supporting_documents": [],
+      "evidence_citations": [],
+      "evidence_snippets": [],
+      "reason": "Available documents do not sufficiently cover 'Execute purchase order in ERP'."
+    }
+  ],
+  "generated_restrictions": [
+    "No invented procurement & maritime supply policy or unverified claims",
+    "Answer strictly from provided reference documents and state when information is missing",
+    "Never invent part numbers, prices, stock quantities, or supplier lead times",
+    "Do not invent information or pretend that missing documents exist.",
+    "Ground all factual answers strictly in the verified source documents: engine_specifications.docx, procurement_policy.md, spare_parts_catalog.csv, supplier_directory.pdf.",
+    "Explicitly refuse requests about unsupported topics (Order totals, Live port customs clearance status, Execute purchase order in ERP, Live ERP purchase order execution without ERP integration, Real-time customs clearance or competitor confidential pricing) and inform the user that supporting documentation is unavailable.",
+    "For partially supported topics (Spare parts inventory, Product specifications), share only explicitly documented facts and clearly state any missing details.",
+    "Limit primary topic coverage to verified supported topics: Part numbers, Supplier information procurement, Specifications, Supplier information."
+  ],
+  "recommendation": "Generate the agent with supported topics only. Unsupported topics must be explicitly identified and refused.",
+  "available_documents": [
+    "engine_specifications.docx",
+    "procurement_policy.md",
+    "spare_parts_catalog.csv",
+    "supplier_directory.pdf"
+  ],
+  "formatted_report": "GROUNDABILITY REPORT\n\nSupported:\n- Part numbers\n- Supplier information procurement\n- Specifications\n- Supplier information\n\nPartially Supported:\n- Spare parts inventory\n- Product specifications\n\nUnsupported:\n- Order totals\n- Live port customs clearance status\n- Execute purchase order in ERP\n- Live ERP purchase order execution without ERP integration\n- Real-time customs clearance or competitor confidential pricing\n\nTopic Coverage Table:\n| Requested topic | Document support | Status | Score | Sources |\n| --- | --- | --- | --- | --- |\n| Spare parts inventory | Partial | Partial | 0.03 | spare_parts_catalog.csv, supplier_directory.pdf, procurement_policy.md |\n| Part numbers | Available | Supported | 0.25 | spare_parts_catalog.csv |\n| Product specifications | Partial | Partial | 0.11 | engine_specifications.docx |\n| Order totals | Missing | Unsupported | 0.03 | - |\n| Supplier information procurement | Available | Supported | 0.12 | spare_parts_catalog.csv, procurement_policy.md, supplier_directory.pdf |\n| Specifications | Available | Supported | 0.16 | engine_specifications.docx |\n| Supplier information | Available | Supported | 0.19 | spare_parts_catalog.csv, supplier_directory.pdf, procurement_policy.md |\n| Live port customs clearance status | Missing | Unsupported | 0.10 | - |\n| Execute purchase order in ERP | Missing | Unsupported | 0.08 | - |\n\nRecommendation:\nGenerate the agent with supported topics only. Unsupported topics must be explicitly identified and refused.",
+  "metadata": {
+    "verification_mode": "semantic_heuristic",
+    "model": null,
+    "total_chunks_searched": 10
+  }
+}

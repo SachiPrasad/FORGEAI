@@ -1,0 +1,266 @@
+{
+  "agent_name": "HR Policy Assistant",
+  "domain": "Human Resources",
+  "target_audience": "Employees",
+  "purpose": "Answer HR policy questions (scoped to verified topics: Leave, Attendance, Benefits, Handbook, Salary).",
+  "tone": "Professional and friendly",
+  "output_format": "Conversational answers",
+  "model": "gpt-4o-mini",
+  "model_config": {
+    "model": "gpt-4o-mini",
+    "provider": "litellm",
+    "temperature": 0.1,
+    "max_tokens": 1024,
+    "max_turns": 10,
+    "tool_choice": "auto"
+  },
+  "system_prompt": "You are HR Policy Assistant serving Employees in the Human Resources domain.\n\nPurpose:\nAnswer HR policy questions (scoped to verified topics: Leave, Attendance, Benefits, Handbook, Salary).\n\nYour responsibilities:\n- Answer questions accurately within your verified scope (Leave, Attendance, Benefits, Handbook).\n- Use only the approved knowledge base (attendance_policy.txt, employee_handbook.pdf, hr_faq.md, leave_policy.docx).\n- Cite the source document (and page/section when available) whenever possible.\n- Never invent company policies, numbers, or rules, and do not pretend missing documents exist.\n- If the information is unavailable in the approved knowledge base, clearly state that the knowledge base does not contain the answer.\n- Do not answer unsupported questions as facts.\n- Maintain a professional and friendly tone and deliver responses as conversational answers.\n\nPartially supported topics (answer cautiously with explicit caveats):\n\n- Salary: Only partially covered in employee_handbook.pdf. Partially covered in employee_handbook.pdf, but lacks comprehensive dedicated policy depth. Do not extrapolate missing details.\n\nUnsupported topics (MUST be explicitly refused):\n\n- From hr faq\n\n- Personal leave balance\n\n- Promotions\n\n- Payroll calculations without payroll data\n\n- Individual employee leave balance lookups without HRIS data\n\nRefusal policy:\nIf a user asks about From hr faq, Personal leave balance, Promotions, Payroll calculations without payroll data, Individual employee leave balance lookups without HRIS data, do NOT guess or fabricate an answer. Respond politely that this topic is not covered by the available documents (attendance_policy.txt, employee_handbook.pdf, hr_faq.md, leave_policy.docx), list what you can help with (Leave, Attendance, Benefits, Handbook), and direct them to the appropriate team. For partially covered topics (Salary), state caveats clearly.\n\nStrict restrictions & guardrails:\n\n- No invented HR policy\n\n- Answer strictly from provided reference documents and state when information is missing\n\n- Refuse salary, personal leave balance, and individual promotion queries without HRIS data\n\n- Do not invent information or pretend that missing documents exist.\n\n- Ground all factual answers strictly in the verified source documents: attendance_policy.txt, employee_handbook.pdf, hr_faq.md, leave_policy.docx.\n\n- Explicitly refuse requests about unsupported topics (From hr faq, Personal leave balance, Promotions, Payroll calculations without payroll data, Individual employee leave balance lookups without HRIS data) and inform the user that supporting documentation is unavailable.\n\n- For partially supported topics (Salary), share only explicitly documented facts and clearly state any missing details.\n\n- Limit primary topic coverage to verified supported topics: Leave, Attendance, Benefits, Handbook.\n\nAvailable tools:\n\n- `document_retriever`: Search ingested documents in the vector knowledge base and return cited excerpts.\n\n- `calculator`: Safely evaluate arithmetic and mathematical expressions (totals, percentages, averages).\n\n- `date_tool`: Get current date/time and compute day differences, business days, or date offsets.\n\n- `verify_topic_scope`: Check whether a user query falls under supported, partially supported, or unsupported topics before generating a response.\n\nAlways retrieve supporting context before answering policy or factual questions.\n\nOutput contract:\nReturn responses matching this structure:\n- `answer`: Clear response grounded in retrieved evidence (or an explicit refusal if unsupported).\n- `sources`: List of cited document names/sections used to form the answer (empty list if refused).\n- `confidence`: One of `\"high\"`, `\"medium\"`, `\"low\"`, or `\"unsupported\"`.\n\nMulti-document synthesis & completeness directive (detail_mode: full):\n- Include all relevant facts, numbers, and conditions from every matching retrieved document.\n- Always cite every contributing document in `sources`.",
+  "retrieval_config": {
+    "chunk_size": 600,
+    "chunk_overlap": 100,
+    "top_k": 5,
+    "min_score": 0.0,
+    "hybrid_keyword_weight": 0.2,
+    "strategy": "recursive",
+    "knowledge_manifest_path": "C:\\Users\\SACHI\\OneDrive\\Desktop\\FORGEAI\\demos\\demo_a_hr_assistant\\output\\kb\\knowledge_manifest.json",
+    "vector_store_path": "C:\\Users\\SACHI\\OneDrive\\Desktop\\FORGEAI\\demos\\demo_a_hr_assistant\\output\\kb\\knowledge_base.sqlite"
+  },
+  "tools": [
+    {
+      "name": "document_retriever",
+      "type": "knowledge_retrieval",
+      "description": "Search ingested documents in the vector knowledge base and return cited excerpts.",
+      "enabled": true,
+      "selection_reason": "Knowledge base contains 9 indexed chunk(s) across 4 uploaded document(s) and requires semantic retrieval for grounded answers.",
+      "parameters": {
+        "manifest_path": "C:\\Users\\SACHI\\OneDrive\\Desktop\\FORGEAI\\demos\\demo_a_hr_assistant\\output\\kb\\knowledge_manifest.json",
+        "top_k": 5
+      }
+    },
+    {
+      "name": "calculator",
+      "type": "computation",
+      "description": "Safely evaluate arithmetic and mathematical expressions (totals, percentages, averages).",
+      "enabled": true,
+      "selection_reason": "Domain and documents include numeric quantities, allowances, limits, or pricing where deterministic arithmetic prevents LLM math errors.",
+      "parameters": {}
+    },
+    {
+      "name": "date_tool",
+      "type": "temporal",
+      "description": "Get current date/time and compute day differences, business days, or date offsets.",
+      "enabled": true,
+      "selection_reason": "Policy rules involve timelines, notice periods, holidays, or eligibility windows that benefit from accurate date and business-day calculations.",
+      "parameters": {}
+    },
+    {
+      "name": "verify_topic_scope",
+      "type": "guardrail",
+      "description": "Check whether a user query falls under supported, partially supported, or unsupported topics before generating a response.",
+      "enabled": true,
+      "selection_reason": "Unsupported or partially supported topics were detected by Groundability Guard.",
+      "parameters": {
+        "supported_topics": [
+          "Leave",
+          "Attendance",
+          "Benefits",
+          "Handbook"
+        ],
+        "partially_supported_topics": [
+          "Salary"
+        ],
+        "unsupported_topics": [
+          "From hr faq",
+          "Personal leave balance",
+          "Promotions",
+          "Payroll calculations without payroll data",
+          "Individual employee leave balance lookups without HRIS data"
+        ]
+      }
+    }
+  ],
+  "rejected_tools": [
+    {
+      "name": "csv_lookup",
+      "reason": "No CSV tables or catalogs were uploaded in the document set."
+    },
+    {
+      "name": "http_api",
+      "reason": "Excluded because agent operates strictly on internal approved documents without external API calls."
+    },
+    {
+      "name": "web_search",
+      "reason": "Excluded because closed-book restrictions forbid unapproved external web sources."
+    }
+  ],
+  "tool_selection_record": {
+    "generated_at": "2026-11-26T19:39:01.208291+00:00",
+    "agent_name": "HR Policy Assistant",
+    "selected_tools": [
+      "document_retriever",
+      "calculator",
+      "date_tool"
+    ],
+    "rejected_tools": [
+      "csv_lookup",
+      "http_api",
+      "web_search"
+    ],
+    "decisions": [
+      {
+        "tool_id": "document_retriever",
+        "display_name": "Document Retriever",
+        "priority": "essential",
+        "selected": true,
+        "reason": "Knowledge base contains 9 indexed chunk(s) across 4 uploaded document(s) and requires semantic retrieval for grounded answers.",
+        "parameters": {
+          "manifest_path": "C:\\Users\\SACHI\\OneDrive\\Desktop\\FORGEAI\\demos\\demo_a_hr_assistant\\output\\kb\\knowledge_manifest.json",
+          "top_k": 5
+        }
+      },
+      {
+        "tool_id": "calculator",
+        "display_name": "Calculator",
+        "priority": "essential",
+        "selected": true,
+        "reason": "Domain and documents include numeric quantities, allowances, limits, or pricing where deterministic arithmetic prevents LLM math errors.",
+        "parameters": {}
+      },
+      {
+        "tool_id": "csv_lookup",
+        "display_name": "CSV Lookup",
+        "priority": "essential",
+        "selected": false,
+        "reason": "No CSV tables or catalogs were uploaded in the document set.",
+        "parameters": {}
+      },
+      {
+        "tool_id": "date_tool",
+        "display_name": "Date & Time",
+        "priority": "recommended",
+        "selected": true,
+        "reason": "Policy rules involve timelines, notice periods, holidays, or eligibility windows that benefit from accurate date and business-day calculations.",
+        "parameters": {}
+      },
+      {
+        "tool_id": "http_api",
+        "display_name": "HTTP API",
+        "priority": "optional",
+        "selected": false,
+        "reason": "Excluded because agent operates strictly on internal approved documents without external API calls.",
+        "parameters": {}
+      },
+      {
+        "tool_id": "web_search",
+        "display_name": "Web Search",
+        "priority": "optional",
+        "selected": false,
+        "reason": "Excluded because closed-book restrictions forbid unapproved external web sources.",
+        "parameters": {}
+      }
+    ],
+    "formatted_summary": "Tool: Document Retriever | Selected: Yes | Reason: Knowledge base contains 9 indexed chunk(s) across 4 uploaded document(s) and requires semantic retrieval for grounded answers.\nTool: Calculator | Selected: Yes | Reason: Domain and documents include numeric quantities, allowances, limits, or pricing where deterministic arithmetic prevents LLM math errors.\nTool: CSV Lookup | Selected: No | Reason: No CSV tables or catalogs were uploaded in the document set.\nTool: Date & Time | Selected: Yes | Reason: Policy rules involve timelines, notice periods, holidays, or eligibility windows that benefit from accurate date and business-day calculations.\nTool: HTTP API | Selected: No | Reason: Excluded because agent operates strictly on internal approved documents without external API calls.\nTool: Web Search | Selected: No | Reason: Excluded because closed-book restrictions forbid unapproved external web sources.",
+    "metadata": {
+      "selection_mode": "deterministic",
+      "total_registered_tools": 6,
+      "selected_count": 3
+    }
+  },
+  "supported_topics": [
+    "Leave",
+    "Attendance",
+    "Benefits",
+    "Handbook"
+  ],
+  "partially_supported_topics": [
+    "Salary"
+  ],
+  "unsupported_topics": [
+    "From hr faq",
+    "Personal leave balance",
+    "Promotions",
+    "Payroll calculations without payroll data",
+    "Individual employee leave balance lookups without HRIS data"
+  ],
+  "restrictions": [
+    "No invented HR policy",
+    "Answer strictly from provided reference documents and state when information is missing",
+    "Refuse salary, personal leave balance, and individual promotion queries without HRIS data",
+    "Do not invent information or pretend that missing documents exist.",
+    "Ground all factual answers strictly in the verified source documents: attendance_policy.txt, employee_handbook.pdf, hr_faq.md, leave_policy.docx.",
+    "Explicitly refuse requests about unsupported topics (From hr faq, Personal leave balance, Promotions, Payroll calculations without payroll data, Individual employee leave balance lookups without HRIS data) and inform the user that supporting documentation is unavailable.",
+    "For partially supported topics (Salary), share only explicitly documented facts and clearly state any missing details.",
+    "Limit primary topic coverage to verified supported topics: Leave, Attendance, Benefits, Handbook."
+  ],
+  "allowed_sources": [
+    "attendance_policy.txt",
+    "employee_handbook.pdf",
+    "hr_faq.md",
+    "leave_policy.docx"
+  ],
+  "output_contract": {
+    "answer": "string",
+    "sources": [],
+    "confidence": "string",
+    "refused_unsupported_topic": "boolean"
+  },
+  "output_schema": {
+    "title": "StructuredOutput",
+    "type": "object",
+    "properties": {
+      "answer": {
+        "type": "string",
+        "description": "Grounded answer to the user's question or explicit refusal if unsupported."
+      },
+      "sources": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "Cited source documents, pages, and sections supporting the answer."
+      },
+      "confidence": {
+        "type": "string",
+        "enum": [
+          "high",
+          "medium",
+          "low",
+          "unsupported"
+        ],
+        "description": "Confidence level based on retrieved document evidence."
+      },
+      "refused_unsupported_topic": {
+        "type": "boolean",
+        "description": "True if the request was refused because it fell outside supported topics."
+      }
+    },
+    "required": [
+      "answer",
+      "sources",
+      "confidence"
+    ]
+  },
+  "structured_output_code": "from typing import Literal\nfrom pydantic import BaseModel, Field\n\n\nclass StructuredOutput(BaseModel):\n    answer: str = Field(..., description=\"Grounded answer or explicit refusal if unsupported.\")\n    sources: list[str] = Field(default_factory=list, description=\"Cited document sources.\")\n    confidence: Literal[\"high\", \"medium\", \"low\", \"unsupported\"] = Field(\n        ..., description=\"Evidence-backed confidence level.\"\n    )\n    refused_unsupported_topic: bool = Field(default=False, description=\"True if refused as unsupported.\")",
+  "validation": {
+    "is_valid": true,
+    "completeness_score": 1.0,
+    "checks_passed": [
+      "agent_name_present",
+      "model_configured",
+      "system_prompt_non_empty",
+      "anti_hallucination_rules_present",
+      "unsupported_refusal_instructions_present",
+      "supported_unsupported_disjoint",
+      "retrieval_tool_attached",
+      "tool_policy_consistent",
+      "output_contract_valid"
+    ],
+    "issues": []
+  },
+  "metadata": {
+    "generated_at": "2026-11-26T19:39:01.217604+00:00",
+    "generation_mode": "deterministic",
+    "groundability_score": 0.56,
+    "recommendation": "Generate the agent with supported topics only. Unsupported topics must be explicitly identified and refused."
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "initial_version": "v0",
+  "final_version": "v2",
+  "regression_count": 0,
+  "changes": [
+    {
+      "iteration": 1,
+      "failure_type": "retrieval_miss",
+      "change_applied": "Increased retrieval_config.top_k from 5 to 9 and hybrid_keyword_weight from 0.2 to 0.45.",
+      "score_before": 0.9,
+      "score_after": 0.95,
+      "newly_passed_tests": [
+        "HR_013"
+      ],
+      "regressed_tests": [],
+      "rolled_back": false
+    },
+    {
+      "iteration": 2,
+      "failure_type": "prompt_defect",
+      "change_applied": "Updated system_prompt with full multi-document synthesis and complete fact-citation instructions (detail_mode: full).",
+      "score_before": 0.95,
+      "score_after": 0.95,
+      "newly_passed_tests": [],
+      "regressed_tests": [],
+      "rolled_back": false
+    }
+  ],
+  "retrieval_top_k_changed": "5 -> 9",
+  "hybrid_keyword_weight_changed": "0.2 -> 0.45",
+  "temperature_changed": "0.1 -> 0.1",
+  "system_prompt_length_changed": "3952 -> 4174",
+  "config_diff": "--- v0_initial/config\n+++ v2_final/config\n@@ -2,9 +2,9 @@\n   \"retrieval_config\": {\n     \"chunk_size\": 600,\n     \"chunk_overlap\": 100,\n-    \"top_k\": 5,\n-    \"min_score\": 0.0,\n-    \"hybrid_keyword_weight\": 0.2,\n+    \"top_k\": 9,\n+    \"min_score\": -1.0,\n+    \"hybrid_keyword_weight\": 0.45,\n     \"strategy\": \"recursive\",\n     \"knowledge_manifest_path\": \"C:\\\\Users\\\\SACHI\\\\OneDrive\\\\Desktop\\\\FORGEAI\\\\demos\\\\demo_a_hr_assistant\\\\output\\\\kb\\\\knowledge_manifest.json\",\n     \"vector_store_path\": \"C:\\\\Users\\\\SACHI\\\\OneDrive\\\\Desktop\\\\FORGEAI\\\\demos\\\\demo_a_hr_assistant\\\\output\\\\kb\\\\knowledge_base.sqlite\"",
+  "prompt_diff": "--- v0_initial/system_prompt\n+++ v2_final/system_prompt\n@@ -66,3 +66,7 @@\n - `answer`: Clear response grounded in retrieved evidence (or an explicit refusal if unsupported).\n - `sources`: List of cited document names/sections used to form the answer (empty list if refused).\n - `confidence`: One of `\"high\"`, `\"medium\"`, `\"low\"`, or `\"unsupported\"`.\n+\n+Multi-document synthesis & completeness directive (detail_mode: full):\n+- Include all relevant facts, numbers, and conditions from every matching retrieved document.\n+- Always cite every contributing document in `sources`."
+}

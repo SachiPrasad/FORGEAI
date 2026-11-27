@@ -1,0 +1,73 @@
+{
+  "generated_at": "2026-11-27T12:42:44.591660+00:00",
+  "agent_name": "HR Policy Assistant",
+  "selected_tools": [
+    "document_retriever",
+    "calculator",
+    "date_tool"
+  ],
+  "rejected_tools": [
+    "csv_lookup",
+    "http_api",
+    "web_search"
+  ],
+  "decisions": [
+    {
+      "tool_id": "document_retriever",
+      "display_name": "Document Retriever",
+      "priority": "essential",
+      "selected": true,
+      "reason": "Knowledge base contains 9 indexed chunk(s) across 4 uploaded document(s) and requires semantic retrieval for grounded answers.",
+      "parameters": {
+        "manifest_path": "C:\\Users\\SACHI\\OneDrive\\Desktop\\FORGEAI\\demos\\demo_a_hr_assistant\\output\\kb\\knowledge_manifest.json",
+        "top_k": 4
+      }
+    },
+    {
+      "tool_id": "calculator",
+      "display_name": "Calculator",
+      "priority": "essential",
+      "selected": true,
+      "reason": "Domain and documents include numeric quantities, allowances, limits, or pricing where deterministic arithmetic prevents LLM math errors.",
+      "parameters": {}
+    },
+    {
+      "tool_id": "csv_lookup",
+      "display_name": "CSV Lookup",
+      "priority": "essential",
+      "selected": false,
+      "reason": "No CSV tables or catalogs were uploaded in the document set.",
+      "parameters": {}
+    },
+    {
+      "tool_id": "date_tool",
+      "display_name": "Date & Time",
+      "priority": "recommended",
+      "selected": true,
+      "reason": "Policy rules involve timelines, notice periods, holidays, or eligibility windows that benefit from accurate date and business-day calculations.",
+      "parameters": {}
+    },
+    {
+      "tool_id": "http_api",
+      "display_name": "HTTP API",
+      "priority": "optional",
+      "selected": false,
+      "reason": "Excluded because agent operates strictly on internal approved documents without external API calls.",
+      "parameters": {}
+    },
+    {
+      "tool_id": "web_search",
+      "display_name": "Web Search",
+      "priority": "optional",
+      "selected": false,
+      "reason": "Excluded because closed-book restrictions forbid unapproved external web sources.",
+      "parameters": {}
+    }
+  ],
+  "formatted_summary": "Tool: Document Retriever | Selected: Yes | Reason: Knowledge base contains 9 indexed chunk(s) across 4 uploaded document(s) and requires semantic retrieval for grounded answers.\nTool: Calculator | Selected: Yes | Reason: Domain and documents include numeric quantities, allowances, limits, or pricing where deterministic arithmetic prevents LLM math errors.\nTool: CSV Lookup | Selected: No | Reason: No CSV tables or catalogs were uploaded in the document set.\nTool: Date & Time | Selected: Yes | Reason: Policy rules involve timelines, notice periods, holidays, or eligibility windows that benefit from accurate date and business-day calculations.\nTool: HTTP API | Selected: No | Reason: Excluded because agent operates strictly on internal approved documents without external API calls.\nTool: Web Search | Selected: No | Reason: Excluded because closed-book restrictions forbid unapproved external web sources.",
+  "metadata": {
+    "selection_mode": "deterministic",
+    "total_registered_tools": 6,
+    "selected_count": 3
+  }
+}

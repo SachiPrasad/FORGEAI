@@ -1,0 +1,94 @@
+{
+  "agent_name": "Ship-Spares Procurement Assistant",
+  "initial_score": 0.9,
+  "final_score": 0.9,
+  "scorecards": [
+    {
+      "iteration": 0,
+      "label": "Initial Evaluation",
+      "scorecard": {
+        "agent_name": "Ship-Spares Procurement Assistant",
+        "total_cases": 20,
+        "passed_cases": 18,
+        "failed_cases": 2,
+        "pass_rate": 0.9,
+        "groundedness_rate": 1.0,
+        "correctness_rate": 0.88,
+        "refusal_accuracy_rate": 1.0,
+        "source_quality_rate": 0.95,
+        "contract_compliance_rate": 1.0,
+        "category_breakdown": {
+          "answerable": {
+            "total": 8,
+            "passed": 8,
+            "pass_rate": 1.0
+          },
+          "multi_document": {
+            "total": 4,
+            "passed": 4,
+            "pass_rate": 1.0
+          },
+          "edge_case": {
+            "total": 3,
+            "passed": 3,
+            "pass_rate": 1.0
+          },
+          "ambiguous": {
+            "total": 2,
+            "passed": 0,
+            "pass_rate": 0.0
+          },
+          "unsupported": {
+            "total": 3,
+            "passed": 3,
+            "pass_rate": 1.0
+          }
+        }
+      }
+    },
+    {
+      "iteration": 1,
+      "label": "Iteration 1 (prompt_defect)",
+      "rolled_back": false,
+      "scorecard": {
+        "agent_name": "Ship-Spares Procurement Assistant",
+        "total_cases": 20,
+        "passed_cases": 18,
+        "failed_cases": 2,
+        "pass_rate": 0.9,
+        "groundedness_rate": 1.0,
+        "correctness_rate": 0.88,
+        "refusal_accuracy_rate": 1.0,
+        "source_quality_rate": 0.95,
+        "contract_compliance_rate": 1.0,
+        "category_breakdown": {
+          "answerable": {
+            "total": 8,
+            "passed": 8,
+            "pass_rate": 1.0
+          },
+          "multi_document": {
+            "total": 4,
+            "passed": 4,
+            "pass_rate": 1.0
+          },
+          "edge_case": {
+            "total": 3,
+            "passed": 3,
+            "pass_rate": 1.0
+          },
+          "ambiguous": {
+            "total": 2,
+            "passed": 0,
+            "pass_rate": 0.0
+          },
+          "unsupported": {
+            "total": 3,
+            "passed": 3,
+            "pass_rate": 1.0
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,188 @@
+{
+  "generated_at": "2026-11-27T12:42:44.585210+00:00",
+  "agent_name": "HR Policy Assistant",
+  "domain": "Human Resources",
+  "total_topics_evaluated": 8,
+  "groundability_score": 0.62,
+  "supported_topics": [
+    "Leave",
+    "Attendance",
+    "Benefits",
+    "Handbook"
+  ],
+  "partially_supported_topics": [
+    "Hr faq",
+    "Salary"
+  ],
+  "unsupported_topics": [
+    "Personal leave balance",
+    "Promotions",
+    "Payroll calculations without payroll data",
+    "Individual employee leave balance lookups without HRIS data"
+  ],
+  "topic_assessments": [
+    {
+      "topic": "Leave",
+      "document_support": "Available",
+      "status": "supported",
+      "semantic_score": 0.2542,
+      "keyword_coverage": 1.0,
+      "evidence_count": 3,
+      "supporting_documents": [
+        "leave_policy.docx",
+        "hr_faq.md"
+      ],
+      "evidence_citations": [
+        "leave_policy.docx | Section: Annual Leave Policy",
+        "leave_policy.docx | Section: Parental Leave",
+        "hr_faq.md | Section: Annual Leave Requests"
+      ],
+      "evidence_snippets": [
+        "Full-time employees receive 20 days of annual paid leave and 10 paid sick days per calendar year.\nUnused annual leave up to 5 days may carry over into Q1 of the following year.",
+        "Eligible employees receive up to 12 weeks of paid parental leave after 6 months of tenure."
+      ],
+      "reason": "Substantively supported by leave_policy.docx, hr_faq.md (3 matching chunk(s), 3 relevant sentence(s))."
+    },
+    {
+      "topic": "Attendance",
+      "document_support": "Available",
+      "status": "supported",
+      "semantic_score": 0.0587,
+      "keyword_coverage": 1.0,
+      "evidence_count": 1,
+      "supporting_documents": [
+        "attendance_policy.txt"
+      ],
+      "evidence_citations": [
+        "attendance_policy.txt | Section: Late Arrival & Remote Work"
+      ],
+      "evidence_snippets": [
+        "Employees delayed by more than 30 minutes must notify their manager before 10:00 AM. Eligible staff may work remotely up to 2 days per week with 24 hours manager notice."
+      ],
+      "reason": "Substantively supported by attendance_policy.txt (1 matching chunk(s), 0 relevant sentence(s))."
+    },
+    {
+      "topic": "Benefits",
+      "document_support": "Available",
+      "status": "supported",
+      "semantic_score": 0.1813,
+      "keyword_coverage": 1.0,
+      "evidence_count": 1,
+      "supporting_documents": [
+        "hr_faq.md"
+      ],
+      "evidence_citations": [
+        "hr_faq.md | Section: Benefits & Wellness"
+      ],
+      "evidence_snippets": [
+        "New hires must enroll in medical and dental benefits within 30 calendar days of start date. Full-time employees receive a 500 USD annual wellness stipend."
+      ],
+      "reason": "Substantively supported by hr_faq.md (1 matching chunk(s), 1 relevant sentence(s))."
+    },
+    {
+      "topic": "Hr faq",
+      "document_support": "Partial",
+      "status": "partial",
+      "semantic_score": 0.1828,
+      "keyword_coverage": 0.5,
+      "evidence_count": 3,
+      "supporting_documents": [
+        "employee_handbook.pdf",
+        "hr_faq.md"
+      ],
+      "evidence_citations": [
+        "employee_handbook.pdf | Page 2 | Section: Escalation and HR Support",
+        "hr_faq.md | Section: Annual Leave Requests",
+        "hr_faq.md | Section: Benefits & Wellness"
+      ],
+      "evidence_snippets": [
+        "Escalation and HR Support\nPolicy exceptions, payroll disputes, and salary inquiries must be directed to hr-support@example.com.",
+        "Submit paid time off requests in the HR portal at least 5 business days in advance for trips longer than 3 consecutive days."
+      ],
+      "reason": "Partially covered in employee_handbook.pdf, hr_faq.md, but lacks comprehensive dedicated policy depth."
+    },
+    {
+      "topic": "Handbook",
+      "document_support": "Available",
+      "status": "supported",
+      "semantic_score": 0.0186,
+      "keyword_coverage": 1.0,
+      "evidence_count": 1,
+      "supporting_documents": [
+        "employee_handbook.pdf"
+      ],
+      "evidence_citations": [
+        "employee_handbook.pdf | Page 2 | Section: Escalation and HR Support"
+      ],
+      "evidence_snippets": [
+        "Escalation and HR Support\nPolicy exceptions, payroll disputes, and salary inquiries must be directed to hr-support@example.com."
+      ],
+      "reason": "Substantively supported by employee_handbook.pdf (1 matching chunk(s), 0 relevant sentence(s))."
+    },
+    {
+      "topic": "Salary",
+      "document_support": "Partial",
+      "status": "partial",
+      "semantic_score": 0.1714,
+      "keyword_coverage": 1.0,
+      "evidence_count": 1,
+      "supporting_documents": [
+        "employee_handbook.pdf"
+      ],
+      "evidence_citations": [
+        "employee_handbook.pdf | Page 2 | Section: Escalation and HR Support"
+      ],
+      "evidence_snippets": [
+        "Escalation and HR Support\nPolicy exceptions, payroll disputes, and salary inquiries must be directed to hr-support@example.com."
+      ],
+      "reason": "Partially covered in employee_handbook.pdf, but lacks comprehensive dedicated policy depth."
+    },
+    {
+      "topic": "Personal leave balance",
+      "document_support": "Missing",
+      "status": "unsupported",
+      "semantic_score": 0.1486,
+      "keyword_coverage": 0.3333,
+      "evidence_count": 3,
+      "supporting_documents": [],
+      "evidence_citations": [],
+      "evidence_snippets": [],
+      "reason": "Available documents do not sufficiently cover 'Personal leave balance'."
+    },
+    {
+      "topic": "Promotions",
+      "document_support": "Missing",
+      "status": "unsupported",
+      "semantic_score": 0.0344,
+      "keyword_coverage": 0.0,
+      "evidence_count": 0,
+      "supporting_documents": [],
+      "evidence_citations": [],
+      "evidence_snippets": [],
+      "reason": "No ingested document contains substantive coverage for 'Promotions'."
+    }
+  ],
+  "generated_restrictions": [
+    "No invented HR policy",
+    "Answer strictly from provided reference documents and state when information is missing",
+    "Refuse salary, personal leave balance, and individual promotion queries without HRIS data",
+    "Do not invent information or pretend that missing documents exist.",
+    "Ground all factual answers strictly in the verified source documents: attendance_policy.txt, employee_handbook.pdf, hr_faq.md, leave_policy.docx.",
+    "Explicitly refuse requests about unsupported topics (Personal leave balance, Promotions, Payroll calculations without payroll data, Individual employee leave balance lookups without HRIS data) and inform the user that supporting documentation is unavailable.",
+    "For partially supported topics (Hr faq, Salary), share only explicitly documented facts and clearly state any missing details.",
+    "Limit primary topic coverage to verified supported topics: Leave, Attendance, Benefits, Handbook."
+  ],
+  "recommendation": "Generate the agent with supported topics only. Unsupported topics must be explicitly identified and refused.",
+  "available_documents": [
+    "attendance_policy.txt",
+    "employee_handbook.pdf",
+    "hr_faq.md",
+    "leave_policy.docx"
+  ],
+  "formatted_report": "GROUNDABILITY REPORT\n\nSupported:\n- Leave\n- Attendance\n- Benefits\n- Handbook\n\nPartially Supported:\n- Hr faq\n- Salary\n\nUnsupported:\n- Personal leave balance\n- Promotions\n- Payroll calculations without payroll data\n- Individual employee leave balance lookups without HRIS data\n\nTopic Coverage Table:\n| Requested topic | Document support | Status | Score | Sources |\n| --- | --- | --- | --- | --- |\n| Leave | Available | Supported | 0.25 | leave_policy.docx, hr_faq.md |\n| Attendance | Available | Supported | 0.06 | attendance_policy.txt |\n| Benefits | Available | Supported | 0.18 | hr_faq.md |\n| Hr faq | Partial | Partial | 0.18 | employee_handbook.pdf, hr_faq.md |\n| Handbook | Available | Supported | 0.02 | employee_handbook.pdf |\n| Salary | Partial | Partial | 0.17 | employee_handbook.pdf |\n| Personal leave balance | Missing | Unsupported | 0.15 | - |\n| Promotions | Missing | Unsupported | 0.03 | - |\n\nRecommendation:\nGenerate the agent with supported topics only. Unsupported topics must be explicitly identified and refused.",
+  "metadata": {
+    "verification_mode": "semantic_heuristic",
+    "model": null,
+    "total_chunks_searched": 9
+  }
+}

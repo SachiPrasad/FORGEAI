@@ -1,0 +1,2 @@
+Build an HR assistant for employees that can answer questions about leave policies, attendance, benefits and company rules.
+

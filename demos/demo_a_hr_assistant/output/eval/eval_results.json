@@ -1,0 +1,1352 @@
+{
+  "generated_at": "2026-11-27T12:42:44.836369+00:00",
+  "evaluation_mode": "hybrid_deterministic",
+  "scorecard": {
+    "agent_name": "HR Policy Assistant",
+    "total_cases": 20,
+    "passed_cases": 19,
+    "failed_cases": 1,
+    "pass_rate": 0.95,
+    "groundedness_rate": 1.0,
+    "correctness_rate": 0.94,
+    "refusal_accuracy_rate": 1.0,
+    "source_quality_rate": 1.0,
+    "contract_compliance_rate": 1.0,
+    "category_breakdown": {
+      "answerable": {
+        "total": 8,
+        "passed": 8,
+        "pass_rate": 1.0
+      },
+      "multi_document": {
+        "total": 4,
+        "passed": 4,
+        "pass_rate": 1.0
+      },
+      "edge_case": {
+        "total": 3,
+        "passed": 3,
+        "pass_rate": 1.0
+      },
+      "ambiguous": {
+        "total": 2,
+        "passed": 1,
+        "pass_rate": 0.5
+      },
+      "unsupported": {
+        "total": 3,
+        "passed": 3,
+        "pass_rate": 1.0
+      }
+    }
+  },
+  "results": [
+    {
+      "test_id": "HR_001",
+      "category": "answerable",
+      "question": "According to the Core Working Hours section, what policy applies to standard office hours are 9?",
+      "should_refuse": false,
+      "response": {
+        "answer": "According to attendance_policy.txt (Core Working Hours): Standard office hours are 9:00 AM to 6:00 PM local time, Monday through Friday. Core collaboration hours are 10:00 AM to 4:00 PM. According to employee_handbook.pdf (Escalation and HR Support): Escalation and HR Support\nPolicy exceptions, payroll disputes, and salary inquiries must be directed to hr-support@example.com. According to leave_policy.docx (Annual Leave Policy): Full-time employees receive 20 days of annual paid leave and 10 paid sick days per calendar year.\nUnused annual leave up to 5 days may carry over into Q1 of the following year. According to hr_faq.md (Public Holidays): The company observes 12 paid regional public holidays each calendar year.",
+        "sources": [
+          "attendance_policy.txt",
+          "employee_handbook.pdf",
+          "leave_policy.docx",
+          "hr_faq.md"
+        ],
+        "confidence": "high",
+        "refused_unsupported_topic": false,
+        "retrieved_chunk_ids": [
+          "attendance_policy_001",
+          "employee_handbook_002",
+          "leave_policy_001",
+          "attendance_policy_002",
+          "hr_faq_002",
+          "leave_policy_002",
+          "hr_faq_001",
+          "employee_handbook_001",
+          "hr_faq_003"
+        ],
+        "retrieved_context": [
+          "[attendance_policy.txt | Section: Core Working Hours] Standard office hours are 9:00 AM to 6:00 PM local time, Monday through Friday. Core collaboration hours are 10:00 AM to 4:00 PM.",
+          "[employee_handbook.pdf | Page 2 | Section: Escalation and HR Support] Escalation and HR Support\nPolicy exceptions, payroll disputes, and salary inquiries must be directed to hr-support@example.com.",
+          "[leave_policy.docx | Section: Annual Leave Policy] Full-time employees receive 20 days of annual paid leave and 10 paid sick days per calendar year.\nUnused annual leave up to 5 days may carry over into Q1 of the following year.",
+          "[attendance_policy.txt | Section: Late Arrival & Remote Work] Employees delayed by more than 30 minutes must notify their manager before 10:00 AM. Eligible staff may work remotely up to 2 days per week with 24 hours manager notice.",
+          "[hr_faq.md | Section: Public Holidays] The company observes 12 paid regional public holidays each calendar year.",
+          "[leave_policy.docx | Section: Parental Leave] Eligible employees receive up to 12 weeks of paid parental leave after 6 months of tenure.",
+          "[hr_faq.md | Section: Annual Leave Requests] Submit paid time off requests in the HR portal at least 5 business days in advance for trips longer than 3 consecutive days.",
+          "[employee_handbook.pdf | Page 1 | Section: Workplace Conduct and Ethics] Workplace Conduct and Ethics\nAll employees must uphold respectful workplace behavior and protect confidential company records.",
+          "[hr_faq.md | Section: Benefits & Wellness] New hires must enroll in medical and dental benefits within 30 calendar days of start date. Full-time employees receive a 500 USD annual wellness stipend."
+        ],
+        "raw_json": {
+          "answer": "According to attendance_policy.txt (Core Working Hours): Standard office hours are 9:00 AM to 6:00 PM local time, Monday through Friday. Core collaboration hours are 10:00 AM to 4:00 PM. According to employee_handbook.pdf (Escalation and HR Support): Escalation and HR Support\nPolicy exceptions, payroll disputes, and salary inquiries must be directed to hr-support@example.com. According to leave_policy.docx (Annual Leave Policy): Full-time employees receive 20 days of annual paid leave and 10 paid sick days per calendar year.\nUnused annual leave up to 5 days may carry over into Q1 of the following year. According to hr_faq.md (Public Holidays): The company observes 12 paid regional public holidays each calendar year.",
+          "sources": [
+            "attendance_policy.txt",
+            "employee_handbook.pdf",
+            "leave_policy.docx",
+            "hr_faq.md"
+          ],
+          "confidence": "high",
+          "refused_unsupported_topic": false
+        }
+      },
+      "grounded": "Yes",
+      "correct": "Yes",
+      "refusal": "N/A",
+      "source_quality": "Yes",
+      "valid_json_contract": true,
+      "passed": true,
+      "score_label": "Pass",
+      "overall_score": 1.0,
+      "deterministic_checks": {
+        "valid_json_response": true,
+        "no_missing_fields": true,
+        "correct_refusal_status": true,
+        "expected_source_exists": true,
+        "required_facts_present": true
+      },
+      "llm_judge_notes": null,
+      "failure_reasons": []
+    },
+    {
+      "test_id": "HR_002",
+      "category": "answerable",
+      "question": "According to the Workplace Conduct and Ethics section, what policy applies to workplace conduct and ethics?",
+      "should_refuse": false,
+      "response": {
+        "answer": "According to employee_handbook.pdf (Workplace Conduct and Ethics): Workplace Conduct and Ethics\nAll employees must uphold respectful workplace behavior and protect confidential company records. According to leave_policy.docx (Annual Leave Policy): Full-time employees receive 20 days of annual paid leave and 10 paid sick days per calendar year.\nUnused annual leave up to 5 days may carry over into Q1 of the following year. According to attendance_policy.txt (Core Working Hours): Standard office hours are 9:00 AM to 6:00 PM local time, Monday through Friday. Core collaboration hours are 10:00 AM to 4:00 PM. According to hr_faq.md (Benefits & Wellness): New hires must enroll in medical and dental benefits within 30 calendar days of start date. Full-time employees receive a 500 USD annual wellness stipend.",
+        "sources": [
+          "employee_handbook.pdf",
+          "leave_policy.docx",
+          "attendance_policy.txt",
+          "hr_faq.md"
+        ],
+        "confidence": "high",
+        "refused_unsupported_topic": false,
+        "retrieved_chunk_ids": [
+          "employee_handbook_001",
+          "employee_handbook_002",
+          "leave_policy_001",
+          "attendance_policy_001",
+          "attendance_policy_002",
+          "hr_faq_003",
+          "leave_policy_002",
+          "hr_faq_001",
+          "hr_faq_002"
+        ],
+        "retrieved_context": [
+          "[employee_handbook.pdf | Page 1 | Section: Workplace Conduct and Ethics] Workplace Conduct and Ethics\nAll employees must uphold respectful workplace behavior and protect confidential company records.",
+          "[employee_handbook.pdf | Page 2 | Section: Escalation and HR Support] Escalation and HR Support\nPolicy exceptions, payroll disputes, and salary inquiries must be directed to hr-support@example.com.",
+          "[leave_policy.docx | Section: Annual Leave Policy] Full-time employees receive 20 days of annual paid leave and 10 paid sick days per calendar year.\nUnused annual leave up to 5 days may carry over into Q1 of the following year.",
+          "[attendance_policy.txt | Section: Core Working Hours] Standard office hours are 9:00 AM to 6:00 PM local time, Monday through Friday. Core collaboration hours are 10:00 AM to 4:00 PM.",
+          "[attendance_policy.txt | Section: Late Arrival & Remote Work] Employees delayed by more than 30 minutes must notify their manager before 10:00 AM. Eligible staff may work remotely up to 2 days per week with 24 hours manager notice.",
+          "[hr_faq.md | Section: Benefits & Wellness] New hires must enroll in medical and dental benefits within 30 calendar days of start date. Full-time employees receive a 500 USD annual wellness stipend.",
+          "[leave_policy.docx | Section: Parental Leave] Eligible employees receive up to 12 weeks of paid parental leave after 6 months of tenure.",
+          "[hr_faq.md | Section: Annual Leave Requests] Submit paid time off requests in the HR portal at least 5 business days in advance for trips longer than 3 consecutive days.",
+          "[hr_faq.md | Section: Public Holidays] The company observes 12 paid regional public holidays each calendar year."
+        ],
+        "raw_json": {
+          "answer": "According to employee_handbook.pdf (Workplace Conduct and Ethics): Workplace Conduct and Ethics\nAll employees must uphold respectful workplace behavior and protect confidential company records. According to leave_policy.docx (Annual Leave Policy): Full-time employees receive 20 days of annual paid leave and 10 paid sick days per calendar year.\nUnused annual leave up to 5 days may carry over into Q1 of the following year. According to attendance_policy.txt (Core Working Hours): Standard office hours are 9:00 AM to 6:00 PM local time, Monday through Friday. Core collaboration hours are 10:00 AM to 4:00 PM. According to hr_faq.md (Benefits & Wellness): New hires must enroll in medical and dental benefits within 30 calendar days of start date. Full-time employees receive a 500 USD annual wellness stipend.",
+          "sources": [
+            "employee_handbook.pdf",
+            "leave_policy.docx",
+            "attendance_policy.txt",
+            "hr_faq.md"
+          ],
+          "confidence": "high",
+          "refused_unsupported_topic": false
+        }
+      },
+      "grounded": "Yes",
+      "correct": "Yes",
+      "refusal": "N/A",
+      "source_quality": "Yes",
+      "valid_json_contract": true,
+      "passed": true,
+      "score_label": "Pass",
+      "overall_score": 1.0,
+      "deterministic_checks": {
+        "valid_json_response": true,
+        "no_missing_fields": true,
+        "correct_refusal_status": true,
+        "expected_source_exists": true,
+        "required_facts_present": true
+      },
+      "llm_judge_notes": null,
+      "failure_reasons": []
+    },
+    {
+      "test_id": "HR_003",
+      "category": "answerable",
+      "question": "According to the Annual Leave Requests section, what policy applies to submit paid time off requests?",
+      "should_refuse": false,
+      "response": {
+        "answer": "According to hr_faq.md (Annual Leave Requests): Submit paid time off requests in the HR portal at least 5 business days in advance for trips longer than 3 consecutive days. According to leave_policy.docx (Annual Leave Policy): Full-time employees receive 20 days of annual paid leave and 10 paid sick days per calendar year.\nUnused annual leave up to 5 days may carry over into Q1 of the following year. According to attendance_policy.txt (Core Working Hours): Standard office hours are 9:00 AM to 6:00 PM local time, Monday through Friday. Core collaboration hours are 10:00 AM to 4:00 PM. According to employee_handbook.pdf (Escalation and HR Support): Escalation and HR Support\nPolicy exceptions, payroll disputes, and salary inquiries must be directed to hr-support@example.com.",
+        "sources": [
+          "hr_faq.md",
+          "leave_policy.docx",
+          "attendance_policy.txt",
+          "employee_handbook.pdf"
+        ],
+        "confidence": "high",
+        "refused_unsupported_topic": false,
+        "retrieved_chunk_ids": [
+          "hr_faq_001",
+          "leave_policy_001",
+          "leave_policy_002",
+          "hr_faq_003",
+          "attendance_policy_001",
+          "hr_faq_002",
+          "employee_handbook_002",
+          "attendance_policy_002",
+          "employee_handbook_001"
+        ],
+        "retrieved_context": [
+          "[hr_faq.md | Section: Annual Leave Requests] Submit paid time off requests in the HR portal at least 5 business days in advance for trips longer than 3 consecutive days.",
+          "[leave_policy.docx | Section: Annual Leave Policy] Full-time employees receive 20 days of annual paid leave and 10 paid sick days per calendar year.\nUnused annual leave up to 5 days may carry over into Q1 of the following year.",
+          "[leave_policy.docx | Section: Parental Leave] Eligible employees receive up to 12 weeks of paid parental leave after 6 months of tenure.",
+          "[hr_faq.md | Section: Benefits & Wellness] New hires must enroll in medical and dental benefits within 30 calendar days of start date. Full-time employees receive a 500 USD annual wellness stipend.",
+          "[attendance_policy.txt | Section: Core Working Hours] Standard office hours are 9:00 AM to 6:00 PM local time, Monday through Friday. Core collaboration hours are 10:00 AM to 4:00 PM.",
+          "[hr_faq.md | Section: Public Holidays] The company observes 12 paid regional public holidays each calendar year.",
+          "[employee_handbook.pdf | Page 2 | Section: Escalation and HR Support] Escalation and HR Support\nPolicy exceptions, payroll disputes, and salary inquiries must be directed to hr-support@example.com.",
+          "[attendance_policy.txt | Section: Late Arrival & Remote Work] Employees delayed by more than 30 minutes must notify their manager before 10:00 AM. Eligible staff may work remotely up to 2 days per week with 24 hours manager notice.",
+          "[employee_handbook.pdf | Page 1 | Section: Workplace Conduct and Ethics] Workplace Conduct and Ethics\nAll employees must uphold respectful workplace behavior and protect confidential company records."
+        ],
+        "raw_json": {
+          "answer": "According to hr_faq.md (Annual Leave Requests): Submit paid time off requests in the HR portal at least 5 business days in advance for trips longer than 3 consecutive days. According to leave_policy.docx (Annual Leave Policy): Full-time employees receive 20 days of annual paid leave and 10 paid sick days per calendar year.\nUnused annual leave up to 5 days may carry over into Q1 of the following year. According to attendance_policy.txt (Core Working Hours): Standard office hours are 9:00 AM to 6:00 PM local time, Monday through Friday. Core collaboration hours are 10:00 AM to 4:00 PM. According to employee_handbook.pdf (Escalation and HR Support): Escalation and HR Support\nPolicy exceptions, payroll disputes, and salary inquiries must be directed to hr-support@example.com.",
+          "sources": [
+            "hr_faq.md",
+            "leave_policy.docx",
+            "attendance_policy.txt",
+            "employee_handbook.pdf"
+          ],
+          "confidence": "high",
+          "refused_unsupported_topic": false
+        }
+      },
+      "grounded": "Yes",
+      "correct": "Yes",
+      "refusal": "N/A",
+      "source_quality": "Yes",
+      "valid_json_contract": true,
+      "passed": true,
+      "score_label": "Pass",
+      "overall_score": 1.0,
+      "deterministic_checks": {
+        "valid_json_response": true,
+        "no_missing_fields": true,
+        "correct_refusal_status": true,
+        "expected_source_exists": true,
+        "required_facts_present": true
+      },
+      "llm_judge_notes": null,
+      "failure_reasons": []
+    },
+    {
+      "test_id": "HR_004",
+      "category": "answerable",
+      "question": "According to the Annual Leave Policy section, what policy applies to employees receive 20 days of?",
+      "should_refuse": false,
+      "response": {
+        "answer": "According to leave_policy.docx (Annual Leave Policy): Full-time employees receive 20 days of annual paid leave and 10 paid sick days per calendar year.\nUnused annual leave up to 5 days may carry over into Q1 of the following year. According to hr_faq.md (Benefits & Wellness): New hires must enroll in medical and dental benefits within 30 calendar days of start date. Full-time employees receive a 500 USD annual wellness stipend. According to employee_handbook.pdf (Escalation and HR Support): Escalation and HR Support\nPolicy exceptions, payroll disputes, and salary inquiries must be directed to hr-support@example.com. According to attendance_policy.txt (Late Arrival & Remote Work): Employees delayed by more than 30 minutes must notify their manager before 10:00 AM. Eligible staff may work remotely up to 2 days per week with 24 hours manager notice.",
+        "sources": [
+          "leave_policy.docx",
+          "hr_faq.md",
+          "employee_handbook.pdf",
+          "attendance_policy.txt"
+        ],
+        "confidence": "high",
+        "refused_unsupported_topic": false,
+        "retrieved_chunk_ids": [
+          "leave_policy_001",
+          "leave_policy_002",
+          "hr_faq_003",
+          "hr_faq_001",
+          "employee_handbook_002",
+          "attendance_policy_002",
+          "attendance_policy_001",
+          "employee_handbook_001",
+          "hr_faq_002"
+        ],
+        "retrieved_context": [
+          "[leave_policy.docx | Section: Annual Leave Policy] Full-time employees receive 20 days of annual paid leave and 10 paid sick days per calendar year.\nUnused annual leave up to 5 days may carry over into Q1 of the following year.",
+          "[leave_policy.docx | Section: Parental Leave] Eligible employees receive up to 12 weeks of paid parental leave after 6 months of tenure.",
+          "[hr_faq.md | Section: Benefits & Wellness] New hires must enroll in medical and dental benefits within 30 calendar days of start date. Full-time employees receive a 500 USD annual wellness stipend.",
+          "[hr_faq.md | Section: Annual Leave Requests] Submit paid time off requests in the HR portal at least 5 business days in advance for trips longer than 3 consecutive days.",
+          "[employee_handbook.pdf | Page 2 | Section: Escalation and HR Support] Escalation and HR Support\nPolicy exceptions, payroll disputes, and salary inquiries must be directed to hr-support@example.com.",
+          "[attendance_policy.txt | Section: Late Arrival & Remote Work] Employees delayed by more than 30 minutes must notify their manager before 10:00 AM. Eligible staff may work remotely up to 2 days per week with 24 hours manager notice.",
+          "[attendance_policy.txt | Section: Core Working Hours] Standard office hours are 9:00 AM to 6:00 PM local time, Monday through Friday. Core collaboration hours are 10:00 AM to 4:00 PM.",
+          "[employee_handbook.pdf | Page 1 | Section: Workplace Conduct and Ethics] Workplace Conduct and Ethics\nAll employees must uphold respectful workplace behavior and protect confidential company records.",
+          "[hr_faq.md | Section: Public Holidays] The company observes 12 paid regional public holidays each calendar year."
+        ],
+        "raw_json": {
+          "answer": "According to leave_policy.docx (Annual Leave Policy): Full-time employees receive 20 days of annual paid leave and 10 paid sick days per calendar year.\nUnused annual leave up to 5 days may carry over into Q1 of the following year. According to hr_faq.md (Benefits & Wellness): New hires must enroll in medical and dental benefits within 30 calendar days of start date. Full-time employees receive a 500 USD annual wellness stipend. According to employee_handbook.pdf (Escalation and HR Support): Escalation and HR Support\nPolicy exceptions, payroll disputes, and salary inquiries must be directed to hr-support@example.com. According to attendance_policy.txt (Late Arrival & Remote Work): Employees delayed by more than 30 minutes must notify their manager before 10:00 AM. Eligible staff may work remotely up to 2 days per week with 24 hours manager notice.",
+          "sources": [
+            "leave_policy.docx",
+            "hr_faq.md",
+            "employee_handbook.pdf",
+            "attendance_policy.txt"
+          ],
+          "confidence": "high",
+          "refused_unsupported_topic": false
+        }
+      },
+      "grounded": "Yes",
+      "correct": "Yes",
+      "refusal": "N/A",
+      "source_quality": "Yes",
+      "valid_json_contract": true,
+      "passed": true,
+      "score_label": "Pass",
+      "overall_score": 1.0,
+      "deterministic_checks": {
+        "valid_json_response": true,
+        "no_missing_fields": true,
+        "correct_refusal_status": true,
+        "expected_source_exists": true,
+        "required_facts_present": true
+      },
+      "llm_judge_notes": null,
+      "failure_reasons": []
+    },
+    {
+      "test_id": "HR_005",
+      "category": "answerable",
+      "question": "According to the Core Working Hours section, what policy applies to core collaboration hours are 10?",
+      "should_refuse": false,
+      "response": {
+        "answer": "According to attendance_policy.txt (Core Working Hours): Standard office hours are 9:00 AM to 6:00 PM local time, Monday through Friday. Core collaboration hours are 10:00 AM to 4:00 PM. According to leave_policy.docx (Annual Leave Policy): Full-time employees receive 20 days of annual paid leave and 10 paid sick days per calendar year.\nUnused annual leave up to 5 days may carry over into Q1 of the following year. According to employee_handbook.pdf (Escalation and HR Support): Escalation and HR Support\nPolicy exceptions, payroll disputes, and salary inquiries must be directed to hr-support@example.com. According to hr_faq.md (Public Holidays): The company observes 12 paid regional public holidays each calendar year.",
+        "sources": [
+          "attendance_policy.txt",
+          "leave_policy.docx",
+          "employee_handbook.pdf",
+          "hr_faq.md"
+        ],
+        "confidence": "high",
+        "refused_unsupported_topic": false,
+        "retrieved_chunk_ids": [
+          "attendance_policy_001",
+          "leave_policy_001",
+          "employee_handbook_002",
+          "attendance_policy_002",
+          "leave_policy_002",
+          "hr_faq_002",
+          "employee_handbook_001",
+          "hr_faq_001",
+          "hr_faq_003"
+        ],
+        "retrieved_context": [
+          "[attendance_policy.txt | Section: Core Working Hours] Standard office hours are 9:00 AM to 6:00 PM local time, Monday through Friday. Core collaboration hours are 10:00 AM to 4:00 PM.",
+          "[leave_policy.docx | Section: Annual Leave Policy] Full-time employees receive 20 days of annual paid leave and 10 paid sick days per calendar year.\nUnused annual leave up to 5 days may carry over into Q1 of the following year.",
+          "[employee_handbook.pdf | Page 2 | Section: Escalation and HR Support] Escalation and HR Support\nPolicy exceptions, payroll disputes, and salary inquiries must be directed to hr-support@example.com.",
+          "[attendance_policy.txt | Section: Late Arrival & Remote Work] Employees delayed by more than 30 minutes must notify their manager before 10:00 AM. Eligible staff may work remotely up to 2 days per week with 24 hours manager notice.",
+          "[leave_policy.docx | Section: Parental Leave] Eligible employees receive up to 12 weeks of paid parental leave after 6 months of tenure.",
+          "[hr_faq.md | Section: Public Holidays] The company observes 12 paid regional public holidays each calendar year.",
+          "[employee_handbook.pdf | Page 1 | Section: Workplace Conduct and Ethics] Workplace Conduct and Ethics\nAll employees must uphold respectful workplace behavior and protect confidential company records.",
+          "[hr_faq.md | Section: Annual Leave Requests] Submit paid time off requests in the HR portal at least 5 business days in advance for trips longer than 3 consecutive days.",
+          "[hr_faq.md | Section: Benefits & Wellness] New hires must enroll in medical and dental benefits within 30 calendar days of start date. Full-time employees receive a 500 USD annual wellness stipend."
+        ],
+        "raw_json": {
+          "answer": "According to attendance_policy.txt (Core Working Hours): Standard office hours are 9:00 AM to 6:00 PM local time, Monday through Friday. Core collaboration hours are 10:00 AM to 4:00 PM. According to leave_policy.docx (Annual Leave Policy): Full-time employees receive 20 days of annual paid leave and 10 paid sick days per calendar year.\nUnused annual leave up to 5 days may carry over into Q1 of the following year. According to employee_handbook.pdf (Escalation and HR Support): Escalation and HR Support\nPolicy exceptions, payroll disputes, and salary inquiries must be directed to hr-support@example.com. According to hr_faq.md (Public Holidays): The company observes 12 paid regional public holidays each calendar year.",
+          "sources": [
+            "attendance_policy.txt",
+            "leave_policy.docx",
+            "employee_handbook.pdf",
+            "hr_faq.md"
+          ],
+          "confidence": "high",
+          "refused_unsupported_topic": false
+        }
+      },
+      "grounded": "Yes",
+      "correct": "Yes",
+      "refusal": "N/A",
+      "source_quality": "Yes",
+      "valid_json_contract": true,
+      "passed": true,
+      "score_label": "Pass",
+      "overall_score": 1.0,
+      "deterministic_checks": {
+        "valid_json_response": true,
+        "no_missing_fields": true,
+        "correct_refusal_status": true,
+        "expected_source_exists": true,
+        "required_facts_present": true
+      },
+      "llm_judge_notes": null,
+      "failure_reasons": []
+    },
+    {
+      "test_id": "HR_006",
+      "category": "answerable",
+      "question": "According to the Workplace Conduct and Ethics section, what policy applies to employees must uphold respectful workplace?",
+      "should_refuse": false,
+      "response": {
+        "answer": "According to employee_handbook.pdf (Workplace Conduct and Ethics): Workplace Conduct and Ethics\nAll employees must uphold respectful workplace behavior and protect confidential company records. According to leave_policy.docx (Annual Leave Policy): Full-time employees receive 20 days of annual paid leave and 10 paid sick days per calendar year.\nUnused annual leave up to 5 days may carry over into Q1 of the following year. According to attendance_policy.txt (Late Arrival & Remote Work): Employees delayed by more than 30 minutes must notify their manager before 10:00 AM. Eligible staff may work remotely up to 2 days per week with 24 hours manager notice. According to hr_faq.md (Benefits & Wellness): New hires must enroll in medical and dental benefits within 30 calendar days of start date. Full-time employees receive a 500 USD annual wellness stipend.",
+        "sources": [
+          "employee_handbook.pdf",
+          "leave_policy.docx",
+          "attendance_policy.txt",
+          "hr_faq.md"
+        ],
+        "confidence": "high",
+        "refused_unsupported_topic": false,
+        "retrieved_chunk_ids": [
+          "employee_handbook_001",
+          "employee_handbook_002",
+          "leave_policy_001",
+          "attendance_policy_002",
+          "hr_faq_003",
+          "leave_policy_002",
+          "hr_faq_002",
+          "attendance_policy_001",
+          "hr_faq_001"
+        ],
+        "retrieved_context": [
+          "[employee_handbook.pdf | Page 1 | Section: Workplace Conduct and Ethics] Workplace Conduct and Ethics\nAll employees must uphold respectful workplace behavior and protect confidential company records.",
+          "[employee_handbook.pdf | Page 2 | Section: Escalation and HR Support] Escalation and HR Support\nPolicy exceptions, payroll disputes, and salary inquiries must be directed to hr-support@example.com.",
+          "[leave_policy.docx | Section: Annual Leave Policy] Full-time employees receive 20 days of annual paid leave and 10 paid sick days per calendar year.\nUnused annual leave up to 5 days may carry over into Q1 of the following year.",
+          "[attendance_policy.txt | Section: Late Arrival & Remote Work] Employees delayed by more than 30 minutes must notify their manager before 10:00 AM. Eligible staff may work remotely up to 2 days per week with 24 hours manager notice.",
+          "[hr_faq.md | Section: Benefits & Wellness] New hires must enroll in medical and dental benefits within 30 calendar days of start date. Full-time employees receive a 500 USD annual wellness stipend.",
+          "[leave_policy.docx | Section: Parental Leave] Eligible employees receive up to 12 weeks of paid parental leave after 6 months of tenure.",
+          "[hr_faq.md | Section: Public Holidays] The company observes 12 paid regional public holidays each calendar year.",
+          "[attendance_policy.txt | Section: Core Working Hours] Standard office hours are 9:00 AM to 6:00 PM local time, Monday through Friday. Core collaboration hours are 10:00 AM to 4:00 PM.",
+          "[hr_faq.md | Section: Annual Leave Requests] Submit paid time off requests in the HR portal at least 5 business days in advance for trips longer than 3 consecutive days."
+        ],
+        "raw_json": {
+          "answer": "According to employee_handbook.pdf (Workplace Conduct and Ethics): Workplace Conduct and Ethics\nAll employees must uphold respectful workplace behavior and protect confidential company records. According to leave_policy.docx (Annual Leave Policy): Full-time employees receive 20 days of annual paid leave and 10 paid sick days per calendar year.\nUnused annual leave up to 5 days may carry over into Q1 of the following year. According to attendance_policy.txt (Late Arrival & Remote Work): Employees delayed by more than 30 minutes must notify their manager before 10:00 AM. Eligible staff may work remotely up to 2 days per week with 24 hours manager notice. According to hr_faq.md (Benefits & Wellness): New hires must enroll in medical and dental benefits within 30 calendar days of start date. Full-time employees receive a 500 USD annual wellness stipend.",
+          "sources": [
+            "employee_handbook.pdf",
+            "leave_policy.docx",
+            "attendance_policy.txt",
+            "hr_faq.md"
+          ],
+          "confidence": "high",
+          "refused_unsupported_topic": false
+        }
+      },
+      "grounded": "Yes",
+      "correct": "Yes",
+      "refusal": "N/A",
+      "source_quality": "Yes",
+      "valid_json_contract": true,
+      "passed": true,
+      "score_label": "Pass",
+      "overall_score": 1.0,
+      "deterministic_checks": {
+        "valid_json_response": true,
+        "no_missing_fields": true,
+        "correct_refusal_status": true,
+        "expected_source_exists": true,
+        "required_facts_present": true
+      },
+      "llm_judge_notes": null,
+      "failure_reasons": []
+    },
+    {
+      "test_id": "HR_007",
+      "category": "answerable",
+      "question": "According to the Public Holidays section, what policy applies to company observes 12 paid regional?",
+      "should_refuse": false,
+      "response": {
+        "answer": "According to hr_faq.md (Public Holidays): The company observes 12 paid regional public holidays each calendar year. According to leave_policy.docx (Annual Leave Policy): Full-time employees receive 20 days of annual paid leave and 10 paid sick days per calendar year.\nUnused annual leave up to 5 days may carry over into Q1 of the following year. According to employee_handbook.pdf (Escalation and HR Support): Escalation and HR Support\nPolicy exceptions, payroll disputes, and salary inquiries must be directed to hr-support@example.com. According to attendance_policy.txt (Late Arrival & Remote Work): Employees delayed by more than 30 minutes must notify their manager before 10:00 AM. Eligible staff may work remotely up to 2 days per week with 24 hours manager notice.",
+        "sources": [
+          "hr_faq.md",
+          "leave_policy.docx",
+          "employee_handbook.pdf",
+          "attendance_policy.txt"
+        ],
+        "confidence": "high",
+        "refused_unsupported_topic": false,
+        "retrieved_chunk_ids": [
+          "hr_faq_002",
+          "leave_policy_001",
+          "leave_policy_002",
+          "employee_handbook_002",
+          "hr_faq_001",
+          "attendance_policy_001",
+          "attendance_policy_002",
+          "employee_handbook_001",
+          "hr_faq_003"
+        ],
+        "retrieved_context": [
+          "[hr_faq.md | Section: Public Holidays] The company observes 12 paid regional public holidays each calendar year.",
+          "[leave_policy.docx | Section: Annual Leave Policy] Full-time employees receive 20 days of annual paid leave and 10 paid sick days per calendar year.\nUnused annual leave up to 5 days may carry over into Q1 of the following year.",
+          "[leave_policy.docx | Section: Parental Leave] Eligible employees receive up to 12 weeks of paid parental leave after 6 months of tenure.",
+          "[employee_handbook.pdf | Page 2 | Section: Escalation and HR Support] Escalation and HR Support\nPolicy exceptions, payroll disputes, and salary inquiries must be directed to hr-support@example.com.",
+          "[hr_faq.md | Section: Annual Leave Requests] Submit paid time off requests in the HR portal at least 5 business days in advance for trips longer than 3 consecutive days.",
+          "[attendance_policy.txt | Section: Core Working Hours] Standard office hours are 9:00 AM to 6:00 PM local time, Monday through Friday. Core collaboration hours are 10:00 AM to 4:00 PM.",
+          "[attendance_policy.txt | Section: Late Arrival & Remote Work] Employees delayed by more than 30 minutes must notify their manager before 10:00 AM. Eligible staff may work remotely up to 2 days per week with 24 hours manager notice.",
+          "[employee_handbook.pdf | Page 1 | Section: Workplace Conduct and Ethics] Workplace Conduct and Ethics\nAll employees must uphold respectful workplace behavior and protect confidential company records.",
+          "[hr_faq.md | Section: Benefits & Wellness] New hires must enroll in medical and dental benefits within 30 calendar days of start date. Full-time employees receive a 500 USD annual wellness stipend."
+        ],
+        "raw_json": {
+          "answer": "According to hr_faq.md (Public Holidays): The company observes 12 paid regional public holidays each calendar year. According to leave_policy.docx (Annual Leave Policy): Full-time employees receive 20 days of annual paid leave and 10 paid sick days per calendar year.\nUnused annual leave up to 5 days may carry over into Q1 of the following year. According to employee_handbook.pdf (Escalation and HR Support): Escalation and HR Support\nPolicy exceptions, payroll disputes, and salary inquiries must be directed to hr-support@example.com. According to attendance_policy.txt (Late Arrival & Remote Work): Employees delayed by more than 30 minutes must notify their manager before 10:00 AM. Eligible staff may work remotely up to 2 days per week with 24 hours manager notice.",
+          "sources": [
+            "hr_faq.md",
+            "leave_policy.docx",
+            "employee_handbook.pdf",
+            "attendance_policy.txt"
+          ],
+          "confidence": "high",
+          "refused_unsupported_topic": false
+        }
+      },
+      "grounded": "Yes",
+      "correct": "Yes",
+      "refusal": "N/A",
+      "source_quality": "Yes",
+      "valid_json_contract": true,
+      "passed": true,
+      "score_label": "Pass",
+      "overall_score": 1.0,
+      "deterministic_checks": {
+        "valid_json_response": true,
+        "no_missing_fields": true,
+        "correct_refusal_status": true,
+        "expected_source_exists": true,
+        "required_facts_present": true
+      },
+      "llm_judge_notes": null,
+      "failure_reasons": []
+    },
+    {
+      "test_id": "HR_008",
+      "category": "answerable",
+      "question": "According to the Annual Leave Policy section, what policy applies to annual leave up to 5?",
+      "should_refuse": false,
+      "response": {
+        "answer": "According to leave_policy.docx (Annual Leave Policy): Full-time employees receive 20 days of annual paid leave and 10 paid sick days per calendar year.\nUnused annual leave up to 5 days may carry over into Q1 of the following year. According to employee_handbook.pdf (Escalation and HR Support): Escalation and HR Support\nPolicy exceptions, payroll disputes, and salary inquiries must be directed to hr-support@example.com. According to hr_faq.md (Benefits & Wellness): New hires must enroll in medical and dental benefits within 30 calendar days of start date. Full-time employees receive a 500 USD annual wellness stipend. According to attendance_policy.txt (Late Arrival & Remote Work): Employees delayed by more than 30 minutes must notify their manager before 10:00 AM. Eligible staff may work remotely up to 2 days per week with 24 hours manager notice.",
+        "sources": [
+          "leave_policy.docx",
+          "employee_handbook.pdf",
+          "hr_faq.md",
+          "attendance_policy.txt"
+        ],
+        "confidence": "high",
+        "refused_unsupported_topic": false,
+        "retrieved_chunk_ids": [
+          "leave_policy_001",
+          "leave_policy_002",
+          "employee_handbook_002",
+          "hr_faq_003",
+          "attendance_policy_002",
+          "hr_faq_001",
+          "attendance_policy_001",
+          "hr_faq_002",
+          "employee_handbook_001"
+        ],
+        "retrieved_context": [
+          "[leave_policy.docx | Section: Annual Leave Policy] Full-time employees receive 20 days of annual paid leave and 10 paid sick days per calendar year.\nUnused annual leave up to 5 days may carry over into Q1 of the following year.",
+          "[leave_policy.docx | Section: Parental Leave] Eligible employees receive up to 12 weeks of paid parental leave after 6 months of tenure.",
+          "[employee_handbook.pdf | Page 2 | Section: Escalation and HR Support] Escalation and HR Support\nPolicy exceptions, payroll disputes, and salary inquiries must be directed to hr-support@example.com.",
+          "[hr_faq.md | Section: Benefits & Wellness] New hires must enroll in medical and dental benefits within 30 calendar days of start date. Full-time employees receive a 500 USD annual wellness stipend.",
+          "[attendance_policy.txt | Section: Late Arrival & Remote Work] Employees delayed by more than 30 minutes must notify their manager before 10:00 AM. Eligible staff may work remotely up to 2 days per week with 24 hours manager notice.",
+          "[hr_faq.md | Section: Annual Leave Requests] Submit paid time off requests in the HR portal at least 5 business days in advance for trips longer than 3 consecutive days.",
+          "[attendance_policy.txt | Section: Core Working Hours] Standard office hours are 9:00 AM to 6:00 PM local time, Monday through Friday. Core collaboration hours are 10:00 AM to 4:00 PM.",
+          "[hr_faq.md | Section: Public Holidays] The company observes 12 paid regional public holidays each calendar year.",
+          "[employee_handbook.pdf | Page 1 | Section: Workplace Conduct and Ethics] Workplace Conduct and Ethics\nAll employees must uphold respectful workplace behavior and protect confidential company records."
+        ],
+        "raw_json": {
+          "answer": "According to leave_policy.docx (Annual Leave Policy): Full-time employees receive 20 days of annual paid leave and 10 paid sick days per calendar year.\nUnused annual leave up to 5 days may carry over into Q1 of the following year. According to employee_handbook.pdf (Escalation and HR Support): Escalation and HR Support\nPolicy exceptions, payroll disputes, and salary inquiries must be directed to hr-support@example.com. According to hr_faq.md (Benefits & Wellness): New hires must enroll in medical and dental benefits within 30 calendar days of start date. Full-time employees receive a 500 USD annual wellness stipend. According to attendance_policy.txt (Late Arrival & Remote Work): Employees delayed by more than 30 minutes must notify their manager before 10:00 AM. Eligible staff may work remotely up to 2 days per week with 24 hours manager notice.",
+          "sources": [
+            "leave_policy.docx",
+            "employee_handbook.pdf",
+            "hr_faq.md",
+            "attendance_policy.txt"
+          ],
+          "confidence": "high",
+          "refused_unsupported_topic": false
+        }
+      },
+      "grounded": "Yes",
+      "correct": "Yes",
+      "refusal": "N/A",
+      "source_quality": "Yes",
+      "valid_json_contract": true,
+      "passed": true,
+      "score_label": "Pass",
+      "overall_score": 1.0,
+      "deterministic_checks": {
+        "valid_json_response": true,
+        "no_missing_fields": true,
+        "correct_refusal_status": true,
+        "expected_source_exists": true,
+        "required_facts_present": true
+      },
+      "llm_judge_notes": null,
+      "failure_reasons": []
+    },
+    {
+      "test_id": "HR_009",
+      "category": "multi_document",
+      "question": "Considering both Core Working Hours and Workplace Conduct and Ethics, what rules apply to standard office hours are 9 together with employees must uphold respectful workplace?",
+      "should_refuse": false,
+      "response": {
+        "answer": "According to employee_handbook.pdf (Workplace Conduct and Ethics): Workplace Conduct and Ethics\nAll employees must uphold respectful workplace behavior and protect confidential company records. According to attendance_policy.txt (Core Working Hours): Standard office hours are 9:00 AM to 6:00 PM local time, Monday through Friday. Core collaboration hours are 10:00 AM to 4:00 PM. According to hr_faq.md (Benefits & Wellness): New hires must enroll in medical and dental benefits within 30 calendar days of start date. Full-time employees receive a 500 USD annual wellness stipend. According to leave_policy.docx (Annual Leave Policy): Full-time employees receive 20 days of annual paid leave and 10 paid sick days per calendar year.\nUnused annual leave up to 5 days may carry over into Q1 of the following year.",
+        "sources": [
+          "employee_handbook.pdf",
+          "attendance_policy.txt",
+          "hr_faq.md",
+          "leave_policy.docx"
+        ],
+        "confidence": "high",
+        "refused_unsupported_topic": false,
+        "retrieved_chunk_ids": [
+          "employee_handbook_001",
+          "attendance_policy_001",
+          "attendance_policy_002",
+          "employee_handbook_002",
+          "hr_faq_003",
+          "leave_policy_001",
+          "leave_policy_002",
+          "hr_faq_002",
+          "hr_faq_001"
+        ],
+        "retrieved_context": [
+          "[employee_handbook.pdf | Page 1 | Section: Workplace Conduct and Ethics] Workplace Conduct and Ethics\nAll employees must uphold respectful workplace behavior and protect confidential company records.",
+          "[attendance_policy.txt | Section: Core Working Hours] Standard office hours are 9:00 AM to 6:00 PM local time, Monday through Friday. Core collaboration hours are 10:00 AM to 4:00 PM.",
+          "[attendance_policy.txt | Section: Late Arrival & Remote Work] Employees delayed by more than 30 minutes must notify their manager before 10:00 AM. Eligible staff may work remotely up to 2 days per week with 24 hours manager notice.",
+          "[employee_handbook.pdf | Page 2 | Section: Escalation and HR Support] Escalation and HR Support\nPolicy exceptions, payroll disputes, and salary inquiries must be directed to hr-support@example.com.",
+          "[hr_faq.md | Section: Benefits & Wellness] New hires must enroll in medical and dental benefits within 30 calendar days of start date. Full-time employees receive a 500 USD annual wellness stipend.",
+          "[leave_policy.docx | Section: Annual Leave Policy] Full-time employees receive 20 days of annual paid leave and 10 paid sick days per calendar year.\nUnused annual leave up to 5 days may carry over into Q1 of the following year.",
+          "[leave_policy.docx | Section: Parental Leave] Eligible employees receive up to 12 weeks of paid parental leave after 6 months of tenure.",
+          "[hr_faq.md | Section: Public Holidays] The company observes 12 paid regional public holidays each calendar year.",
+          "[hr_faq.md | Section: Annual Leave Requests] Submit paid time off requests in the HR portal at least 5 business days in advance for trips longer than 3 consecutive days."
+        ],
+        "raw_json": {
+          "answer": "According to employee_handbook.pdf (Workplace Conduct and Ethics): Workplace Conduct and Ethics\nAll employees must uphold respectful workplace behavior and protect confidential company records. According to attendance_policy.txt (Core Working Hours): Standard office hours are 9:00 AM to 6:00 PM local time, Monday through Friday. Core collaboration hours are 10:00 AM to 4:00 PM. According to hr_faq.md (Benefits & Wellness): New hires must enroll in medical and dental benefits within 30 calendar days of start date. Full-time employees receive a 500 USD annual wellness stipend. According to leave_policy.docx (Annual Leave Policy): Full-time employees receive 20 days of annual paid leave and 10 paid sick days per calendar year.\nUnused annual leave up to 5 days may carry over into Q1 of the following year.",
+          "sources": [
+            "employee_handbook.pdf",
+            "attendance_policy.txt",
+            "hr_faq.md",
+            "leave_policy.docx"
+          ],
+          "confidence": "high",
+          "refused_unsupported_topic": false
+        }
+      },
+      "grounded": "Yes",
+      "correct": "Yes",
+      "refusal": "N/A",
+      "source_quality": "Yes",
+      "valid_json_contract": true,
+      "passed": true,
+      "score_label": "Pass",
+      "overall_score": 1.0,
+      "deterministic_checks": {
+        "valid_json_response": true,
+        "no_missing_fields": true,
+        "correct_refusal_status": true,
+        "expected_source_exists": true,
+        "required_facts_present": true
+      },
+      "llm_judge_notes": null,
+      "failure_reasons": []
+    },
+    {
+      "test_id": "HR_010",
+      "category": "multi_document",
+      "question": "Considering both Core Working Hours and Benefits & Wellness, what rules apply to core collaboration hours are 10 together with hires must enroll in medical?",
+      "should_refuse": false,
+      "response": {
+        "answer": "According to hr_faq.md (Benefits & Wellness): New hires must enroll in medical and dental benefits within 30 calendar days of start date. Full-time employees receive a 500 USD annual wellness stipend. According to attendance_policy.txt (Core Working Hours): Standard office hours are 9:00 AM to 6:00 PM local time, Monday through Friday. Core collaboration hours are 10:00 AM to 4:00 PM. According to employee_handbook.pdf (Escalation and HR Support): Escalation and HR Support\nPolicy exceptions, payroll disputes, and salary inquiries must be directed to hr-support@example.com. According to leave_policy.docx (Annual Leave Policy): Full-time employees receive 20 days of annual paid leave and 10 paid sick days per calendar year.\nUnused annual leave up to 5 days may carry over into Q1 of the following year.",
+        "sources": [
+          "hr_faq.md",
+          "attendance_policy.txt",
+          "employee_handbook.pdf",
+          "leave_policy.docx"
+        ],
+        "confidence": "high",
+        "refused_unsupported_topic": false,
+        "retrieved_chunk_ids": [
+          "hr_faq_003",
+          "attendance_policy_001",
+          "attendance_policy_002",
+          "employee_handbook_002",
+          "employee_handbook_001",
+          "leave_policy_001",
+          "hr_faq_001",
+          "hr_faq_002",
+          "leave_policy_002"
+        ],
+        "retrieved_context": [
+          "[hr_faq.md | Section: Benefits & Wellness] New hires must enroll in medical and dental benefits within 30 calendar days of start date. Full-time employees receive a 500 USD annual wellness stipend.",
+          "[attendance_policy.txt | Section: Core Working Hours] Standard office hours are 9:00 AM to 6:00 PM local time, Monday through Friday. Core collaboration hours are 10:00 AM to 4:00 PM.",
+          "[attendance_policy.txt | Section: Late Arrival & Remote Work] Employees delayed by more than 30 minutes must notify their manager before 10:00 AM. Eligible staff may work remotely up to 2 days per week with 24 hours manager notice.",
+          "[employee_handbook.pdf | Page 2 | Section: Escalation and HR Support] Escalation and HR Support\nPolicy exceptions, payroll disputes, and salary inquiries must be directed to hr-support@example.com.",
+          "[employee_handbook.pdf | Page 1 | Section: Workplace Conduct and Ethics] Workplace Conduct and Ethics\nAll employees must uphold respectful workplace behavior and protect confidential company records.",
+          "[leave_policy.docx | Section: Annual Leave Policy] Full-time employees receive 20 days of annual paid leave and 10 paid sick days per calendar year.\nUnused annual leave up to 5 days may carry over into Q1 of the following year.",
+          "[hr_faq.md | Section: Annual Leave Requests] Submit paid time off requests in the HR portal at least 5 business days in advance for trips longer than 3 consecutive days.",
+          "[hr_faq.md | Section: Public Holidays] The company observes 12 paid regional public holidays each calendar year.",
+          "[leave_policy.docx | Section: Parental Leave] Eligible employees receive up to 12 weeks of paid parental leave after 6 months of tenure."
+        ],
+        "raw_json": {
+          "answer": "According to hr_faq.md (Benefits & Wellness): New hires must enroll in medical and dental benefits within 30 calendar days of start date. Full-time employees receive a 500 USD annual wellness stipend. According to attendance_policy.txt (Core Working Hours): Standard office hours are 9:00 AM to 6:00 PM local time, Monday through Friday. Core collaboration hours are 10:00 AM to 4:00 PM. According to employee_handbook.pdf (Escalation and HR Support): Escalation and HR Support\nPolicy exceptions, payroll disputes, and salary inquiries must be directed to hr-support@example.com. According to leave_policy.docx (Annual Leave Policy): Full-time employees receive 20 days of annual paid leave and 10 paid sick days per calendar year.\nUnused annual leave up to 5 days may carry over into Q1 of the following year.",
+          "sources": [
+            "hr_faq.md",
+            "attendance_policy.txt",
+            "employee_handbook.pdf",
+            "leave_policy.docx"
+          ],
+          "confidence": "high",
+          "refused_unsupported_topic": false
+        }
+      },
+      "grounded": "Yes",
+      "correct": "Yes",
+      "refusal": "N/A",
+      "source_quality": "Yes",
+      "valid_json_contract": true,
+      "passed": true,
+      "score_label": "Pass",
+      "overall_score": 1.0,
+      "deterministic_checks": {
+        "valid_json_response": true,
+        "no_missing_fields": true,
+        "correct_refusal_status": true,
+        "expected_source_exists": true,
+        "required_facts_present": true
+      },
+      "llm_judge_notes": null,
+      "failure_reasons": []
+    },
+    {
+      "test_id": "HR_011",
+      "category": "multi_document",
+      "question": "Considering both Late Arrival & Remote Work and Annual Leave Policy, what rules apply to employees delayed by more than together with employees receive 20 days of?",
+      "should_refuse": false,
+      "response": {
+        "answer": "According to leave_policy.docx (Annual Leave Policy): Full-time employees receive 20 days of annual paid leave and 10 paid sick days per calendar year.\nUnused annual leave up to 5 days may carry over into Q1 of the following year. According to attendance_policy.txt (Late Arrival & Remote Work): Employees delayed by more than 30 minutes must notify their manager before 10:00 AM. Eligible staff may work remotely up to 2 days per week with 24 hours manager notice. According to hr_faq.md (Benefits & Wellness): New hires must enroll in medical and dental benefits within 30 calendar days of start date. Full-time employees receive a 500 USD annual wellness stipend. According to employee_handbook.pdf (Workplace Conduct and Ethics): Workplace Conduct and Ethics\nAll employees must uphold respectful workplace behavior and protect confidential company records.",
+        "sources": [
+          "leave_policy.docx",
+          "attendance_policy.txt",
+          "hr_faq.md",
+          "employee_handbook.pdf"
+        ],
+        "confidence": "high",
+        "refused_unsupported_topic": false,
+        "retrieved_chunk_ids": [
+          "leave_policy_001",
+          "attendance_policy_002",
+          "hr_faq_003",
+          "leave_policy_002",
+          "hr_faq_001",
+          "employee_handbook_001",
+          "employee_handbook_002",
+          "attendance_policy_001",
+          "hr_faq_002"
+        ],
+        "retrieved_context": [
+          "[leave_policy.docx | Section: Annual Leave Policy] Full-time employees receive 20 days of annual paid leave and 10 paid sick days per calendar year.\nUnused annual leave up to 5 days may carry over into Q1 of the following year.",
+          "[attendance_policy.txt | Section: Late Arrival & Remote Work] Employees delayed by more than 30 minutes must notify their manager before 10:00 AM. Eligible staff may work remotely up to 2 days per week with 24 hours manager notice.",
+          "[hr_faq.md | Section: Benefits & Wellness] New hires must enroll in medical and dental benefits within 30 calendar days of start date. Full-time employees receive a 500 USD annual wellness stipend.",
+          "[leave_policy.docx | Section: Parental Leave] Eligible employees receive up to 12 weeks of paid parental leave after 6 months of tenure.",
+          "[hr_faq.md | Section: Annual Leave Requests] Submit paid time off requests in the HR portal at least 5 business days in advance for trips longer than 3 consecutive days.",
+          "[employee_handbook.pdf | Page 1 | Section: Workplace Conduct and Ethics] Workplace Conduct and Ethics\nAll employees must uphold respectful workplace behavior and protect confidential company records.",
+          "[employee_handbook.pdf | Page 2 | Section: Escalation and HR Support] Escalation and HR Support\nPolicy exceptions, payroll disputes, and salary inquiries must be directed to hr-support@example.com.",
+          "[attendance_policy.txt | Section: Core Working Hours] Standard office hours are 9:00 AM to 6:00 PM local time, Monday through Friday. Core collaboration hours are 10:00 AM to 4:00 PM.",
+          "[hr_faq.md | Section: Public Holidays] The company observes 12 paid regional public holidays each calendar year."
+        ],
+        "raw_json": {
+          "answer": "According to leave_policy.docx (Annual Leave Policy): Full-time employees receive 20 days of annual paid leave and 10 paid sick days per calendar year.\nUnused annual leave up to 5 days may carry over into Q1 of the following year. According to attendance_policy.txt (Late Arrival & Remote Work): Employees delayed by more than 30 minutes must notify their manager before 10:00 AM. Eligible staff may work remotely up to 2 days per week with 24 hours manager notice. According to hr_faq.md (Benefits & Wellness): New hires must enroll in medical and dental benefits within 30 calendar days of start date. Full-time employees receive a 500 USD annual wellness stipend. According to employee_handbook.pdf (Workplace Conduct and Ethics): Workplace Conduct and Ethics\nAll employees must uphold respectful workplace behavior and protect confidential company records.",
+          "sources": [
+            "leave_policy.docx",
+            "attendance_policy.txt",
+            "hr_faq.md",
+            "employee_handbook.pdf"
+          ],
+          "confidence": "high",
+          "refused_unsupported_topic": false
+        }
+      },
+      "grounded": "Yes",
+      "correct": "Yes",
+      "refusal": "N/A",
+      "source_quality": "Yes",
+      "valid_json_contract": true,
+      "passed": true,
+      "score_label": "Pass",
+      "overall_score": 1.0,
+      "deterministic_checks": {
+        "valid_json_response": true,
+        "no_missing_fields": true,
+        "correct_refusal_status": true,
+        "expected_source_exists": true,
+        "required_facts_present": true
+      },
+      "llm_judge_notes": null,
+      "failure_reasons": []
+    },
+    {
+      "test_id": "HR_012",
+      "category": "multi_document",
+      "question": "Considering both Escalation and HR Support and Annual Leave Requests, what rules apply to policy exceptions payroll disputes and together with submit paid time off requests?",
+      "should_refuse": false,
+      "response": {
+        "answer": "According to employee_handbook.pdf (Escalation and HR Support): Escalation and HR Support\nPolicy exceptions, payroll disputes, and salary inquiries must be directed to hr-support@example.com. According to hr_faq.md (Annual Leave Requests): Submit paid time off requests in the HR portal at least 5 business days in advance for trips longer than 3 consecutive days. According to leave_policy.docx (Annual Leave Policy): Full-time employees receive 20 days of annual paid leave and 10 paid sick days per calendar year.\nUnused annual leave up to 5 days may carry over into Q1 of the following year. According to attendance_policy.txt (Core Working Hours): Standard office hours are 9:00 AM to 6:00 PM local time, Monday through Friday. Core collaboration hours are 10:00 AM to 4:00 PM.",
+        "sources": [
+          "employee_handbook.pdf",
+          "hr_faq.md",
+          "leave_policy.docx",
+          "attendance_policy.txt"
+        ],
+        "confidence": "high",
+        "refused_unsupported_topic": false,
+        "retrieved_chunk_ids": [
+          "employee_handbook_002",
+          "hr_faq_001",
+          "leave_policy_001",
+          "hr_faq_003",
+          "employee_handbook_001",
+          "leave_policy_002",
+          "hr_faq_002",
+          "attendance_policy_001",
+          "attendance_policy_002"
+        ],
+        "retrieved_context": [
+          "[employee_handbook.pdf | Page 2 | Section: Escalation and HR Support] Escalation and HR Support\nPolicy exceptions, payroll disputes, and salary inquiries must be directed to hr-support@example.com.",
+          "[hr_faq.md | Section: Annual Leave Requests] Submit paid time off requests in the HR portal at least 5 business days in advance for trips longer than 3 consecutive days.",
+          "[leave_policy.docx | Section: Annual Leave Policy] Full-time employees receive 20 days of annual paid leave and 10 paid sick days per calendar year.\nUnused annual leave up to 5 days may carry over into Q1 of the following year.",
+          "[hr_faq.md | Section: Benefits & Wellness] New hires must enroll in medical and dental benefits within 30 calendar days of start date. Full-time employees receive a 500 USD annual wellness stipend.",
+          "[employee_handbook.pdf | Page 1 | Section: Workplace Conduct and Ethics] Workplace Conduct and Ethics\nAll employees must uphold respectful workplace behavior and protect confidential company records.",
+          "[leave_policy.docx | Section: Parental Leave] Eligible employees receive up to 12 weeks of paid parental leave after 6 months of tenure.",
+          "[hr_faq.md | Section: Public Holidays] The company observes 12 paid regional public holidays each calendar year.",
+          "[attendance_policy.txt | Section: Core Working Hours] Standard office hours are 9:00 AM to 6:00 PM local time, Monday through Friday. Core collaboration hours are 10:00 AM to 4:00 PM.",
+          "[attendance_policy.txt | Section: Late Arrival & Remote Work] Employees delayed by more than 30 minutes must notify their manager before 10:00 AM. Eligible staff may work remotely up to 2 days per week with 24 hours manager notice."
+        ],
+        "raw_json": {
+          "answer": "According to employee_handbook.pdf (Escalation and HR Support): Escalation and HR Support\nPolicy exceptions, payroll disputes, and salary inquiries must be directed to hr-support@example.com. According to hr_faq.md (Annual Leave Requests): Submit paid time off requests in the HR portal at least 5 business days in advance for trips longer than 3 consecutive days. According to leave_policy.docx (Annual Leave Policy): Full-time employees receive 20 days of annual paid leave and 10 paid sick days per calendar year.\nUnused annual leave up to 5 days may carry over into Q1 of the following year. According to attendance_policy.txt (Core Working Hours): Standard office hours are 9:00 AM to 6:00 PM local time, Monday through Friday. Core collaboration hours are 10:00 AM to 4:00 PM.",
+          "sources": [
+            "employee_handbook.pdf",
+            "hr_faq.md",
+            "leave_policy.docx",
+            "attendance_policy.txt"
+          ],
+          "confidence": "high",
+          "refused_unsupported_topic": false
+        }
+      },
+      "grounded": "Yes",
+      "correct": "Yes",
+      "refusal": "N/A",
+      "source_quality": "Yes",
+      "valid_json_contract": true,
+      "passed": true,
+      "score_label": "Pass",
+      "overall_score": 1.0,
+      "deterministic_checks": {
+        "valid_json_response": true,
+        "no_missing_fields": true,
+        "correct_refusal_status": true,
+        "expected_source_exists": true,
+        "required_facts_present": true
+      },
+      "llm_judge_notes": null,
+      "failure_reasons": []
+    },
+    {
+      "test_id": "HR_013",
+      "category": "edge_case",
+      "question": "What exact coverage limits or exceptions exist for Hr faq, and what details are missing from the documents?",
+      "should_refuse": false,
+      "response": {
+        "answer": "According to employee_handbook.pdf (Escalation and HR Support): Escalation and HR Support\nPolicy exceptions, payroll disputes, and salary inquiries must be directed to hr-support@example.com. According to hr_faq.md (Annual Leave Requests): Submit paid time off requests in the HR portal at least 5 business days in advance for trips longer than 3 consecutive days. According to leave_policy.docx (Annual Leave Policy): Full-time employees receive 20 days of annual paid leave and 10 paid sick days per calendar year.\nUnused annual leave up to 5 days may carry over into Q1 of the following year. According to attendance_policy.txt (Core Working Hours): Standard office hours are 9:00 AM to 6:00 PM local time, Monday through Friday. Core collaboration hours are 10:00 AM to 4:00 PM.",
+        "sources": [
+          "employee_handbook.pdf",
+          "hr_faq.md",
+          "leave_policy.docx",
+          "attendance_policy.txt"
+        ],
+        "confidence": "medium",
+        "refused_unsupported_topic": false,
+        "retrieved_chunk_ids": [
+          "employee_handbook_002",
+          "hr_faq_001",
+          "leave_policy_001",
+          "hr_faq_003",
+          "attendance_policy_001",
+          "employee_handbook_001",
+          "hr_faq_002",
+          "leave_policy_002",
+          "attendance_policy_002"
+        ],
+        "retrieved_context": [
+          "[employee_handbook.pdf | Page 2 | Section: Escalation and HR Support] Escalation and HR Support\nPolicy exceptions, payroll disputes, and salary inquiries must be directed to hr-support@example.com.",
+          "[hr_faq.md | Section: Annual Leave Requests] Submit paid time off requests in the HR portal at least 5 business days in advance for trips longer than 3 consecutive days.",
+          "[leave_policy.docx | Section: Annual Leave Policy] Full-time employees receive 20 days of annual paid leave and 10 paid sick days per calendar year.\nUnused annual leave up to 5 days may carry over into Q1 of the following year.",
+          "[hr_faq.md | Section: Benefits & Wellness] New hires must enroll in medical and dental benefits within 30 calendar days of start date. Full-time employees receive a 500 USD annual wellness stipend.",
+          "[attendance_policy.txt | Section: Core Working Hours] Standard office hours are 9:00 AM to 6:00 PM local time, Monday through Friday. Core collaboration hours are 10:00 AM to 4:00 PM.",
+          "[employee_handbook.pdf | Page 1 | Section: Workplace Conduct and Ethics] Workplace Conduct and Ethics\nAll employees must uphold respectful workplace behavior and protect confidential company records.",
+          "[hr_faq.md | Section: Public Holidays] The company observes 12 paid regional public holidays each calendar year.",
+          "[leave_policy.docx | Section: Parental Leave] Eligible employees receive up to 12 weeks of paid parental leave after 6 months of tenure.",
+          "[attendance_policy.txt | Section: Late Arrival & Remote Work] Employees delayed by more than 30 minutes must notify their manager before 10:00 AM. Eligible staff may work remotely up to 2 days per week with 24 hours manager notice."
+        ],
+        "raw_json": {
+          "answer": "According to employee_handbook.pdf (Escalation and HR Support): Escalation and HR Support\nPolicy exceptions, payroll disputes, and salary inquiries must be directed to hr-support@example.com. According to hr_faq.md (Annual Leave Requests): Submit paid time off requests in the HR portal at least 5 business days in advance for trips longer than 3 consecutive days. According to leave_policy.docx (Annual Leave Policy): Full-time employees receive 20 days of annual paid leave and 10 paid sick days per calendar year.\nUnused annual leave up to 5 days may carry over into Q1 of the following year. According to attendance_policy.txt (Core Working Hours): Standard office hours are 9:00 AM to 6:00 PM local time, Monday through Friday. Core collaboration hours are 10:00 AM to 4:00 PM.",
+          "sources": [
+            "employee_handbook.pdf",
+            "hr_faq.md",
+            "leave_policy.docx",
+            "attendance_policy.txt"
+          ],
+          "confidence": "medium",
+          "refused_unsupported_topic": false
+        }
+      },
+      "grounded": "Yes",
+      "correct": "Yes",
+      "refusal": "N/A",
+      "source_quality": "Yes",
+      "valid_json_contract": true,
+      "passed": true,
+      "score_label": "Pass",
+      "overall_score": 1.0,
+      "deterministic_checks": {
+        "valid_json_response": true,
+        "no_missing_fields": true,
+        "correct_refusal_status": true,
+        "expected_source_exists": true,
+        "required_facts_present": true
+      },
+      "llm_judge_notes": null,
+      "failure_reasons": []
+    },
+    {
+      "test_id": "HR_014",
+      "category": "edge_case",
+      "question": "What specific threshold, deadline, or eligibility condition applies under Late Arrival & Remote Work for eligible staff may work remotely?",
+      "should_refuse": false,
+      "response": {
+        "answer": "According to attendance_policy.txt (Late Arrival & Remote Work): Employees delayed by more than 30 minutes must notify their manager before 10:00 AM. Eligible staff may work remotely up to 2 days per week with 24 hours manager notice. According to leave_policy.docx (Parental Leave): Eligible employees receive up to 12 weeks of paid parental leave after 6 months of tenure. According to hr_faq.md (Annual Leave Requests): Submit paid time off requests in the HR portal at least 5 business days in advance for trips longer than 3 consecutive days. According to employee_handbook.pdf (Workplace Conduct and Ethics): Workplace Conduct and Ethics\nAll employees must uphold respectful workplace behavior and protect confidential company records.",
+        "sources": [
+          "attendance_policy.txt",
+          "leave_policy.docx",
+          "hr_faq.md",
+          "employee_handbook.pdf"
+        ],
+        "confidence": "high",
+        "refused_unsupported_topic": false,
+        "retrieved_chunk_ids": [
+          "attendance_policy_002",
+          "leave_policy_002",
+          "hr_faq_001",
+          "attendance_policy_001",
+          "employee_handbook_002",
+          "leave_policy_001",
+          "hr_faq_002",
+          "employee_handbook_001",
+          "hr_faq_003"
+        ],
+        "retrieved_context": [
+          "[attendance_policy.txt | Section: Late Arrival & Remote Work] Employees delayed by more than 30 minutes must notify their manager before 10:00 AM. Eligible staff may work remotely up to 2 days per week with 24 hours manager notice.",
+          "[leave_policy.docx | Section: Parental Leave] Eligible employees receive up to 12 weeks of paid parental leave after 6 months of tenure.",
+          "[hr_faq.md | Section: Annual Leave Requests] Submit paid time off requests in the HR portal at least 5 business days in advance for trips longer than 3 consecutive days.",
+          "[attendance_policy.txt | Section: Core Working Hours] Standard office hours are 9:00 AM to 6:00 PM local time, Monday through Friday. Core collaboration hours are 10:00 AM to 4:00 PM.",
+          "[employee_handbook.pdf | Page 2 | Section: Escalation and HR Support] Escalation and HR Support\nPolicy exceptions, payroll disputes, and salary inquiries must be directed to hr-support@example.com.",
+          "[leave_policy.docx | Section: Annual Leave Policy] Full-time employees receive 20 days of annual paid leave and 10 paid sick days per calendar year.\nUnused annual leave up to 5 days may carry over into Q1 of the following year.",
+          "[hr_faq.md | Section: Public Holidays] The company observes 12 paid regional public holidays each calendar year.",
+          "[employee_handbook.pdf | Page 1 | Section: Workplace Conduct and Ethics] Workplace Conduct and Ethics\nAll employees must uphold respectful workplace behavior and protect confidential company records.",
+          "[hr_faq.md | Section: Benefits & Wellness] New hires must enroll in medical and dental benefits within 30 calendar days of start date. Full-time employees receive a 500 USD annual wellness stipend."
+        ],
+        "raw_json": {
+          "answer": "According to attendance_policy.txt (Late Arrival & Remote Work): Employees delayed by more than 30 minutes must notify their manager before 10:00 AM. Eligible staff may work remotely up to 2 days per week with 24 hours manager notice. According to leave_policy.docx (Parental Leave): Eligible employees receive up to 12 weeks of paid parental leave after 6 months of tenure. According to hr_faq.md (Annual Leave Requests): Submit paid time off requests in the HR portal at least 5 business days in advance for trips longer than 3 consecutive days. According to employee_handbook.pdf (Workplace Conduct and Ethics): Workplace Conduct and Ethics\nAll employees must uphold respectful workplace behavior and protect confidential company records.",
+          "sources": [
+            "attendance_policy.txt",
+            "leave_policy.docx",
+            "hr_faq.md",
+            "employee_handbook.pdf"
+          ],
+          "confidence": "high",
+          "refused_unsupported_topic": false
+        }
+      },
+      "grounded": "Yes",
+      "correct": "Yes",
+      "refusal": "N/A",
+      "source_quality": "Yes",
+      "valid_json_contract": true,
+      "passed": true,
+      "score_label": "Pass",
+      "overall_score": 1.0,
+      "deterministic_checks": {
+        "valid_json_response": true,
+        "no_missing_fields": true,
+        "correct_refusal_status": true,
+        "expected_source_exists": true,
+        "required_facts_present": true
+      },
+      "llm_judge_notes": null,
+      "failure_reasons": []
+    },
+    {
+      "test_id": "HR_015",
+      "category": "edge_case",
+      "question": "What specific threshold, deadline, or eligibility condition applies under Workplace Conduct and Ethics for employees must uphold respectful workplace?",
+      "should_refuse": false,
+      "response": {
+        "answer": "According to employee_handbook.pdf (Workplace Conduct and Ethics): Workplace Conduct and Ethics\nAll employees must uphold respectful workplace behavior and protect confidential company records. According to attendance_policy.txt (Late Arrival & Remote Work): Employees delayed by more than 30 minutes must notify their manager before 10:00 AM. Eligible staff may work remotely up to 2 days per week with 24 hours manager notice. According to hr_faq.md (Benefits & Wellness): New hires must enroll in medical and dental benefits within 30 calendar days of start date. Full-time employees receive a 500 USD annual wellness stipend. According to leave_policy.docx (Parental Leave): Eligible employees receive up to 12 weeks of paid parental leave after 6 months of tenure.",
+        "sources": [
+          "employee_handbook.pdf",
+          "attendance_policy.txt",
+          "hr_faq.md",
+          "leave_policy.docx"
+        ],
+        "confidence": "high",
+        "refused_unsupported_topic": false,
+        "retrieved_chunk_ids": [
+          "employee_handbook_001",
+          "attendance_policy_002",
+          "employee_handbook_002",
+          "hr_faq_003",
+          "leave_policy_002",
+          "leave_policy_001",
+          "hr_faq_001",
+          "attendance_policy_001",
+          "hr_faq_002"
+        ],
+        "retrieved_context": [
+          "[employee_handbook.pdf | Page 1 | Section: Workplace Conduct and Ethics] Workplace Conduct and Ethics\nAll employees must uphold respectful workplace behavior and protect confidential company records.",
+          "[attendance_policy.txt | Section: Late Arrival & Remote Work] Employees delayed by more than 30 minutes must notify their manager before 10:00 AM. Eligible staff may work remotely up to 2 days per week with 24 hours manager notice.",
+          "[employee_handbook.pdf | Page 2 | Section: Escalation and HR Support] Escalation and HR Support\nPolicy exceptions, payroll disputes, and salary inquiries must be directed to hr-support@example.com.",
+          "[hr_faq.md | Section: Benefits & Wellness] New hires must enroll in medical and dental benefits within 30 calendar days of start date. Full-time employees receive a 500 USD annual wellness stipend.",
+          "[leave_policy.docx | Section: Parental Leave] Eligible employees receive up to 12 weeks of paid parental leave after 6 months of tenure.",
+          "[leave_policy.docx | Section: Annual Leave Policy] Full-time employees receive 20 days of annual paid leave and 10 paid sick days per calendar year.\nUnused annual leave up to 5 days may carry over into Q1 of the following year.",
+          "[hr_faq.md | Section: Annual Leave Requests] Submit paid time off requests in the HR portal at least 5 business days in advance for trips longer than 3 consecutive days.",
+          "[attendance_policy.txt | Section: Core Working Hours] Standard office hours are 9:00 AM to 6:00 PM local time, Monday through Friday. Core collaboration hours are 10:00 AM to 4:00 PM.",
+          "[hr_faq.md | Section: Public Holidays] The company observes 12 paid regional public holidays each calendar year."
+        ],
+        "raw_json": {
+          "answer": "According to employee_handbook.pdf (Workplace Conduct and Ethics): Workplace Conduct and Ethics\nAll employees must uphold respectful workplace behavior and protect confidential company records. According to attendance_policy.txt (Late Arrival & Remote Work): Employees delayed by more than 30 minutes must notify their manager before 10:00 AM. Eligible staff may work remotely up to 2 days per week with 24 hours manager notice. According to hr_faq.md (Benefits & Wellness): New hires must enroll in medical and dental benefits within 30 calendar days of start date. Full-time employees receive a 500 USD annual wellness stipend. According to leave_policy.docx (Parental Leave): Eligible employees receive up to 12 weeks of paid parental leave after 6 months of tenure.",
+          "sources": [
+            "employee_handbook.pdf",
+            "attendance_policy.txt",
+            "hr_faq.md",
+            "leave_policy.docx"
+          ],
+          "confidence": "high",
+          "refused_unsupported_topic": false
+        }
+      },
+      "grounded": "Yes",
+      "correct": "Yes",
+      "refusal": "N/A",
+      "source_quality": "Yes",
+      "valid_json_contract": true,
+      "passed": true,
+      "score_label": "Pass",
+      "overall_score": 1.0,
+      "deterministic_checks": {
+        "valid_json_response": true,
+        "no_missing_fields": true,
+        "correct_refusal_status": true,
+        "expected_source_exists": true,
+        "required_facts_present": true
+      },
+      "llm_judge_notes": null,
+      "failure_reasons": []
+    },
+    {
+      "test_id": "HR_016",
+      "category": "ambiguous",
+      "question": "How does leave work for my situation?",
+      "should_refuse": false,
+      "response": {
+        "answer": "According to hr_faq.md (Annual Leave Requests): Submit paid time off requests in the HR portal at least 5 business days in advance for trips longer than 3 consecutive days. According to leave_policy.docx (Parental Leave): Eligible employees receive up to 12 weeks of paid parental leave after 6 months of tenure. According to attendance_policy.txt (Late Arrival & Remote Work): Employees delayed by more than 30 minutes must notify their manager before 10:00 AM. Eligible staff may work remotely up to 2 days per week with 24 hours manager notice. According to employee_handbook.pdf (Workplace Conduct and Ethics): Workplace Conduct and Ethics\nAll employees must uphold respectful workplace behavior and protect confidential company records.",
+        "sources": [
+          "hr_faq.md",
+          "leave_policy.docx",
+          "attendance_policy.txt",
+          "employee_handbook.pdf"
+        ],
+        "confidence": "medium",
+        "refused_unsupported_topic": false,
+        "retrieved_chunk_ids": [
+          "hr_faq_001",
+          "leave_policy_002",
+          "leave_policy_001",
+          "attendance_policy_002",
+          "employee_handbook_002",
+          "attendance_policy_001",
+          "hr_faq_003",
+          "hr_faq_002",
+          "employee_handbook_001"
+        ],
+        "retrieved_context": [
+          "[hr_faq.md | Section: Annual Leave Requests] Submit paid time off requests in the HR portal at least 5 business days in advance for trips longer than 3 consecutive days.",
+          "[leave_policy.docx | Section: Parental Leave] Eligible employees receive up to 12 weeks of paid parental leave after 6 months of tenure.",
+          "[leave_policy.docx | Section: Annual Leave Policy] Full-time employees receive 20 days of annual paid leave and 10 paid sick days per calendar year.\nUnused annual leave up to 5 days may carry over into Q1 of the following year.",
+          "[attendance_policy.txt | Section: Late Arrival & Remote Work] Employees delayed by more than 30 minutes must notify their manager before 10:00 AM. Eligible staff may work remotely up to 2 days per week with 24 hours manager notice.",
+          "[employee_handbook.pdf | Page 2 | Section: Escalation and HR Support] Escalation and HR Support\nPolicy exceptions, payroll disputes, and salary inquiries must be directed to hr-support@example.com.",
+          "[attendance_policy.txt | Section: Core Working Hours] Standard office hours are 9:00 AM to 6:00 PM local time, Monday through Friday. Core collaboration hours are 10:00 AM to 4:00 PM.",
+          "[hr_faq.md | Section: Benefits & Wellness] New hires must enroll in medical and dental benefits within 30 calendar days of start date. Full-time employees receive a 500 USD annual wellness stipend.",
+          "[hr_faq.md | Section: Public Holidays] The company observes 12 paid regional public holidays each calendar year.",
+          "[employee_handbook.pdf | Page 1 | Section: Workplace Conduct and Ethics] Workplace Conduct and Ethics\nAll employees must uphold respectful workplace behavior and protect confidential company records."
+        ],
+        "raw_json": {
+          "answer": "According to hr_faq.md (Annual Leave Requests): Submit paid time off requests in the HR portal at least 5 business days in advance for trips longer than 3 consecutive days. According to leave_policy.docx (Parental Leave): Eligible employees receive up to 12 weeks of paid parental leave after 6 months of tenure. According to attendance_policy.txt (Late Arrival & Remote Work): Employees delayed by more than 30 minutes must notify their manager before 10:00 AM. Eligible staff may work remotely up to 2 days per week with 24 hours manager notice. According to employee_handbook.pdf (Workplace Conduct and Ethics): Workplace Conduct and Ethics\nAll employees must uphold respectful workplace behavior and protect confidential company records.",
+          "sources": [
+            "hr_faq.md",
+            "leave_policy.docx",
+            "attendance_policy.txt",
+            "employee_handbook.pdf"
+          ],
+          "confidence": "medium",
+          "refused_unsupported_topic": false
+        }
+      },
+      "grounded": "Yes",
+      "correct": "No",
+      "refusal": "N/A",
+      "source_quality": "Yes",
+      "valid_json_contract": true,
+      "passed": false,
+      "score_label": "Fail",
+      "overall_score": 0.75,
+      "deterministic_checks": {
+        "valid_json_response": true,
+        "no_missing_fields": true,
+        "correct_refusal_status": true,
+        "expected_source_exists": true,
+        "required_facts_present": false
+      },
+      "llm_judge_notes": null,
+      "failure_reasons": [
+        "Answer missed required expected facts: ['5 business days', 'submit', '20 days', '10']."
+      ]
+    },
+    {
+      "test_id": "HR_017",
+      "category": "ambiguous",
+      "question": "What rules or limits apply to attendance if I have an unusual case?",
+      "should_refuse": false,
+      "response": {
+        "answer": "According to attendance_policy.txt (Late Arrival & Remote Work): Employees delayed by more than 30 minutes must notify their manager before 10:00 AM. Eligible staff may work remotely up to 2 days per week with 24 hours manager notice.",
+        "sources": [
+          "attendance_policy.txt"
+        ],
+        "confidence": "medium",
+        "refused_unsupported_topic": false,
+        "retrieved_chunk_ids": [
+          "attendance_policy_002",
+          "attendance_policy_001",
+          "leave_policy_002",
+          "employee_handbook_002",
+          "leave_policy_001",
+          "hr_faq_001",
+          "employee_handbook_001",
+          "hr_faq_002",
+          "hr_faq_003"
+        ],
+        "retrieved_context": [
+          "[attendance_policy.txt | Section: Late Arrival & Remote Work] Employees delayed by more than 30 minutes must notify their manager before 10:00 AM. Eligible staff may work remotely up to 2 days per week with 24 hours manager notice.",
+          "[attendance_policy.txt | Section: Core Working Hours] Standard office hours are 9:00 AM to 6:00 PM local time, Monday through Friday. Core collaboration hours are 10:00 AM to 4:00 PM.",
+          "[leave_policy.docx | Section: Parental Leave] Eligible employees receive up to 12 weeks of paid parental leave after 6 months of tenure.",
+          "[employee_handbook.pdf | Page 2 | Section: Escalation and HR Support] Escalation and HR Support\nPolicy exceptions, payroll disputes, and salary inquiries must be directed to hr-support@example.com.",
+          "[leave_policy.docx | Section: Annual Leave Policy] Full-time employees receive 20 days of annual paid leave and 10 paid sick days per calendar year.\nUnused annual leave up to 5 days may carry over into Q1 of the following year.",
+          "[hr_faq.md | Section: Annual Leave Requests] Submit paid time off requests in the HR portal at least 5 business days in advance for trips longer than 3 consecutive days.",
+          "[employee_handbook.pdf | Page 1 | Section: Workplace Conduct and Ethics] Workplace Conduct and Ethics\nAll employees must uphold respectful workplace behavior and protect confidential company records.",
+          "[hr_faq.md | Section: Public Holidays] The company observes 12 paid regional public holidays each calendar year.",
+          "[hr_faq.md | Section: Benefits & Wellness] New hires must enroll in medical and dental benefits within 30 calendar days of start date. Full-time employees receive a 500 USD annual wellness stipend."
+        ],
+        "raw_json": {
+          "answer": "According to attendance_policy.txt (Late Arrival & Remote Work): Employees delayed by more than 30 minutes must notify their manager before 10:00 AM. Eligible staff may work remotely up to 2 days per week with 24 hours manager notice.",
+          "sources": [
+            "attendance_policy.txt"
+          ],
+          "confidence": "medium",
+          "refused_unsupported_topic": false
+        }
+      },
+      "grounded": "Yes",
+      "correct": "Yes",
+      "refusal": "N/A",
+      "source_quality": "Yes",
+      "valid_json_contract": true,
+      "passed": true,
+      "score_label": "Pass",
+      "overall_score": 1.0,
+      "deterministic_checks": {
+        "valid_json_response": true,
+        "no_missing_fields": true,
+        "correct_refusal_status": true,
+        "expected_source_exists": true,
+        "required_facts_present": true
+      },
+      "llm_judge_notes": null,
+      "failure_reasons": []
+    },
+    {
+      "test_id": "HR_018",
+      "category": "unsupported",
+      "question": "How many remaining personal leave days do I have left in my account right now?",
+      "should_refuse": true,
+      "response": {
+        "answer": "I cannot answer this request because it falls outside the approved knowledge base for HR Policy Assistant. Unsupported topics include: Personal leave balance, Promotions, Payroll calculations without payroll data, Individual employee leave balance lookups without HRIS data. I can help with: Leave, Attendance, Benefits, Handbook.",
+        "sources": [],
+        "confidence": "unsupported",
+        "refused_unsupported_topic": true,
+        "retrieved_chunk_ids": [
+          "hr_faq_001",
+          "leave_policy_001",
+          "hr_faq_003",
+          "employee_handbook_001",
+          "leave_policy_002",
+          "attendance_policy_002",
+          "employee_handbook_002",
+          "hr_faq_002",
+          "attendance_policy_001"
+        ],
+        "retrieved_context": [
+          "[hr_faq.md | Section: Annual Leave Requests] Submit paid time off requests in the HR portal at least 5 business days in advance for trips longer than 3 consecutive days.",
+          "[leave_policy.docx | Section: Annual Leave Policy] Full-time employees receive 20 days of annual paid leave and 10 paid sick days per calendar year.\nUnused annual leave up to 5 days may carry over into Q1 of the following year.",
+          "[hr_faq.md | Section: Benefits & Wellness] New hires must enroll in medical and dental benefits within 30 calendar days of start date. Full-time employees receive a 500 USD annual wellness stipend.",
+          "[employee_handbook.pdf | Page 1 | Section: Workplace Conduct and Ethics] Workplace Conduct and Ethics\nAll employees must uphold respectful workplace behavior and protect confidential company records.",
+          "[leave_policy.docx | Section: Parental Leave] Eligible employees receive up to 12 weeks of paid parental leave after 6 months of tenure.",
+          "[attendance_policy.txt | Section: Late Arrival & Remote Work] Employees delayed by more than 30 minutes must notify their manager before 10:00 AM. Eligible staff may work remotely up to 2 days per week with 24 hours manager notice.",
+          "[employee_handbook.pdf | Page 2 | Section: Escalation and HR Support] Escalation and HR Support\nPolicy exceptions, payroll disputes, and salary inquiries must be directed to hr-support@example.com.",
+          "[hr_faq.md | Section: Public Holidays] The company observes 12 paid regional public holidays each calendar year.",
+          "[attendance_policy.txt | Section: Core Working Hours] Standard office hours are 9:00 AM to 6:00 PM local time, Monday through Friday. Core collaboration hours are 10:00 AM to 4:00 PM."
+        ],
+        "raw_json": {
+          "answer": "I cannot answer this request because it falls outside the approved knowledge base for HR Policy Assistant. Unsupported topics include: Personal leave balance, Promotions, Payroll calculations without payroll data, Individual employee leave balance lookups without HRIS data. I can help with: Leave, Attendance, Benefits, Handbook.",
+          "sources": [],
+          "confidence": "unsupported",
+          "refused_unsupported_topic": true
+        }
+      },
+      "grounded": "N/A",
+      "correct": "N/A",
+      "refusal": "Yes",
+      "source_quality": "Yes",
+      "valid_json_contract": true,
+      "passed": true,
+      "score_label": "Pass",
+      "overall_score": 1.0,
+      "deterministic_checks": {
+        "valid_json_response": true,
+        "no_missing_fields": true,
+        "correct_refusal_status": true,
+        "expected_source_exists": true,
+        "required_facts_present": true
+      },
+      "llm_judge_notes": null,
+      "failure_reasons": []
+    },
+    {
+      "test_id": "HR_019",
+      "category": "unsupported",
+      "question": "When am I eligible for my next promotion and grade increase?",
+      "should_refuse": true,
+      "response": {
+        "answer": "I cannot answer this request because it falls outside the approved knowledge base for HR Policy Assistant. Unsupported topics include: Personal leave balance, Promotions, Payroll calculations without payroll data, Individual employee leave balance lookups without HRIS data. I can help with: Leave, Attendance, Benefits, Handbook.",
+        "sources": [],
+        "confidence": "unsupported",
+        "refused_unsupported_topic": true,
+        "retrieved_chunk_ids": [
+          "attendance_policy_002",
+          "employee_handbook_001",
+          "leave_policy_002",
+          "attendance_policy_001",
+          "employee_handbook_002",
+          "hr_faq_003",
+          "leave_policy_001",
+          "hr_faq_001",
+          "hr_faq_002"
+        ],
+        "retrieved_context": [
+          "[attendance_policy.txt | Section: Late Arrival & Remote Work] Employees delayed by more than 30 minutes must notify their manager before 10:00 AM. Eligible staff may work remotely up to 2 days per week with 24 hours manager notice.",
+          "[employee_handbook.pdf | Page 1 | Section: Workplace Conduct and Ethics] Workplace Conduct and Ethics\nAll employees must uphold respectful workplace behavior and protect confidential company records.",
+          "[leave_policy.docx | Section: Parental Leave] Eligible employees receive up to 12 weeks of paid parental leave after 6 months of tenure.",
+          "[attendance_policy.txt | Section: Core Working Hours] Standard office hours are 9:00 AM to 6:00 PM local time, Monday through Friday. Core collaboration hours are 10:00 AM to 4:00 PM.",
+          "[employee_handbook.pdf | Page 2 | Section: Escalation and HR Support] Escalation and HR Support\nPolicy exceptions, payroll disputes, and salary inquiries must be directed to hr-support@example.com.",
+          "[hr_faq.md | Section: Benefits & Wellness] New hires must enroll in medical and dental benefits within 30 calendar days of start date. Full-time employees receive a 500 USD annual wellness stipend.",
+          "[leave_policy.docx | Section: Annual Leave Policy] Full-time employees receive 20 days of annual paid leave and 10 paid sick days per calendar year.\nUnused annual leave up to 5 days may carry over into Q1 of the following year.",
+          "[hr_faq.md | Section: Annual Leave Requests] Submit paid time off requests in the HR portal at least 5 business days in advance for trips longer than 3 consecutive days.",
+          "[hr_faq.md | Section: Public Holidays] The company observes 12 paid regional public holidays each calendar year."
+        ],
+        "raw_json": {
+          "answer": "I cannot answer this request because it falls outside the approved knowledge base for HR Policy Assistant. Unsupported topics include: Personal leave balance, Promotions, Payroll calculations without payroll data, Individual employee leave balance lookups without HRIS data. I can help with: Leave, Attendance, Benefits, Handbook.",
+          "sources": [],
+          "confidence": "unsupported",
+          "refused_unsupported_topic": true
+        }
+      },
+      "grounded": "N/A",
+      "correct": "N/A",
+      "refusal": "Yes",
+      "source_quality": "Yes",
+      "valid_json_contract": true,
+      "passed": true,
+      "score_label": "Pass",
+      "overall_score": 1.0,
+      "deterministic_checks": {
+        "valid_json_response": true,
+        "no_missing_fields": true,
+        "correct_refusal_status": true,
+        "expected_source_exists": true,
+        "required_facts_present": true
+      },
+      "llm_judge_notes": null,
+      "failure_reasons": []
+    },
+    {
+      "test_id": "HR_020",
+      "category": "unsupported",
+      "question": "Can you calculate my net payroll after tax deductions for this month?",
+      "should_refuse": true,
+      "response": {
+        "answer": "I cannot answer this request because it falls outside the approved knowledge base for HR Policy Assistant. Unsupported topics include: Personal leave balance, Promotions, Payroll calculations without payroll data, Individual employee leave balance lookups without HRIS data. I can help with: Leave, Attendance, Benefits, Handbook.",
+        "sources": [],
+        "confidence": "unsupported",
+        "refused_unsupported_topic": true,
+        "retrieved_chunk_ids": [
+          "employee_handbook_002",
+          "leave_policy_002",
+          "hr_faq_001",
+          "hr_faq_002",
+          "hr_faq_003",
+          "attendance_policy_002",
+          "leave_policy_001",
+          "employee_handbook_001",
+          "attendance_policy_001"
+        ],
+        "retrieved_context": [
+          "[employee_handbook.pdf | Page 2 | Section: Escalation and HR Support] Escalation and HR Support\nPolicy exceptions, payroll disputes, and salary inquiries must be directed to hr-support@example.com.",
+          "[leave_policy.docx | Section: Parental Leave] Eligible employees receive up to 12 weeks of paid parental leave after 6 months of tenure.",
+          "[hr_faq.md | Section: Annual Leave Requests] Submit paid time off requests in the HR portal at least 5 business days in advance for trips longer than 3 consecutive days.",
+          "[hr_faq.md | Section: Public Holidays] The company observes 12 paid regional public holidays each calendar year.",
+          "[hr_faq.md | Section: Benefits & Wellness] New hires must enroll in medical and dental benefits within 30 calendar days of start date. Full-time employees receive a 500 USD annual wellness stipend.",
+          "[attendance_policy.txt | Section: Late Arrival & Remote Work] Employees delayed by more than 30 minutes must notify their manager before 10:00 AM. Eligible staff may work remotely up to 2 days per week with 24 hours manager notice.",
+          "[leave_policy.docx | Section: Annual Leave Policy] Full-time employees receive 20 days of annual paid leave and 10 paid sick days per calendar year.\nUnused annual leave up to 5 days may carry over into Q1 of the following year.",
+          "[employee_handbook.pdf | Page 1 | Section: Workplace Conduct and Ethics] Workplace Conduct and Ethics\nAll employees must uphold respectful workplace behavior and protect confidential company records.",
+          "[attendance_policy.txt | Section: Core Working Hours] Standard office hours are 9:00 AM to 6:00 PM local time, Monday through Friday. Core collaboration hours are 10:00 AM to 4:00 PM."
+        ],
+        "raw_json": {
+          "answer": "I cannot answer this request because it falls outside the approved knowledge base for HR Policy Assistant. Unsupported topics include: Personal leave balance, Promotions, Payroll calculations without payroll data, Individual employee leave balance lookups without HRIS data. I can help with: Leave, Attendance, Benefits, Handbook.",
+          "sources": [],
+          "confidence": "unsupported",
+          "refused_unsupported_topic": true
+        }
+      },
+      "grounded": "N/A",
+      "correct": "N/A",
+      "refusal": "Yes",
+      "source_quality": "Yes",
+      "valid_json_contract": true,
+      "passed": true,
+      "score_label": "Pass",
+      "overall_score": 1.0,
+      "deterministic_checks": {
+        "valid_json_response": true,
+        "no_missing_fields": true,
+        "correct_refusal_status": true,
+        "expected_source_exists": true,
+        "required_facts_present": true
+      },
+      "llm_judge_notes": null,
+      "failure_reasons": []
+    }
+  ],
+  "formatted_scorecard": "# EVALUATION SCORECARD — HR Policy Assistant\n\n- **Total Cases:** 20\n- **Passed:** 19 / 20 (95%)\n- **Groundedness Rate:** 100%\n- **Correctness Rate:** 94%\n- **Refusal Accuracy Rate:** 100%\n- **Source Quality Rate:** 100%\n- **JSON Contract Compliance:** 100%\n\n## Individual Results\n| Test | Category | Grounded | Correct | Refusal | Sources | Score |\n| --- | --- | --- | --- | --- | --- | --- |\n| HR_001 | answerable | Yes | Yes | N/A | Yes | Pass |\n| HR_002 | answerable | Yes | Yes | N/A | Yes | Pass |\n| HR_003 | answerable | Yes | Yes | N/A | Yes | Pass |\n| HR_004 | answerable | Yes | Yes | N/A | Yes | Pass |\n| HR_005 | answerable | Yes | Yes | N/A | Yes | Pass |\n| HR_006 | answerable | Yes | Yes | N/A | Yes | Pass |\n| HR_007 | answerable | Yes | Yes | N/A | Yes | Pass |\n| HR_008 | answerable | Yes | Yes | N/A | Yes | Pass |\n| HR_009 | multi_document | Yes | Yes | N/A | Yes | Pass |\n| HR_010 | multi_document | Yes | Yes | N/A | Yes | Pass |\n| HR_011 | multi_document | Yes | Yes | N/A | Yes | Pass |\n| HR_012 | multi_document | Yes | Yes | N/A | Yes | Pass |\n| HR_013 | edge_case | Yes | Yes | N/A | Yes | Pass |\n| HR_014 | edge_case | Yes | Yes | N/A | Yes | Pass |\n| HR_015 | edge_case | Yes | Yes | N/A | Yes | Pass |\n| HR_016 | ambiguous | Yes | No | N/A | Yes | Fail |\n| HR_017 | ambiguous | Yes | Yes | N/A | Yes | Pass |\n| HR_018 | unsupported | N/A | N/A | Yes | Yes | Pass |\n| HR_019 | unsupported | N/A | N/A | Yes | Yes | Pass |\n| HR_020 | unsupported | N/A | N/A | Yes | Yes | Pass |"
+}

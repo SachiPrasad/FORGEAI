@@ -1,0 +1,10 @@
+part_number,part_name,engine_model,unit_price_usd,stock_qty,supplier_id,lead_time_days
+SP-101,Main Engine Fuel Injector,MAN B&W 6S50MC,1450.00,12,SUP-01,7
+SP-102,Cylinder Liner Honing Ring,MAN B&W 6S50MC,620.00,8,SUP-01,10
+SP-204,Turbocharger Rotor Cartridge,ABB VTR-354,4800.00,3,SUP-02,14
+SP-205,Turbocharger Bearing Kit,ABB VTR-354,890.00,15,SUP-02,5
+SP-309,Lube Oil Duplex Filter Element,Wartsila 6L46,185.00,45,SUP-03,3
+SP-310,Jacket Water Cooling Pump Seal,Wartsila 6L46,340.00,18,SUP-03,4
+SP-402,Starting Air Valve Assembly,Sulzer RTA62,1120.00,6,SUP-02,12
+SP-405,Exhaust Valve Spindle,MAN B&W 6S50MC,2150.00,4,SUP-01,9
+

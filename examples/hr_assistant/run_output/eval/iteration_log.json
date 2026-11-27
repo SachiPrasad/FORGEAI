@@ -1,0 +1,57 @@
+{
+  "generated_at": "2026-11-26T19:31:43.119905+00:00",
+  "agent_name": "HR Policy Assistant",
+  "max_iterations": 3,
+  "total_iterations_run": 2,
+  "initial_score": 0.8,
+  "final_score": 0.9,
+  "initial_passed": 16,
+  "final_passed": 18,
+  "total_cases": 20,
+  "stop_reason": "No further configuration improvements available.",
+  "iterations": [
+    {
+      "iteration": 1,
+      "failure_type": "prompt_defect",
+      "reason": "Relevant chunks were retrieved, but answer omitted expected facts or multi-document details.",
+      "change_applied": "Updated system_prompt with full multi-document synthesis and complete fact-citation instructions (detail_mode: full).",
+      "tests_addressed": [
+        "HR_009",
+        "HR_012",
+        "HR_017"
+      ],
+      "score_before": 0.8,
+      "score_after": 0.9,
+      "passed_before": 16,
+      "passed_after": 18,
+      "newly_passed_tests": [
+        "HR_009",
+        "HR_012"
+      ],
+      "regressed_tests": [],
+      "rolled_back": false
+    },
+    {
+      "iteration": 2,
+      "failure_type": "retrieval_miss",
+      "reason": "Required source document(s) ['attendance_rules.csv', 'company_faq.md'] were not retrieved within top_k.",
+      "change_applied": "Increased retrieval_config.top_k from 5 to 9 and hybrid_keyword_weight from 0.2 to 0.45.",
+      "tests_addressed": [
+        "HR_010"
+      ],
+      "score_before": 0.9,
+      "score_after": 0.9,
+      "passed_before": 18,
+      "passed_after": 18,
+      "newly_passed_tests": [],
+      "regressed_tests": [],
+      "rolled_back": false
+    }
+  ],
+  "metadata": {
+    "initial_groundedness": 1.0,
+    "final_groundedness": 1.0,
+    "initial_correctness": 0.76,
+    "final_correctness": 0.88
+  }
+}

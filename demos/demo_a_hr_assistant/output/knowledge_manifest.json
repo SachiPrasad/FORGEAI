@@ -1,0 +1,236 @@
+{
+  "manifest_version": "1.0",
+  "created_at": "2026-11-27T12:42:44.543762+00:00",
+  "docs_dir": "C:\\Users\\SACHI\\OneDrive\\Desktop\\FORGEAI\\demos\\demo_a_hr_assistant\\docs",
+  "vector_store_backend": "sqlite_numpy",
+  "vector_store_path": "kb/knowledge_base.sqlite",
+  "embedding_provider": "local",
+  "embedding_model": "local-hash-ngram-v1",
+  "embedding_dimension": 384,
+  "chunking": {
+    "strategy": "recursive",
+    "chunk_size": 600,
+    "chunk_overlap": 100,
+    "csv_rows_per_chunk": 10
+  },
+  "total_documents": 4,
+  "total_chunks": 9,
+  "skipped_files": [],
+  "warnings": [],
+  "kb_validation": {
+    "is_healthy": true,
+    "empty_files": [],
+    "duplicate_files": [],
+    "corrupted_files": [],
+    "version_conflicts": [],
+    "issues": []
+  },
+  "documents": [
+    {
+      "document_name": "attendance_policy.txt",
+      "relative_path": "attendance_policy.txt",
+      "document_type": "txt",
+      "sha256": "913553e3dc3f08411fcd2b480d5213757a15e4dd677033204259892ba0e585c8",
+      "size_bytes": 350,
+      "page_count": null,
+      "row_count": null,
+      "sections_detected": [
+        "Core Working Hours",
+        "Late Arrival & Remote Work"
+      ],
+      "chunk_count": 2,
+      "chunk_ids": [
+        "attendance_policy_001",
+        "attendance_policy_002"
+      ],
+      "warnings": []
+    },
+    {
+      "document_name": "employee_handbook.pdf",
+      "relative_path": "employee_handbook.pdf",
+      "document_type": "pdf",
+      "sha256": "3e5b605b567736df311b457834f6f117cd2643e0ba74a9e0669aa39398945c48",
+      "size_bytes": 1111,
+      "page_count": 2,
+      "row_count": null,
+      "sections_detected": [
+        "Workplace Conduct and Ethics",
+        "Escalation and HR Support"
+      ],
+      "chunk_count": 2,
+      "chunk_ids": [
+        "employee_handbook_001",
+        "employee_handbook_002"
+      ],
+      "warnings": []
+    },
+    {
+      "document_name": "hr_faq.md",
+      "relative_path": "hr_faq.md",
+      "document_type": "md",
+      "sha256": "d98b9c51c7c98f2bc6d8f3d39fbb1dbeec9f4b02dabb00822024b9242ee24b8a",
+      "size_bytes": 434,
+      "page_count": null,
+      "row_count": null,
+      "sections_detected": [
+        "Annual Leave Requests",
+        "Public Holidays",
+        "Benefits & Wellness"
+      ],
+      "chunk_count": 3,
+      "chunk_ids": [
+        "hr_faq_001",
+        "hr_faq_002",
+        "hr_faq_003"
+      ],
+      "warnings": []
+    },
+    {
+      "document_name": "leave_policy.docx",
+      "relative_path": "leave_policy.docx",
+      "document_type": "docx",
+      "sha256": "39cd612149d57e4d86347f3fb75496ae8561ff1b666b0acc7a67b9510be7d3b5",
+      "size_bytes": 36775,
+      "page_count": null,
+      "row_count": null,
+      "sections_detected": [
+        "Annual Leave Policy",
+        "Parental Leave"
+      ],
+      "chunk_count": 2,
+      "chunk_ids": [
+        "leave_policy_001",
+        "leave_policy_002"
+      ],
+      "warnings": []
+    }
+  ],
+  "chunks": [
+    {
+      "chunk_id": "attendance_policy_001",
+      "document_name": "attendance_policy.txt",
+      "page_number": null,
+      "section": "Core Working Hours",
+      "content": "Standard office hours are 9:00 AM to 6:00 PM local time, Monday through Friday. Core collaboration hours are 10:00 AM to 4:00 PM.",
+      "document_type": "txt",
+      "relative_path": "attendance_policy.txt",
+      "chunk_index": 0,
+      "char_count": 129,
+      "word_count": 27,
+      "content_hash": "ef103538e135901c",
+      "extra": {}
+    },
+    {
+      "chunk_id": "attendance_policy_002",
+      "document_name": "attendance_policy.txt",
+      "page_number": null,
+      "section": "Late Arrival & Remote Work",
+      "content": "Employees delayed by more than 30 minutes must notify their manager before 10:00 AM. Eligible staff may work remotely up to 2 days per week with 24 hours manager notice.",
+      "document_type": "txt",
+      "relative_path": "attendance_policy.txt",
+      "chunk_index": 1,
+      "char_count": 169,
+      "word_count": 31,
+      "content_hash": "897a9cae37431ab5",
+      "extra": {}
+    },
+    {
+      "chunk_id": "employee_handbook_001",
+      "document_name": "employee_handbook.pdf",
+      "page_number": 1,
+      "section": "Workplace Conduct and Ethics",
+      "content": "Workplace Conduct and Ethics\nAll employees must uphold respectful workplace behavior and protect confidential company records.",
+      "document_type": "pdf",
+      "relative_path": "employee_handbook.pdf",
+      "chunk_index": 0,
+      "char_count": 126,
+      "word_count": 16,
+      "content_hash": "1014fdc2eab00b0b",
+      "extra": {}
+    },
+    {
+      "chunk_id": "employee_handbook_002",
+      "document_name": "employee_handbook.pdf",
+      "page_number": 2,
+      "section": "Escalation and HR Support",
+      "content": "Escalation and HR Support\nPolicy exceptions, payroll disputes, and salary inquiries must be directed to hr-support@example.com.",
+      "document_type": "pdf",
+      "relative_path": "employee_handbook.pdf",
+      "chunk_index": 1,
+      "char_count": 127,
+      "word_count": 18,
+      "content_hash": "e76b9812c4177cac",
+      "extra": {}
+    },
+    {
+      "chunk_id": "hr_faq_001",
+      "document_name": "hr_faq.md",
+      "page_number": null,
+      "section": "Annual Leave Requests",
+      "content": "Submit paid time off requests in the HR portal at least 5 business days in advance for trips longer than 3 consecutive days.",
+      "document_type": "md",
+      "relative_path": "hr_faq.md",
+      "chunk_index": 0,
+      "char_count": 124,
+      "word_count": 23,
+      "content_hash": "15c51d81a4e36164",
+      "extra": {}
+    },
+    {
+      "chunk_id": "hr_faq_002",
+      "document_name": "hr_faq.md",
+      "page_number": null,
+      "section": "Public Holidays",
+      "content": "The company observes 12 paid regional public holidays each calendar year.",
+      "document_type": "md",
+      "relative_path": "hr_faq.md",
+      "chunk_index": 1,
+      "char_count": 73,
+      "word_count": 11,
+      "content_hash": "3b7fd1b756166609",
+      "extra": {}
+    },
+    {
+      "chunk_id": "hr_faq_003",
+      "document_name": "hr_faq.md",
+      "page_number": null,
+      "section": "Benefits & Wellness",
+      "content": "New hires must enroll in medical and dental benefits within 30 calendar days of start date. Full-time employees receive a 500 USD annual wellness stipend.",
+      "document_type": "md",
+      "relative_path": "hr_faq.md",
+      "chunk_index": 2,
+      "char_count": 154,
+      "word_count": 25,
+      "content_hash": "0dd2be2d6c062ee2",
+      "extra": {}
+    },
+    {
+      "chunk_id": "leave_policy_001",
+      "document_name": "leave_policy.docx",
+      "page_number": null,
+      "section": "Annual Leave Policy",
+      "content": "Full-time employees receive 20 days of annual paid leave and 10 paid sick days per calendar year.\nUnused annual leave up to 5 days may carry over into Q1 of the following year.",
+      "document_type": "docx",
+      "relative_path": "leave_policy.docx",
+      "chunk_index": 0,
+      "char_count": 176,
+      "word_count": 33,
+      "content_hash": "041588f6f9df057a",
+      "extra": {}
+    },
+    {
+      "chunk_id": "leave_policy_002",
+      "document_name": "leave_policy.docx",
+      "page_number": null,
+      "section": "Parental Leave",
+      "content": "Eligible employees receive up to 12 weeks of paid parental leave after 6 months of tenure.",
+      "document_type": "docx",
+      "relative_path": "leave_policy.docx",
+      "chunk_index": 1,
+      "char_count": 90,
+      "word_count": 16,
+      "content_hash": "f9a5a90f3d93815a",
+      "extra": {}
+    }
+  ]
+}

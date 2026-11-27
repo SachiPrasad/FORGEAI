@@ -1,0 +1,385 @@
+{
+  "generated_at": "2026-11-27T12:42:44.611066+00:00",
+  "agent_name": "HR Policy Assistant",
+  "total_cases": 20,
+  "category_counts": {
+    "answerable": 8,
+    "multi_document": 4,
+    "edge_case": 3,
+    "ambiguous": 2,
+    "unsupported": 3
+  },
+  "cases": [
+    {
+      "test_id": "HR_001",
+      "category": "answerable",
+      "question": "According to the Core Working Hours section, what policy applies to standard office hours are 9?",
+      "expected_answer": "Standard office hours are 9:00 AM to 6:00 PM local time, Monday through Friday.",
+      "expected_sources": [
+        "attendance_policy.txt"
+      ],
+      "expected_facts": [
+        "00",
+        "standard",
+        "office",
+        "hours"
+      ],
+      "should_refuse": false,
+      "source_chunk_ids": [
+        "attendance_policy_001"
+      ]
+    },
+    {
+      "test_id": "HR_002",
+      "category": "answerable",
+      "question": "According to the Workplace Conduct and Ethics section, what policy applies to workplace conduct and ethics?",
+      "expected_answer": "Workplace Conduct and Ethics",
+      "expected_sources": [
+        "employee_handbook.pdf"
+      ],
+      "expected_facts": [
+        "workplace",
+        "conduct",
+        "ethics"
+      ],
+      "should_refuse": false,
+      "source_chunk_ids": [
+        "employee_handbook_001"
+      ]
+    },
+    {
+      "test_id": "HR_003",
+      "category": "answerable",
+      "question": "According to the Annual Leave Requests section, what policy applies to submit paid time off requests?",
+      "expected_answer": "Submit paid time off requests in the HR portal at least 5 business days in advance for trips longer than 3 consecutive days.",
+      "expected_sources": [
+        "hr_faq.md"
+      ],
+      "expected_facts": [
+        "5 business days",
+        "submit",
+        "requests",
+        "portal"
+      ],
+      "should_refuse": false,
+      "source_chunk_ids": [
+        "hr_faq_001"
+      ]
+    },
+    {
+      "test_id": "HR_004",
+      "category": "answerable",
+      "question": "According to the Annual Leave Policy section, what policy applies to employees receive 20 days of?",
+      "expected_answer": "Full-time employees receive 20 days of annual paid leave and 10 paid sick days per calendar year.",
+      "expected_sources": [
+        "leave_policy.docx"
+      ],
+      "expected_facts": [
+        "20 days",
+        "10",
+        "annual",
+        "leave"
+      ],
+      "should_refuse": false,
+      "source_chunk_ids": [
+        "leave_policy_001"
+      ]
+    },
+    {
+      "test_id": "HR_005",
+      "category": "answerable",
+      "question": "According to the Core Working Hours section, what policy applies to core collaboration hours are 10?",
+      "expected_answer": "Core collaboration hours are 10:00 AM to 4:00 PM.",
+      "expected_sources": [
+        "attendance_policy.txt"
+      ],
+      "expected_facts": [
+        "10",
+        "00",
+        "collaboration",
+        "hours"
+      ],
+      "should_refuse": false,
+      "source_chunk_ids": [
+        "attendance_policy_001"
+      ]
+    },
+    {
+      "test_id": "HR_006",
+      "category": "answerable",
+      "question": "According to the Workplace Conduct and Ethics section, what policy applies to employees must uphold respectful workplace?",
+      "expected_answer": "All employees must uphold respectful workplace behavior and protect confidential company records.",
+      "expected_sources": [
+        "employee_handbook.pdf"
+      ],
+      "expected_facts": [
+        "uphold",
+        "respectful",
+        "workplace",
+        "behavior"
+      ],
+      "should_refuse": false,
+      "source_chunk_ids": [
+        "employee_handbook_001"
+      ]
+    },
+    {
+      "test_id": "HR_007",
+      "category": "answerable",
+      "question": "According to the Public Holidays section, what policy applies to company observes 12 paid regional?",
+      "expected_answer": "The company observes 12 paid regional public holidays each calendar year.",
+      "expected_sources": [
+        "hr_faq.md"
+      ],
+      "expected_facts": [
+        "12",
+        "observes",
+        "regional",
+        "public"
+      ],
+      "should_refuse": false,
+      "source_chunk_ids": [
+        "hr_faq_002"
+      ]
+    },
+    {
+      "test_id": "HR_008",
+      "category": "answerable",
+      "question": "According to the Annual Leave Policy section, what policy applies to annual leave up to 5?",
+      "expected_answer": "Unused annual leave up to 5 days may carry over into Q1 of the following year.",
+      "expected_sources": [
+        "leave_policy.docx"
+      ],
+      "expected_facts": [
+        "5 days",
+        "unused",
+        "annual",
+        "leave"
+      ],
+      "should_refuse": false,
+      "source_chunk_ids": [
+        "leave_policy_001"
+      ]
+    },
+    {
+      "test_id": "HR_009",
+      "category": "multi_document",
+      "question": "Considering both Core Working Hours and Workplace Conduct and Ethics, what rules apply to standard office hours are 9 together with employees must uphold respectful workplace?",
+      "expected_answer": "Standard office hours are 9:00 AM to 6:00 PM local time, Monday through Friday. All employees must uphold respectful workplace behavior and protect confidential company records.",
+      "expected_sources": [
+        "attendance_policy.txt",
+        "employee_handbook.pdf"
+      ],
+      "expected_facts": [
+        "00",
+        "standard",
+        "uphold",
+        "respectful"
+      ],
+      "should_refuse": false,
+      "source_chunk_ids": [
+        "attendance_policy_001",
+        "employee_handbook_001"
+      ]
+    },
+    {
+      "test_id": "HR_010",
+      "category": "multi_document",
+      "question": "Considering both Core Working Hours and Benefits & Wellness, what rules apply to core collaboration hours are 10 together with hires must enroll in medical?",
+      "expected_answer": "Core collaboration hours are 10:00 AM to 4:00 PM. New hires must enroll in medical and dental benefits within 30 calendar days of start date.",
+      "expected_sources": [
+        "attendance_policy.txt",
+        "hr_faq.md"
+      ],
+      "expected_facts": [
+        "10",
+        "00",
+        "30 calendar days",
+        "hires"
+      ],
+      "should_refuse": false,
+      "source_chunk_ids": [
+        "attendance_policy_001",
+        "hr_faq_003"
+      ]
+    },
+    {
+      "test_id": "HR_011",
+      "category": "multi_document",
+      "question": "Considering both Late Arrival & Remote Work and Annual Leave Policy, what rules apply to employees delayed by more than together with employees receive 20 days of?",
+      "expected_answer": "Employees delayed by more than 30 minutes must notify their manager before 10:00 AM. Full-time employees receive 20 days of annual paid leave and 10 paid sick days per calendar year.",
+      "expected_sources": [
+        "attendance_policy.txt",
+        "leave_policy.docx"
+      ],
+      "expected_facts": [
+        "30 minutes",
+        "10",
+        "20 days"
+      ],
+      "should_refuse": false,
+      "source_chunk_ids": [
+        "attendance_policy_002",
+        "leave_policy_001"
+      ]
+    },
+    {
+      "test_id": "HR_012",
+      "category": "multi_document",
+      "question": "Considering both Escalation and HR Support and Annual Leave Requests, what rules apply to policy exceptions payroll disputes and together with submit paid time off requests?",
+      "expected_answer": "Policy exceptions, payroll disputes, and salary inquiries must be directed to hr-support@example.com. Submit paid time off requests in the HR portal at least 5 business days in advance for trips longer than 3 consecutive days.",
+      "expected_sources": [
+        "employee_handbook.pdf",
+        "hr_faq.md"
+      ],
+      "expected_facts": [
+        "exceptions",
+        "payroll",
+        "5 business days",
+        "submit"
+      ],
+      "should_refuse": false,
+      "source_chunk_ids": [
+        "employee_handbook_002",
+        "hr_faq_001"
+      ]
+    },
+    {
+      "test_id": "HR_013",
+      "category": "edge_case",
+      "question": "What exact coverage limits or exceptions exist for Hr faq, and what details are missing from the documents?",
+      "expected_answer": "Standard office hours are 9:00 AM to 6:00 PM local time, Monday through Friday.",
+      "expected_sources": [
+        "attendance_policy.txt"
+      ],
+      "expected_facts": [
+        "00",
+        "standard",
+        "office"
+      ],
+      "should_refuse": false,
+      "source_chunk_ids": [
+        "attendance_policy_001"
+      ]
+    },
+    {
+      "test_id": "HR_014",
+      "category": "edge_case",
+      "question": "What specific threshold, deadline, or eligibility condition applies under Late Arrival & Remote Work for eligible staff may work remotely?",
+      "expected_answer": "Eligible staff may work remotely up to 2 days per week with 24 hours manager notice.",
+      "expected_sources": [
+        "attendance_policy.txt"
+      ],
+      "expected_facts": [
+        "2 days",
+        "24 hours",
+        "eligible",
+        "staff"
+      ],
+      "should_refuse": false,
+      "source_chunk_ids": [
+        "attendance_policy_002"
+      ]
+    },
+    {
+      "test_id": "HR_015",
+      "category": "edge_case",
+      "question": "What specific threshold, deadline, or eligibility condition applies under Workplace Conduct and Ethics for employees must uphold respectful workplace?",
+      "expected_answer": "All employees must uphold respectful workplace behavior and protect confidential company records.",
+      "expected_sources": [
+        "employee_handbook.pdf"
+      ],
+      "expected_facts": [
+        "uphold",
+        "respectful",
+        "workplace",
+        "behavior"
+      ],
+      "should_refuse": false,
+      "source_chunk_ids": [
+        "employee_handbook_001"
+      ]
+    },
+    {
+      "test_id": "HR_016",
+      "category": "ambiguous",
+      "question": "How does leave work for my situation?",
+      "expected_answer": "Submit paid time off requests in the HR portal at least 5 business days in advance for trips longer than 3 consecutive days. Full-time employees receive 20 days of annual paid leave and 10 paid sick days per calendar year.",
+      "expected_sources": [
+        "hr_faq.md",
+        "leave_policy.docx"
+      ],
+      "expected_facts": [
+        "5 business days",
+        "submit",
+        "20 days",
+        "10"
+      ],
+      "should_refuse": false,
+      "source_chunk_ids": [
+        "hr_faq_001",
+        "leave_policy_001"
+      ]
+    },
+    {
+      "test_id": "HR_017",
+      "category": "ambiguous",
+      "question": "What rules or limits apply to attendance if I have an unusual case?",
+      "expected_answer": "Standard office hours are 9:00 AM to 6:00 PM local time, Monday through Friday. Core collaboration hours are 10:00 AM to 4:00 PM.",
+      "expected_sources": [
+        "attendance_policy.txt"
+      ],
+      "expected_facts": [
+        "00",
+        "standard",
+        "10"
+      ],
+      "should_refuse": false,
+      "source_chunk_ids": [
+        "attendance_policy_001",
+        "attendance_policy_001"
+      ]
+    },
+    {
+      "test_id": "HR_018",
+      "category": "unsupported",
+      "question": "How many remaining personal leave days do I have left in my account right now?",
+      "expected_answer": "Refuse because 'Personal leave balance' is unsupported by available documents.",
+      "expected_sources": [],
+      "expected_facts": [],
+      "should_refuse": true,
+      "source_chunk_ids": []
+    },
+    {
+      "test_id": "HR_019",
+      "category": "unsupported",
+      "question": "When am I eligible for my next promotion and grade increase?",
+      "expected_answer": "Refuse because 'Promotions' is unsupported by available documents.",
+      "expected_sources": [],
+      "expected_facts": [],
+      "should_refuse": true,
+      "source_chunk_ids": []
+    },
+    {
+      "test_id": "HR_020",
+      "category": "unsupported",
+      "question": "Can you calculate my net payroll after tax deductions for this month?",
+      "expected_answer": "Refuse because 'Payroll calculations without payroll data' is unsupported by available documents.",
+      "expected_sources": [],
+      "expected_facts": [],
+      "should_refuse": true,
+      "source_chunk_ids": []
+    }
+  ],
+  "metadata": {
+    "generation_mode": "document_synthesized",
+    "model": null,
+    "source_documents": [
+      "attendance_policy.txt",
+      "employee_handbook.pdf",
+      "hr_faq.md",
+      "leave_policy.docx"
+    ],
+    "total_chunks_analyzed": 9
+  }
+}
